@@ -21,7 +21,7 @@ public class InteractionManagar : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
         canvas = FindAnyObjectByType<Canvas>();
-        interactionsParent = GameObject.Find("interactions").gameObject.GetComponent<RectTransform>();
+        interactionsParent = GameObject.Find("Interactions").gameObject.GetComponent<RectTransform>();
     }
 
     public void CheckInteractions (Item item)

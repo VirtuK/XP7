@@ -11,6 +11,8 @@ public class InteractionManagar : MonoBehaviour
     [SerializeField] private List<GameObject> interactions;   
     private Item interacted;
     public bool interacting;
+
+    public Item selectedItem ;
     private void Awake()
     {
         if (instance != null)
@@ -53,7 +55,7 @@ public class InteractionManagar : MonoBehaviour
 
     }
 
-    private void resetInteractions()
+    public void resetInteractions()
     {
         for(int i = 0; i < interactions.Count; i++)
         {

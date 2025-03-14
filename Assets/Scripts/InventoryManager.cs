@@ -36,6 +36,7 @@ public class InventoryManager : MonoBehaviour
     {
         if (inventory.Contains(item))
         {
+            InventoryUI.instance.DeleteItemUI(item);
             inventory.Remove(item);
         }
     }
@@ -56,5 +57,10 @@ public class InventoryManager : MonoBehaviour
     {
         int index = inventory.IndexOf(item);
         return index;
+    }
+
+    public List<Item> GetInventory()
+    {
+        return inventory;
     }
 }

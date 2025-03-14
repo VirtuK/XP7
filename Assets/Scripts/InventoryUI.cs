@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private GameObject ItemPrefab;
     [SerializeField] private GameObject HUD;
     [SerializeField] private GameObject OpenButton;
+    [SerializeField] private Cursor cursor;
+    [SerializeField] private List<GameObject> itens;
     public static InventoryUI instance;
     private void Awake()
     {
@@ -23,38 +26,92 @@ public class InventoryUI : MonoBehaviour
     public void CreateItemUI(Item item)
     {
         print("criei");
-        int index = InventoryManager.instance.CheckItemIndex(item);
-        GameObject itemSlot = Instantiate(ItemPrefab, Inventory.transform);
         
-
-        // Base positions
-        float startX = -321;
-        float startY = 190;
-        float slotSpacingX = 193;
-        float slotSpacingY = 246; // Vertical spacing between rows
-
-        // Calculate row and column
-        int row = index / 5; // Determines which row the item is in (0, 1, or 2)
-        int column = index % 5; // Determines the X position within the row (0-4)
-
-        // Compute positions
-        float itemX = startX + (slotSpacingX * column);
-        float itemY = startY - (slotSpacingY * row);
-
-        // Set position
-        itemSlot.GetComponent<RectTransform>().anchoredPosition = new Vector2(itemX, itemY);
+        GameObject itemSlot = Instantiate(ItemPrefab, Inventory.transform);
         itemSlot.GetComponent<Image>().sprite = item.icon;
+        itemSlot.AddComponent<Button>();
+        Item itemRef = item;
+        itemSlot.GetComponent<Button>().onClick.AddListener(() => SelectItem(itemRef));
+        itens.Add(itemSlot);
+        OrganizeUI();
+        
+    }
+
+    public void DeleteItemUI(Item item)
+    {
+        Destroy(itens[InventoryManager.instance.GetInventory().IndexOf(item)]);
+        itens.Remove(itens[InventoryManager.instance.GetInventory().IndexOf(item)]);
+        OrganizeUI();
+    }
+
+    private void OrganizeUI()
+    {
+        foreach(GameObject itemSlot in itens)
+        {
+            // Base positions
+            int index = itens.IndexOf(itemSlot);
+            float startX = -321;
+            float startY = 190;
+            float slotSpacingX = 193;
+            float slotSpacingY = 246; // Vertical spacing between rows
+
+            // Calculate row and column
+            int row = index / 5; // Determines which row the item is in (0, 1, or 2)
+            int column = index % 5; // Determines the X position within the row (0-4)
+
+            // Compute positions
+            float itemX = startX + (slotSpacingX * column);
+            float itemY = startY - (slotSpacingY * row);
+
+            // Set position
+            itemSlot.GetComponent<RectTransform>().anchoredPosition = new Vector2(itemX, itemY);
+        }
     }
 
     public void OpenUI()
     {
         HUD.SetActive(true);
         OpenButton.SetActive(false);
+        InteractionManagar.instance.resetInteractions();
     }
 
     public void CloseUI()
     {
         HUD.SetActive(false);
         OpenButton.SetActive(true);
+    }
+
+    public void SelectItem(Item item)
+    {
+        if (item == null)
+        {
+            Debug.LogError("Item is null when SelectItem() is called!");
+            return;
+        }
+
+        if (cursor == null)
+        {
+            Debug.LogError("Cursor is not assigned in InventoryUI!");
+            return;
+        }
+
+        Image cursorImage = cursor.cursorObject.GetComponent<Image>();
+        if (cursorImage == null)
+        {
+            Debug.LogError("Cursor does not have an Image component!");
+            return;
+        }
+
+        if (item.icon == null)
+        {
+            Debug.LogError("Item icon is null for item: " + item.itemName);
+            return;
+        }
+
+        cursorImage.sprite = item.icon;
+        InteractionManagar.instance.selectedItem = item;
+        print("Item selected: " + item.itemName);
+        CloseUI();
+        
     }
 }

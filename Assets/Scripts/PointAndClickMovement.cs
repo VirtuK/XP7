@@ -1,24 +1,21 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
 public class ClickToMove : MonoBehaviour
 {
     public Camera mainCamera; // A câmera principal
-    private Rigidbody rb;
     private NavMeshAgent agent;
+    private GameObject targetItem = null; // Stores the selected item
+    private float interactionDistance = 2f; // Distance at which interaction happens
+    private Vector3 clickPosition;
 
-    private bool movement = false;
-    private float speed;
-    private float step;
-    private float positionX;
-    private float positionZ;
-    private Vector3 lastPosition;
 
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+       
         agent = GetComponent<NavMeshAgent>();
         if (mainCamera == null)
         {
@@ -30,6 +27,9 @@ public class ClickToMove : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) // Botão esquerdo do mouse
         {
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
+
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
@@ -39,13 +39,35 @@ public class ClickToMove : MonoBehaviour
                 {
                     agent.SetDestination(hit.point);
                 }
-                if (hit.collider.gameObject.CompareTag("Item") && hit.distance < 15) // Certifique-se de marcar o chão com a tag "Ground"
+                else if (hit.collider.gameObject.CompareTag("Item") && InteractionManagar.instance.interacting == false)
                 {
-                    InteractionManagar.instance.CheckInteractions(hit.collider.gameObject.GetComponent<Item>());
+                    targetItem = hit.collider.gameObject;
+                    agent.SetDestination(targetItem.transform.position);
+                    clickPosition = Input.mousePosition;// Move to item
+                }
 
+                if (InteractionManagar.instance.interacting)
+                {
+                    InteractionManagar.instance.resetInteractions();
+                    InteractionManagar.instance.interacting = false;
                 }
             }
+            
+        }
+
+        if (targetItem != null)
+        {
+            // Get the positions ignoring Y
+            Vector3 playerPos = new Vector3(transform.position.x, 0, transform.position.z);
+            Vector3 itemPos = new Vector3(targetItem.transform.position.x, 0, targetItem.transform.position.z);
+
+            // Check distance only in X and Z
+            if (Vector3.Distance(playerPos, itemPos) <= interactionDistance)
+            {
+                InteractionManagar.instance.CheckInteractions(targetItem.GetComponent<Item>(), clickPosition);
+                targetItem = null; // Reset item after interaction
             }
         }
+    }
 
 }

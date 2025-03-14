@@ -26,11 +26,11 @@ public class InteractionManagar : MonoBehaviour
         interactionsParent = GameObject.Find("Interactions").gameObject.GetComponent<RectTransform>();
     }
 
-    public void CheckInteractions (Item item)
+    public void CheckInteractions (Item item, Vector3 position)
     {
         resetInteractions();
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform,
-            Input.mousePosition,
+            position,
             canvas.worldCamera,
             out Vector2 localPoint);
         interactionsParent.anchoredPosition = localPoint;

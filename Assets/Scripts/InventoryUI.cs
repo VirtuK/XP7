@@ -48,18 +48,18 @@ public class InventoryUI : MonoBehaviour
     {
         foreach(GameObject itemSlot in itens)
         {
-            // Base positions
+            
             int index = itens.IndexOf(itemSlot);
             float startX = -321;
             float startY = 190;
             float slotSpacingX = 193;
-            float slotSpacingY = 246; // Vertical spacing between rows
+            float slotSpacingY = 246; 
 
-            // Calculate row and column
-            int row = index / 5; // Determines which row the item is in (0, 1, or 2)
-            int column = index % 5; // Determines the X position within the row (0-4)
+            
+            int row = index / 5; 
+            int column = index % 5; 
 
-            // Compute positions
+            
             float itemX = startX + (slotSpacingX * column);
             float itemY = startY - (slotSpacingY * row);
 

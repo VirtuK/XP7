@@ -10,7 +10,7 @@ public class Cursor : MonoBehaviour
 
     public GameObject cursorObject;
     public Sprite cursorPrincipalSprite;
-    // Start is called before the first frame update
+    
     private void Awake()
     {
         if (instance != null)
@@ -27,7 +27,7 @@ public class Cursor : MonoBehaviour
         cursorObject.GetComponent<Image>().sprite = cursorPrincipalSprite;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         cursorObject.transform.position = Input.mousePosition;

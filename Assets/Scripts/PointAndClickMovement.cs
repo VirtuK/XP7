@@ -25,7 +25,7 @@ public class ClickToMove : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Botão esquerdo do mouse
+        if (Input.GetMouseButtonDown(0)) 
         {
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
@@ -35,7 +35,7 @@ public class ClickToMove : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.gameObject.CompareTag("Ground") && hit.distance < 15 && InteractionManagar.instance.interacting == false) // Certifique-se de marcar o chão com a tag "Ground"
+                if (hit.collider.gameObject.CompareTag("Ground") && hit.distance < 15 && InteractionManagar.instance.interacting == false) 
                 {
                     agent.SetDestination(hit.point);
                 }
@@ -43,7 +43,7 @@ public class ClickToMove : MonoBehaviour
                 {
                     targetItem = hit.collider.gameObject;
                     agent.SetDestination(targetItem.transform.position);
-                    clickPosition = Input.mousePosition;// Move to item
+                    clickPosition = Input.mousePosition;
                 }
 
                 if (InteractionManagar.instance.interacting)
@@ -57,15 +57,15 @@ public class ClickToMove : MonoBehaviour
 
         if (targetItem != null)
         {
-            // Get the positions ignoring Y
+            
             Vector3 playerPos = new Vector3(transform.position.x, 0, transform.position.z);
             Vector3 itemPos = new Vector3(targetItem.transform.position.x, 0, targetItem.transform.position.z);
 
-            // Check distance only in X and Z
+            
             if (Vector3.Distance(playerPos, itemPos) <= interactionDistance)
             {
                 InteractionManagar.instance.CheckInteractions(targetItem.GetComponent<Item>(), clickPosition);
-                targetItem = null; // Reset item after interaction
+                targetItem = null; 
             }
         }
     }

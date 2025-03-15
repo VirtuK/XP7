@@ -4,9 +4,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Cursor : MonoBehaviour
+public class CursorGame : MonoBehaviour
 {
-    public static Cursor instance;
+    public static CursorGame instance;
 
     public GameObject cursorObject;
     public Sprite cursorPrincipalSprite;
@@ -26,6 +26,7 @@ public class Cursor : MonoBehaviour
     void Start()
     {
         cursorObject.GetComponent<Image>().sprite = cursorPrincipalSprite;
+        Cursor.visible = false;
     }
 
     

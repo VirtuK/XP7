@@ -41,14 +41,14 @@ public class HighlightItens : MonoBehaviour
                         materials.Add(originalMaterial);
                         materials.Add(outlineMaterial);
                         renderer.SetMaterials(materials);
-                        Cursor.instance.InteractCursor();
+                        CursorGame.instance.InteractCursor();
                     }
                 }
                 return;
             }
         }
         ResetHighlight();
-        Cursor.instance.ResetInteractCursor();
+        CursorGame.instance.ResetInteractCursor();
     }
 
     void ResetHighlight()

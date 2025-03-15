@@ -10,7 +10,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private GameObject ItemPrefab;
     [SerializeField] private GameObject HUD;
     [SerializeField] private GameObject OpenButton;
-    [SerializeField] private Cursor cursor;
+    [SerializeField] private CursorGame cursor;
     [SerializeField] private List<GameObject> itens;
     public static InventoryUI instance;
     private void Awake()

@@ -10,6 +10,7 @@ public class Cursor : MonoBehaviour
 
     public GameObject cursorObject;
     public Sprite cursorPrincipalSprite;
+    public Sprite cursorInteractionSprite;
     
     private void Awake()
     {
@@ -37,5 +38,21 @@ public class Cursor : MonoBehaviour
     {
         InteractionManagar.instance.selectedItem = null;
         cursorObject.GetComponent<Image>().sprite = cursorPrincipalSprite;
+    }
+
+    public void InteractCursor()
+    {
+        if(cursorObject.GetComponent<Image>().sprite == cursorPrincipalSprite)
+        {
+            cursorObject.GetComponent<Image>().sprite = cursorInteractionSprite;
+        }
+    }
+
+    public void ResetInteractCursor()
+    {
+        if (cursorObject.GetComponent<Image>().sprite == cursorInteractionSprite)
+        {
+            cursorObject.GetComponent<Image>().sprite = cursorPrincipalSprite;
+        }
     }
 }

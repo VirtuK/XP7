@@ -2528,9 +2528,9 @@ MonoBehaviour:
   itemName: Porta
   icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   seeDescription: "\xC9 uma porta"
-  interactions: 6
+  interactions: 2
   isLocked: 0
-  keyItemName: 
+  keyItemName: Key
 --- !u!65 &1620675590
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : Item
 {
     [SerializeField] private bool isLocked;
     [SerializeField, ConditionalHide("isLocked")] private string keyItemName;
+    [SerializeField] private string doorDestination;
     public override void Use()
     {
         if (isLocked)
@@ -14,10 +16,11 @@ public class Door : Item
             {
                 print("a porta abriu");
                 InventoryManager.instance.RemoveItem(InteractionManagar.instance.selectedItem);
+                StartCoroutine(changeScene());
             }
             else
             {
-                print("você precisa de: " + keyItemName);
+                MessageText.instance.ShowText("eu preciso de: " + keyItemName);
             }
             CursorGame.instance.resetCursor();
         }
@@ -25,5 +28,11 @@ public class Door : Item
         {
             print("essa porta não tem tranca");
         }
+    }
+
+    private IEnumerator changeScene()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(doorDestination);
     }
 }

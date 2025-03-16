@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CursorGame : MonoBehaviour
@@ -21,10 +22,12 @@ public class CursorGame : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    void Start()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        cursorObject = GameObject.Find("Cursor");
         cursorObject.GetComponent<Image>().sprite = cursorPrincipalSprite;
         Cursor.visible = false;
     }

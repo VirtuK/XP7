@@ -22,7 +22,7 @@ public abstract class Item : MonoBehaviour, IInteractable
     public virtual void Pick() { }
     public virtual void See() 
     {
-        print(seeDescription); 
+        MessageText.instance.ShowText(seeDescription);
     }
     public virtual void Use() { }
 }

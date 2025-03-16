@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InteractionManagar : MonoBehaviour
 {
@@ -22,10 +24,28 @@ public class InteractionManagar : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+        
+        DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
         canvas = FindAnyObjectByType<Canvas>();
         interactionsParent = GameObject.Find("Interactions").gameObject.GetComponent<RectTransform>();
+        GameObject pick = GameObject.Find("Pick");
+        GameObject see = GameObject.Find("See");
+        GameObject use = GameObject.Find("Use");
+        interactions[0] = pick;
+        interactions[1] = see;
+        interactions[2] = use;
+        pick.GetComponent<Button>().onClick.AddListener(() => Pick());
+        see.GetComponent<Button>().onClick.AddListener(() => See());
+        use.GetComponent<Button>().onClick.AddListener(() => Use());
+        foreach (GameObject i in interactions)
+        {
+            i.SetActive(false);
+        }
     }
-
     public void CheckInteractions (Item item, Vector3 position)
     {
         resetInteractions();

@@ -28,14 +28,24 @@ public class CursorGame : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         cursorObject = GameObject.Find("Cursor");
-        cursorObject.GetComponent<Image>().sprite = cursorPrincipalSprite;
+        if (cursorObject != null)
+        {
+            cursorObject.GetComponent<Image>().sprite = cursorPrincipalSprite;
+        }
+        else
+        {
+            Debug.LogError("Cursor not found in scene: " + SceneManager.GetActiveScene().name);
+        }
         Cursor.visible = false;
     }
 
     
     void Update()
     {
-        cursorObject.transform.position = Input.mousePosition;
+        if(cursorObject != null)
+        {
+            cursorObject.transform.position = Input.mousePosition;
+        }
     }
 
     public void resetCursor()

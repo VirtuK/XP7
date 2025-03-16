@@ -16,7 +16,7 @@ public class Door : Item
             {
                 print("a porta abriu");
                 InventoryManager.instance.RemoveItem(InteractionManagar.instance.selectedItem);
-                StartCoroutine(changeScene());
+                StartCoroutine(SceneChanger.instance.changeScene(doorDestination));
             }
             else
             {
@@ -30,9 +30,5 @@ public class Door : Item
         }
     }
 
-    private IEnumerator changeScene()
-    {
-        yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(doorDestination);
-    }
+    
 }

@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Corredor.unity
     guid: d5195df27ed928542ba3b04feed9716e
+  - enabled: 1
+    path: Assets/Scenes/Puzzles/SlidingPuzzle.unity
+    guid: f49a3c6d4e97ec940928864d71a9e3fc
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

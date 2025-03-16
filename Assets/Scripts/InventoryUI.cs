@@ -32,6 +32,9 @@ public class InventoryUI : MonoBehaviour
         Inventory = GameObject.Find("Itens");
         HUD = GameObject.Find("Inventory");
         OpenButton = GameObject.Find("OpenInventory");
+        OpenButton.GetComponent<Button>().onClick.AddListener(() => OpenUI());
+        GameObject CloseButton = GameObject.Find("Close Button");
+        CloseButton.GetComponent<Button>().onClick.AddListener(() => CloseUI());
 
         HUD.SetActive(false);
     }

@@ -10,6 +10,7 @@ public class ClickToMove : MonoBehaviour
     private GameObject targetItem = null; // Stores the selected item
     private float interactionDistance = 2f; // Distance at which interaction happens
     private Vector3 clickPosition;
+    private Animator animator;
 
 
 
@@ -17,6 +18,7 @@ public class ClickToMove : MonoBehaviour
     {
        
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         if (mainCamera == null)
         {
             mainCamera = Camera.main; // Pega a câmera principal automaticamente
@@ -38,12 +40,14 @@ public class ClickToMove : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Ground") && hit.distance < 15 && InteractionManagar.instance.interacting == false) 
                 {
                     agent.SetDestination(hit.point);
+                    animator.SetBool("Moving", true);
                 }
                 else if (hit.collider.gameObject.CompareTag("Item") && InteractionManagar.instance.interacting == false)
                 {
                     targetItem = hit.collider.gameObject;
                     agent.SetDestination(targetItem.transform.position);
                     clickPosition = Input.mousePosition;
+                    animator.SetBool("Moving", true);
                 }
 
                 if (InteractionManagar.instance.interacting)
@@ -53,6 +57,27 @@ public class ClickToMove : MonoBehaviour
                 }
             }
             
+        }
+
+        if (!agent.pathPending)
+        {
+            if (agent.remainingDistance <= agent.stoppingDistance)
+            {
+                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                {
+                    animator.SetBool("Moving", false);
+                }
+            }
+        }
+
+        Vector3 movementDirection = agent.velocity;
+        if (movementDirection.x > 0 && transform.localScale.x > 0)
+        {
+            Flip();
+        }
+        else if (movementDirection.x < 0 && transform.localScale.x < 0)
+        {
+            Flip();
         }
 
         if (targetItem != null)
@@ -68,6 +93,13 @@ public class ClickToMove : MonoBehaviour
                 targetItem = null; 
             }
         }
+    }
+
+    void Flip()
+    {
+        Vector3 currentScale = transform.localScale;
+        currentScale.x *= -1;
+        transform.localScale = currentScale;
     }
 
 }

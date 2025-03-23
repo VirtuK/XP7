@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
@@ -12,6 +13,8 @@ public class ClickToMove : MonoBehaviour
     private Vector3 clickPosition;
     private Animator animator;
 
+    [SerializeField] private GameObject playerDefault;
+
 
 
     void Start()
@@ -25,8 +28,10 @@ public class ClickToMove : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
+       
+
         if (Input.GetMouseButtonDown(0)) 
         {
             if (EventSystem.current.IsPointerOverGameObject())
@@ -40,14 +45,14 @@ public class ClickToMove : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Ground") && hit.distance < 15 && InteractionManagar.instance.interacting == false) 
                 {
                     agent.SetDestination(hit.point);
-                    animator.SetBool("Moving", true);
+                    SetWalk();
                 }
                 else if (hit.collider.gameObject.CompareTag("Item") && InteractionManagar.instance.interacting == false)
                 {
                     targetItem = hit.collider.gameObject;
                     agent.SetDestination(targetItem.transform.position);
                     clickPosition = Input.mousePosition;
-                    animator.SetBool("Moving", true);
+                    SetWalk();
                 }
 
                 if (InteractionManagar.instance.interacting)
@@ -58,14 +63,15 @@ public class ClickToMove : MonoBehaviour
             }
             
         }
+        
 
         if (!agent.pathPending)
         {
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
-                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                if (!agent.hasPath)
                 {
-                    animator.SetBool("Moving", false);
+                    ResetOffset();
                 }
             }
         }
@@ -102,4 +108,21 @@ public class ClickToMove : MonoBehaviour
         transform.localScale = currentScale;
     }
 
+    void SetWalk()
+    {
+        playerDefault.GetComponent<MeshFilter>().mesh = null;
+        agent.baseOffset = 3.61f;
+        animator.SetBool("Moving", true);
+        
+        
+
+    }
+
+    void ResetOffset()
+    {
+        playerDefault.GetComponent<MeshFilter>().mesh = null;
+        agent.baseOffset = 5.63f;
+        animator.SetBool("Moving", false);
+        
+    }
 }

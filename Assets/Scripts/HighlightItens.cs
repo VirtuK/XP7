@@ -40,7 +40,7 @@ public class HighlightItens : MonoBehaviour
                         List<Material> materials = new List<Material>();
                         materials.Add(originalMaterial);
                         materials.Add(outlineMaterial);
-                        renderer.SetMaterials(materials);
+                        //renderer.SetMaterials(materials);
                         CursorGame.instance.InteractCursor();
                     }
                 }

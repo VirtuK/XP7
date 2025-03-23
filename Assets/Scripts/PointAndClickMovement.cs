@@ -45,14 +45,14 @@ public class ClickToMove : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Ground") && hit.distance < 15 && InteractionManagar.instance.interacting == false) 
                 {
                     agent.SetDestination(hit.point);
-                    SetWalk();
+                    animator.SetBool("Moving", true);
                 }
                 else if (hit.collider.gameObject.CompareTag("Item") && InteractionManagar.instance.interacting == false)
                 {
                     targetItem = hit.collider.gameObject;
                     agent.SetDestination(targetItem.transform.position);
                     clickPosition = Input.mousePosition;
-                    SetWalk();
+                    animator.SetBool("Moving", true);
                 }
 
                 if (InteractionManagar.instance.interacting)
@@ -69,9 +69,9 @@ public class ClickToMove : MonoBehaviour
         {
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
-                if (!agent.hasPath)
+                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                 {
-                    ResetOffset();
+                    animator.SetBool("Moving", false);
                 }
             }
         }
@@ -108,21 +108,7 @@ public class ClickToMove : MonoBehaviour
         transform.localScale = currentScale;
     }
 
-    void SetWalk()
-    {
-        playerDefault.GetComponent<MeshFilter>().mesh = null;
-        agent.baseOffset = 3.61f;
-        animator.SetBool("Moving", true);
-        
-        
+    
 
-    }
-
-    void ResetOffset()
-    {
-        playerDefault.GetComponent<MeshFilter>().mesh = null;
-        agent.baseOffset = 5.63f;
-        animator.SetBool("Moving", false);
-        
-    }
+    
 }

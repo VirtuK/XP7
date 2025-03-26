@@ -136,7 +136,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 6.65
-  m_BaseOffset: 4.08
+  m_BaseOffset: 3.57
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &993704006317476888
@@ -488,7 +488,7 @@ Transform:
   m_GameObject: {fileID: 8991835824070791180}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0671361, y: -4.01, z: 3.990463}
+  m_LocalPosition: {x: -0.0671361, y: -4.01, z: -0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

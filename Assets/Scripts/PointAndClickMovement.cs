@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
@@ -106,6 +107,9 @@ public class ClickToMove : MonoBehaviour
         Vector3 currentScale = transform.localScale;
         currentScale.x *= -1;
         transform.localScale = currentScale;
+
+        if (currentScale.x == 1) MessageText.instance.getText().transform.rotation = new Quaternion(16, 0, 0,0);
+        else MessageText.instance.getText().transform.rotation = new Quaternion(16, -180, 0,0);
     }
 
     

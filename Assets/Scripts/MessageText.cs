@@ -55,4 +55,9 @@ public class MessageText : MonoBehaviour
         timerActive = true;
     }
 
+    public TMP_Text getText()
+    {
+        return text;
+    }
+
 }

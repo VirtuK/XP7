@@ -18,6 +18,8 @@ public class ClickToMove : MonoBehaviour
     private Vector3 clickedPosition;
     private int directionSide = -1;
 
+    private Transform textTransform;
+    private Vector3 originalTextLocalPosition;
 
 
     void Start()
@@ -29,6 +31,9 @@ public class ClickToMove : MonoBehaviour
         {
             mainCamera = Camera.main; // Pega a câmera principal automaticamente
         }
+        textTransform = MessageText.instance.getText().transform;
+        originalTextLocalPosition = textTransform.localPosition;
+        
     }
 
     void Update()
@@ -152,7 +157,20 @@ public class ClickToMove : MonoBehaviour
         Vector3 textScale = textTransform.localScale;
         textScale.x *= -1;
         textTransform.localScale = textScale;
-        directionSide *= -1; 
+        if(directionSide == 1) 
+        {
+            textTransform.localPosition = originalTextLocalPosition;
+        }
+        else
+        {
+            textTransform.localPosition = new Vector3(2.05f, 4.04f, 0);
+        }
+
+
+            directionSide *= -1;
+
+        
+
     }
 
 

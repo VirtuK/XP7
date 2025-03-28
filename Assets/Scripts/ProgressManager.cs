@@ -54,7 +54,7 @@ public class ProgressManager : MonoBehaviour
                 }
                 break;
 
-            case "Level2":
+            case "Corredor V1":
                 break;
 
             default:

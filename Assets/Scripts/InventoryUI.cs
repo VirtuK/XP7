@@ -9,6 +9,7 @@ public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private GameObject Inventory;
     [SerializeField] private GameObject ItemPrefab;
+    [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private GameObject HUD;
     [SerializeField] private GameObject OpenButton;
     [SerializeField] private CursorGame cursor;
@@ -28,7 +29,7 @@ public class InventoryUI : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        
+        canvasGroup = GameObject.Find("Canvas").GetComponent<CanvasGroup>();
         Inventory = GameObject.Find("Itens");
         HUD = GameObject.Find("Inventory");
         OpenButton = GameObject.Find("OpenInventory");
@@ -36,6 +37,7 @@ public class InventoryUI : MonoBehaviour
         GameObject CloseButton = GameObject.Find("Close Button");
         CloseButton.GetComponent<Button>().onClick.AddListener(() => CloseUI());
 
+        canvasGroup.alpha = 1;
         HUD.SetActive(false);
     }
     public void CreateItemUI(Item item)

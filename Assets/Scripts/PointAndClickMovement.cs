@@ -48,12 +48,13 @@ public class ClickToMove : MonoBehaviour
                     agent.SetDestination(hit.point);
                     animator.SetBool("Moving", true);
                 }
-                else if (hit.collider.gameObject.CompareTag("Item") && InteractionManagar.instance.interacting == false)
+                else if (hit.collider.gameObject.CompareTag("Item"))
                 {
                     targetItem = hit.collider.gameObject;
                     agent.SetDestination(targetItem.transform.position);
                     clickPosition = Input.mousePosition;
                     animator.SetBool("Moving", true);
+                    Debug.Log("andou");
                 }
 
                 if (InteractionManagar.instance.interacting)

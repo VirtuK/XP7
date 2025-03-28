@@ -29,7 +29,7 @@ public class ClickToMove : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
        
 
@@ -108,9 +108,12 @@ public class ClickToMove : MonoBehaviour
         Vector3 currentScale = transform.localScale;
         currentScale.x *= -1;
         transform.localScale = currentScale;
+        Transform textTransform = MessageText.instance.getText().transform;
 
-        if (currentScale.x == 1) MessageText.instance.getText().transform.rotation = new Quaternion(16, 0, 0,0);
-        else MessageText.instance.getText().transform.rotation = new Quaternion(16, -180, 0,0);
+        Vector3 textScale = textTransform.localScale;
+        textScale.x *= -1;
+        textTransform.localScale = textScale;
+
     }
 
     

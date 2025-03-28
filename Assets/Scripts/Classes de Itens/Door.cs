@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,11 +14,17 @@ public class Door : Item
     [SerializeField, ConditionalHide("haveDisplay")] private MeshRenderer display;
     [SerializeField, ConditionalHide("haveDisplay")] private Material displayOn;
     [SerializeField, ConditionalHide("haveDisplay")] private Material displayOff;
-    [SerializeField] private string doorDestination;
+    [SerializeField] private SceneAsset doorDestination;
 
     private void Start()
     {
-        turnOffDisplay();
+        if(haveDisplay) startDoorDisplay();
+    }
+
+    public void startDoorDisplay()
+    {
+        if (!isButtonPressed) turnOffDisplay();
+        else turnOnDisplay();
     }
 
     public override void Use()
@@ -28,6 +35,7 @@ public class Door : Item
             {
                 print("a porta abriu");
                 InventoryManager.instance.RemoveItem(InteractionManagar.instance.selectedItem);
+                ProgressManager.instance.saveScene();
                 StartCoroutine(SceneChanger.instance.changeScene(doorDestination));
             }
             else
@@ -44,12 +52,14 @@ public class Door : Item
             }
             else
             {
+                ProgressManager.instance.saveScene();
                 StartCoroutine(SceneChanger.instance.changeScene(doorDestination));
             }
         }
         else
         {
-            print("essa porta não tem tranca");
+            ProgressManager.instance.saveScene();
+            StartCoroutine(SceneChanger.instance.changeScene(doorDestination));
         }
     }
 
@@ -62,4 +72,5 @@ public class Door : Item
     {
         display.material = displayOff;
     }
+
 }

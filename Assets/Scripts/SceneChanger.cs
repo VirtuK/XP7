@@ -18,9 +18,9 @@ public class SceneChanger : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public IEnumerator changeScene(string sceneName)
+    public IEnumerator changeScene(SceneAsset scene)
     {
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(scene.name);
     }
 }

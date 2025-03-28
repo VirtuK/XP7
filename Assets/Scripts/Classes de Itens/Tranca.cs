@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Tranca : Item
 {
     [SerializeField] private List<Componente> componentes;
+    [SerializeField] private SceneAsset puzzleScene;
 
     public override void Use()
     {
@@ -16,7 +19,7 @@ public class Tranca : Item
         }
         else if (componentes.Count == 0)
         {
-            StartCoroutine(SceneChanger.instance.changeScene("SlidingPuzzle"));
+            StartCoroutine(SceneChanger.instance.changeScene(puzzleScene));
         }
         else
         {

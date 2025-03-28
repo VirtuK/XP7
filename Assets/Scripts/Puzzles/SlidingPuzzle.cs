@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SlidingPuzzle : MonoBehaviour
 {
     [SerializeField] private Transform gameTransform;
     [SerializeField] private Transform piecePrefab;
+    [SerializeField] private SceneAsset returnToScene;
 
     private List<Transform> pieces;
     private int emptyLocation;
@@ -36,7 +39,7 @@ public class SlidingPuzzle : MonoBehaviour
             }
             else
             {
-                StartCoroutine(SceneChanger.instance.changeScene("Corredor"));
+                StartCoroutine(SceneChanger.instance.changeScene(returnToScene));
             }
         }
 

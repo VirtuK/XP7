@@ -15,6 +15,8 @@ public class ClickToMove : MonoBehaviour
     private Animator animator;
 
     [SerializeField] private GameObject playerDefault;
+    private Vector3 clickedPosition;
+    private int directionSide = -1;
 
 
 
@@ -31,30 +33,33 @@ public class ClickToMove : MonoBehaviour
 
     void Update()
     {
-       
+        HandleMouseInput();
+        HandleMovementAnimation();
+        HandleItemInteraction();
+    }
 
-        if (Input.GetMouseButtonDown(0)) 
+    void HandleMouseInput()
+    {
+        if (Input.GetMouseButtonDown(0))
         {
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
+
+            clickedPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            clickedPosition.z = 0;
 
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.gameObject.CompareTag("Ground") && hit.distance < 15 && InteractionManagar.instance.interacting == false) 
+                if (hit.collider.gameObject.CompareTag("Ground") && hit.distance < 15 && !InteractionManagar.instance.interacting)
                 {
-                    agent.SetDestination(hit.point);
-                    animator.SetBool("Moving", true);
+                    SetDestination(hit.point);
                 }
                 else if (hit.collider.gameObject.CompareTag("Item"))
                 {
-                    targetItem = hit.collider.gameObject;
-                    agent.SetDestination(targetItem.transform.position);
-                    clickPosition = Input.mousePosition;
-                    animator.SetBool("Moving", true);
-                    Debug.Log("andou");
+                    SetItemDestination(hit.collider.gameObject);
                 }
 
                 if (InteractionManagar.instance.interacting)
@@ -63,10 +68,26 @@ public class ClickToMove : MonoBehaviour
                     InteractionManagar.instance.interacting = false;
                 }
             }
-            
         }
-        
+    }
 
+    void SetDestination(Vector3 destination)
+    {
+        agent.SetDestination(destination);
+        animator.SetBool("Moving", true);
+    }
+
+    void SetItemDestination(GameObject item)
+    {
+        targetItem = item;
+        agent.SetDestination(targetItem.transform.position);
+        clickPosition = Input.mousePosition;
+        animator.SetBool("Moving", true);
+        Debug.Log("andou");
+    }
+
+    void HandleMovementAnimation()
+    {
         if (!agent.pathPending)
         {
             if (agent.remainingDistance <= agent.stoppingDistance)
@@ -74,6 +95,8 @@ public class ClickToMove : MonoBehaviour
                 if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                 {
                     animator.SetBool("Moving", false);
+                    VerifyMousePosition();
+
                 }
             }
         }
@@ -88,17 +111,33 @@ public class ClickToMove : MonoBehaviour
             Flip();
         }
 
+    }
+
+    void VerifyMousePosition()
+    {
+        Vector3 directionToMouse = (clickedPosition - transform.position).normalized;
+
+        if (directionToMouse.x > 0 && transform.localScale.x < 0)
+        {
+            Flip();  // Flip to the right
+        }
+        else if (directionToMouse.x < 0 && transform.localScale.x > 0)
+        {
+            Flip();  // Flip to the left
+        }
+    }
+
+    void HandleItemInteraction()
+    {
         if (targetItem != null)
         {
-            
             Vector3 playerPos = new Vector3(transform.position.x, 0, transform.position.z);
             Vector3 itemPos = new Vector3(targetItem.transform.position.x, 0, targetItem.transform.position.z);
 
-            
             if (Vector3.Distance(playerPos, itemPos) <= interactionDistance)
             {
                 InteractionManagar.instance.CheckInteractions(targetItem.GetComponent<Item>(), clickPosition);
-                targetItem = null; 
+                targetItem = null;
             }
         }
     }
@@ -113,10 +152,8 @@ public class ClickToMove : MonoBehaviour
         Vector3 textScale = textTransform.localScale;
         textScale.x *= -1;
         textTransform.localScale = textScale;
-
+        directionSide *= -1; 
     }
 
-    
 
-    
 }

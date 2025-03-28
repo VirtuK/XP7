@@ -16,7 +16,7 @@ public abstract class Item : MonoBehaviour, IInteractable
 {
     public string itemName;
     public Sprite icon;
-    public string seeDescription;
+    [TextArea(3, 6)] public string seeDescription;
     public InteractionType interactions;
 
     public virtual void Pick() { }

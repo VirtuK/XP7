@@ -9,7 +9,17 @@ public class Door : Item
     [SerializeField, ConditionalHide("isLocked")] private string keyItemName;
     [SerializeField] private bool button;
     [SerializeField, ConditionalHide("button")] public bool isButtonPressed;
+    [SerializeField] public bool haveDisplay;
+    [SerializeField, ConditionalHide("haveDisplay")] private MeshRenderer display;
+    [SerializeField, ConditionalHide("haveDisplay")] private Material displayOn;
+    [SerializeField, ConditionalHide("haveDisplay")] private Material displayOff;
     [SerializeField] private string doorDestination;
+
+    private void Start()
+    {
+        turnOffDisplay();
+    }
+
     public override void Use()
     {
         if (isLocked)
@@ -43,5 +53,13 @@ public class Door : Item
         }
     }
 
-    
+    public void turnOnDisplay()
+    {
+        display.material = displayOn;
+    }
+
+    public void turnOffDisplay()
+    {
+        display.material = displayOff;
+    }
 }

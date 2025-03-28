@@ -13,6 +13,7 @@ public class Door_Button : Item
             MessageText.instance.ShowText("Apertei o botão");
             door.isButtonPressed = true;
             pressed = true;
+            if(door.haveDisplay) door.turnOnDisplay();
         }
         else
         {

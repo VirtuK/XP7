@@ -8,5 +8,5 @@ public class Dialogue : MonoBehaviour
     public Sprite character2Sprite;
     public string character1Name;
     public string character2Name;
-    public List<string> dialogueLines;
+    [TextArea(3, 6)] public List<string> dialogueLines;
 }

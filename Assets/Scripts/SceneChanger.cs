@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+[System.Serializable]
 public class SceneChanger : MonoBehaviour
 {
     public static SceneChanger instance;
@@ -20,7 +20,7 @@ public class SceneChanger : MonoBehaviour
 
     public IEnumerator changeScene(SceneAsset scene)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(scene.name);
     }
 }

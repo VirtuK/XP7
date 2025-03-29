@@ -4,14 +4,14 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+[System.Serializable]
 public class CursorGame : MonoBehaviour
 {
     public static CursorGame instance;
 
-    public GameObject cursorObject;
-    public Sprite cursorPrincipalSprite;
-    public Sprite cursorInteractionSprite;
+    [SerializeField] public GameObject cursorObject;
+    [SerializeField] public Sprite cursorPrincipalSprite;
+    [SerializeField] public Sprite cursorInteractionSprite;
     
     private void Awake()
     {

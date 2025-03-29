@@ -608,6 +608,7 @@ Transform:
   m_Children:
   - {fileID: 1186584331}
   - {fileID: 326377231}
+  - {fileID: 2100916634}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &512909563
@@ -2011,7 +2012,6 @@ MonoBehaviour:
   seeDescription: Esse computador parece estar conectado a algo
   interactions: 6
   door: {fileID: 8717938015752479720}
-  pressed: 0
 --- !u!1001 &1669512027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2279,22 +2279,22 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 434962606}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a7ab8927efcfea0439e90334eb5ed2c0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.45
+      value: -3.9523537
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7ab8927efcfea0439e90334eb5ed2c0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.56
+      value: -3.554082
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7ab8927efcfea0439e90334eb5ed2c0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.69
+      value: -1.5768194
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7ab8927efcfea0439e90334eb5ed2c0,
         type: 3}
@@ -2304,7 +2304,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a7ab8927efcfea0439e90334eb5ed2c0,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7ab8927efcfea0439e90334eb5ed2c0,
         type: 3}
@@ -2417,6 +2417,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2100916634 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a7ab8927efcfea0439e90334eb5ed2c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2027787309}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2635583335452789239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2744,7 +2750,6 @@ SceneRoots:
   - {fileID: 2048509780}
   - {fileID: 434962606}
   - {fileID: 2097136042}
-  - {fileID: 2027787309}
   - {fileID: 1006614956}
   - {fileID: 33615919}
   - {fileID: 1260959292}

@@ -4,15 +4,15 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+[System.Serializable]
 public class InteractionManagar : MonoBehaviour
 {
-    public static InteractionManagar instance;
-    private RectTransform interactionsParent;
-    private Canvas canvas;
-    [SerializeField] private List<GameObject> interactions;   
-    private Item interacted;
-    public bool interacting;
+    [SerializeField] public static InteractionManagar instance;
+    [SerializeField] private RectTransform interactionsParent;
+    [SerializeField] private Canvas canvas;
+    [SerializeField] private List<GameObject> interactions;
+    [SerializeField] private Item interacted;
+    [SerializeField] public bool interacting;
 
     public Item selectedItem ;
     private void Awake()
@@ -30,6 +30,12 @@ public class InteractionManagar : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        StartCoroutine(InitializeAfterSceneLoad());
+    }
+
+    private IEnumerator InitializeAfterSceneLoad()
+    {
+        yield return new WaitForEndOfFrame();
         canvas = FindAnyObjectByType<Canvas>();
         interactionsParent = GameObject.Find("Interactions").gameObject.GetComponent<RectTransform>();
         GameObject pick = GameObject.Find("Pick");

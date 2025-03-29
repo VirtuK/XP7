@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
-
+[System.Serializable]
 public class ClickToMove : MonoBehaviour
 {
     public Camera mainCamera; // A câmera principal

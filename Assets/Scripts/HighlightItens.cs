@@ -1,20 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class HighlightItens : MonoBehaviour
 {
-    public Material outlineMaterial; 
-    private List<Material> originalMaterial = new List<Material>();
-    private Renderer lastRenderer;
-    private Camera mainCamera;
+    [SerializeField] public Material outlineMaterial;
+    [SerializeField] private List<Material> originalMaterials = new List<Material>();
+    [SerializeField] private Renderer lastRenderer;
+    [SerializeField] private Camera mainCamera;
 
     void Start()
     {
         mainCamera = Camera.main;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         HighlightObject();
     }
@@ -34,41 +34,32 @@ public class HighlightItens : MonoBehaviour
                 {
                     if (renderer != lastRenderer)
                     {
-                       /* ResetHighlight();
+                        ResetHighlight();
                         lastRenderer = renderer;
-                        foreach(Material m in renderer.materials)
+                        originalMaterials.Clear();
+                        foreach (Material m in renderer.materials)
                         {
-                            originalMaterial.Add(m);
+                            originalMaterials.Add(m);
                         }
-                        List<Material> materials = new List<Material>();
-                        foreach(Material m in originalMaterial)
+                        List<Material> materials = new List<Material>(originalMaterials)
                         {
-                            materials.Add(m);
-                        }
-                        materials.Add(outlineMaterial);
-                        renderer.SetMaterials(materials);*/
-                        CursorGame.instance.InteractCursor();
+                            outlineMaterial
+                        };
+                        renderer.materials = materials.ToArray();
                     }
                 }
                 return;
             }
         }
-       // ResetHighlight();
-        CursorGame.instance.ResetInteractCursor();
+        ResetHighlight();
     }
 
     void ResetHighlight()
     {
         if (lastRenderer != null)
         {
-            List<Material> material = new List<Material>();
-            foreach (Material m in originalMaterial)
-            {
-                material.Add(m);
-            }
-            lastRenderer.SetMaterials(material);
+            lastRenderer.materials = originalMaterials.ToArray();
             lastRenderer = null;
         }
     }
 }
-

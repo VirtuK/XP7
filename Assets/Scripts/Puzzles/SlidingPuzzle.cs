@@ -6,7 +6,7 @@ using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+[System.Serializable]
 public class SlidingPuzzle : MonoBehaviour
 {
     [SerializeField] private Transform gameTransform;

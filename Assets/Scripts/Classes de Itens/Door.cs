@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+[System.Serializable]
 public class Door : Item
 {
     [SerializeField] private bool isLocked;
@@ -16,13 +16,19 @@ public class Door : Item
     [SerializeField, ConditionalHide("haveDisplay")] private Material displayOff;
     [SerializeField] private SceneAsset doorDestination;
 
-    private void Start()
+    private void Awake()
     {
-        if(haveDisplay) startDoorDisplay();
+        StartCoroutine(InitializeAfterSceneLoad());
     }
-
+    private IEnumerator InitializeAfterSceneLoad()
+    {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        if (haveDisplay) startDoorDisplay();
+    }
     public void startDoorDisplay()
     {
+        display = GameObject.Find("Display").GetComponent<MeshRenderer>();
         if (!isButtonPressed) turnOffDisplay();
         else turnOnDisplay();
     }
@@ -35,7 +41,7 @@ public class Door : Item
             {
                 print("a porta abriu");
                 InventoryManager.instance.RemoveItem(InteractionManagar.instance.selectedItem);
-                ProgressManager.instance.saveScene();
+                SceneSerializationManager.instance.SaveScene();
                 StartCoroutine(SceneChanger.instance.changeScene(doorDestination));
             }
             else
@@ -52,13 +58,13 @@ public class Door : Item
             }
             else
             {
-                ProgressManager.instance.saveScene();
+                SceneSerializationManager.instance.SaveScene();
                 StartCoroutine(SceneChanger.instance.changeScene(doorDestination));
             }
         }
         else
         {
-            ProgressManager.instance.saveScene();
+            SceneSerializationManager.instance.SaveScene();
             StartCoroutine(SceneChanger.instance.changeScene(doorDestination));
         }
     }

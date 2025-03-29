@@ -6,12 +6,11 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[System.Serializable]
 public class ProgressManager : MonoBehaviour
 {
     public static ProgressManager instance;
-
-    [SerializeField] private List<string> savedScenes = new List<string>();
-
+    [SerializeField] private List<string> loadedScenes = new List<string>();
     private void Awake()
     {
         if (instance != null)
@@ -26,50 +25,19 @@ public class ProgressManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        loadProgress();
+        StartCoroutine(InitializeAfterSceneLoad(scene));
     }
 
-    private void loadProgress()
+    private IEnumerator InitializeAfterSceneLoad(Scene scene)
     {
-
-        Scene currentScene = SceneManager.GetActiveScene();
-        string sceneName = currentScene.name.Trim();
-        switch (sceneName)
-        {
-            case "LabCriogenia":
-                Door door = GameObject.FindAnyObjectByType<Door>();
-                if (savedScenes.Contains(currentScene.name))
-                {
-                    if (door != null)
-                    {
-                        door.isButtonPressed = true;
-                        door.startDoorDisplay();
-                        print(door.gameObject.name);
-                    }
-                    else
-                    {
-                        print("No Door object found!");
-                    }
-                    break;
-                }
-                break;
-
-            case "Corredor V1":
-                break;
-
-            default:
-                break;
-
-        }
+        yield return new WaitForEndOfFrame();
+         if(!loadedScenes.Contains(scene.name)) loadedScenes.Add(scene.name);
+        SceneSerializationManager.instance.LoadScene();
     }
 
-    public void saveScene()
+    public bool IsSceneLoaded(string sceneName)
     {
-        Scene currentScene = SceneManager.GetActiveScene();
-        if (!savedScenes.Contains(currentScene.name))
-        {
-            savedScenes.Add(currentScene.name);
-        }
+        return loadedScenes.Contains(sceneName);
     }
 }
 

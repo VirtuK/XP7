@@ -1,5 +1,5 @@
 using UnityEngine;
-
+[System.Serializable]
 public class PlayerOutline : MonoBehaviour
 {
     public GameObject outlineObject; // The duplicate player model with the outline material

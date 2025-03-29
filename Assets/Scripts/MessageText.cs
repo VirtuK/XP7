@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
-
+[System.Serializable]
 public class MessageText : MonoBehaviour
 {
     public static MessageText instance;
@@ -32,6 +32,13 @@ public class MessageText : MonoBehaviour
         text = mensagem.GetComponent<TMP_Text>();
         mensagem.SetActive(false);
       
+    }
+
+    public void Research()
+    {
+        GameObject mensagem = GameObject.Find("Mensagem");
+        text = mensagem.GetComponent<TMP_Text>();
+        mensagem.SetActive(false);
     }
 
     private void Update()

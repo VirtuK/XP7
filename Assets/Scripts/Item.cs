@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[System.Serializable]
 [Flags]
 public enum InteractionType
 {
@@ -14,10 +14,10 @@ public enum InteractionType
 
 public abstract class Item : MonoBehaviour, IInteractable
 {
-    public string itemName;
-    public Sprite icon;
-    [TextArea(3, 6)] public string seeDescription;
-    public InteractionType interactions;
+    [SerializeField] public string itemName;
+    [SerializeField] public Sprite icon;
+    [SerializeField, TextArea(3, 6)] public string seeDescription;
+    [SerializeField] public InteractionType interactions;
 
     public virtual void Pick() { }
     public virtual void See() 

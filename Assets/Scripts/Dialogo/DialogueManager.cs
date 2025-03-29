@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+[System.Serializable]
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager instance; 

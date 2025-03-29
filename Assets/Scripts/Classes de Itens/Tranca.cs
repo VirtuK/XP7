@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+[System.Serializable]
 public class Tranca : Item
 {
     [SerializeField] private List<Componente> componentes;

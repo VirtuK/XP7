@@ -1,33 +1,43 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-[System.Serializable]
+
 public class Tranca : Item
 {
-    [SerializeField] private List<Componente> componentes;
+    [SerializeField] private List<string> requiredComponentIDs; // Unique IDs of required components
+    [SerializeField] private List<MeshRenderer> tilesMesh;
+    [SerializeField] private Material onMaterial;
     [SerializeField] private SceneAsset puzzleScene;
 
     public override void Use()
     {
-        if(InteractionManagar.instance.selectedItem != null &&
-            componentes.Contains(InteractionManagar.instance.selectedItem.GetComponent<Componente>()))
+        if (InteractionManagar.instance.selectedItem != null)
         {
-            componentes.Remove(InteractionManagar.instance.selectedItem.GetComponent<Componente>());
-            InventoryManager.instance.RemoveItem(InteractionManagar.instance.selectedItem);
+            Componente selectedComponent = InteractionManagar.instance.selectedItem.GetComponent<Componente>();
+
+            if (selectedComponent != null && requiredComponentIDs.Contains(selectedComponent.ID))
+            {
+                tilesMesh[requiredComponentIDs.IndexOf(selectedComponent.ID)].material = onMaterial;
+                requiredComponentIDs.Remove(selectedComponent.ID);
+                InventoryManager.instance.RemoveItem(InteractionManagar.instance.selectedItem);
+            }
         }
-        else if (componentes.Count == 0)
+
+        if (requiredComponentIDs.Count == 0)
         {
             StartCoroutine(SceneChanger.instance.changeScene(puzzleScene));
         }
         else
         {
-            MessageText.instance.ShowText("Parece que faltam " + componentes.Count + " peças nesse dispositivo");
+            MessageText.instance.ShowText($"Parece que faltam {requiredComponentIDs.Count} peças nesse dispositivo");
         }
+
         CursorGame.instance.resetCursor();
-        
     }
 
-    
+    public List<string> GetRequiredComponents()
+    {
+        return requiredComponentIDs;
+    }
 }

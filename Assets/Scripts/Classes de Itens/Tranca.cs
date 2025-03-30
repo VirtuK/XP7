@@ -2,10 +2,11 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Progress;
 
 public class Tranca : Item
 {
-    [SerializeField] private List<string> requiredComponentIDs; // Unique IDs of required components
+    [SerializeField] private List<int> requiredComponentIDs; // Unique IDs of required components
     [SerializeField] private List<MeshRenderer> tilesMesh;
     [SerializeField] private Material onMaterial;
     [SerializeField] private SceneAsset puzzleScene;
@@ -14,11 +15,17 @@ public class Tranca : Item
     {
         if (InteractionManagar.instance.selectedItem != null)
         {
-            Componente selectedComponent = InteractionManagar.instance.selectedItem.GetComponent<Componente>();
+            Componente selectedComponent = null;
+
+            if (InteractionManagar.instance.selectedItem.returnComponent() is Componente comp)
+            {
+                selectedComponent = comp;
+            }
+
 
             if (selectedComponent != null && requiredComponentIDs.Contains(selectedComponent.ID))
             {
-                tilesMesh[requiredComponentIDs.IndexOf(selectedComponent.ID)].material = onMaterial;
+                setComponentMaterial(selectedComponent);
                 requiredComponentIDs.Remove(selectedComponent.ID);
                 InventoryManager.instance.RemoveItem(InteractionManagar.instance.selectedItem);
             }
@@ -36,8 +43,13 @@ public class Tranca : Item
         CursorGame.instance.resetCursor();
     }
 
-    public List<string> GetRequiredComponents()
+    public List<int> GetRequiredComponents()
     {
         return requiredComponentIDs;
+    }
+
+    public void setComponentMaterial(Componente component)
+    {
+        tilesMesh[component.ID].material = onMaterial;
     }
 }

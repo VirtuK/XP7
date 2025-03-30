@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,8 +8,10 @@ public class SceneSerializationManager : MonoBehaviour
 {
     public static SceneSerializationManager instance;
     private string saveFilePath;
+    private string destroyedObjectsFilePath;
     private bool isFirstLoad;
     private List<GameObjectData> sceneData = new List<GameObjectData>();
+    private List<GameObjectData> destroyedObjects = new List<GameObjectData>();
 
     private void Awake()
     {
@@ -18,8 +21,14 @@ public class SceneSerializationManager : MonoBehaviour
             return;
         }
         instance = this;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
         DontDestroyOnLoad(gameObject);
         UpdateSaveFilePath();
+        LoadDestroyedObjects();
         CheckFirstLoad();
         sceneData.Clear();
     }
@@ -28,6 +37,7 @@ public class SceneSerializationManager : MonoBehaviour
     {
         string sceneName = SceneManager.GetActiveScene().name;
         saveFilePath = Path.Combine(Application.persistentDataPath, sceneName + "_sceneData.json");
+        destroyedObjectsFilePath = Path.Combine(Application.persistentDataPath, sceneName + "_destroyedObjects.json");
     }
 
     private void CheckFirstLoad()
@@ -36,41 +46,57 @@ public class SceneSerializationManager : MonoBehaviour
         if (!ProgressManager.instance.IsSceneLoaded(sceneName))
         {
             isFirstLoad = true;
-
-            print("first");
             DeleteSceneDataFile();
         }
         else
         {
             isFirstLoad = false;
         }
-
-    }
-
-    public bool getFirstLoad()
-    {
-        return isFirstLoad;
     }
 
     private void DeleteSceneDataFile()
     {
         if (File.Exists(saveFilePath))
         {
-            try
-            {
-                File.Delete(saveFilePath);
-                Debug.Log($"Deleted existing scene data file: {saveFilePath}");
-            }
-            catch (IOException e)
-            {
-                Debug.LogError($"Failed to delete scene data file: {e.Message}");
-            }
+            File.Delete(saveFilePath);
+        }
+    }
+
+    private void LoadDestroyedObjects()
+    {
+        if (File.Exists(destroyedObjectsFilePath))
+        {
+            string json = File.ReadAllText(destroyedObjectsFilePath);
+            SerializationWrapper<GameObjectData> wrapper = JsonUtility.FromJson<SerializationWrapper<GameObjectData>>(json);
+            destroyedObjects = wrapper.items ?? new List<GameObjectData>();
+        }
+        else
+        {
+            destroyedObjects = new List<GameObjectData>();
+        }
+    }
+
+    private void SaveDestroyedObjects()
+    {
+        string json = JsonUtility.ToJson(new SerializationWrapper<GameObjectData>(destroyedObjects), true);
+        File.WriteAllText(destroyedObjectsFilePath, json);
+    }
+
+    public void RegisterDestroyedObject(GameObject gameObject)
+    {
+        GameObjectData objectData = new GameObjectData(gameObject);
+
+        if (!destroyedObjects.Any(data => data.uniqueID == objectData.uniqueID))
+        {
+            destroyedObjects.Add(objectData);
+            SaveDestroyedObjects();
+            Debug.Log($"Registered destroyed object: {objectData.name} (ID: {objectData.uniqueID})");
         }
     }
 
     public void SaveScene()
     {
-        UpdateSaveFilePath(); // Ensure the file path is updated to the current scene
+        UpdateSaveFilePath();
         List<GameObjectData> sceneData = new List<GameObjectData>();
 
         foreach (GameObject gameObject in SceneManager.GetActiveScene().GetRootGameObjects())
@@ -78,28 +104,31 @@ public class SceneSerializationManager : MonoBehaviour
             SaveObject(gameObject, sceneData);
         }
 
-        Debug.Log($"Number of GameObjects to save: {sceneData.Count}");
-
         GameObjectDataList dataList = new GameObjectDataList { items = sceneData };
         string json = JsonUtility.ToJson(dataList, true);
         File.WriteAllText(saveFilePath, json);
-        Debug.Log($"Scene saved to {saveFilePath}");
     }
 
     private void SaveObject(GameObject gameObject, List<GameObjectData> sceneData)
     {
-        
+        string id = gameObject.GetInstanceID().ToString();
+
+        if (destroyedObjects.Any(data => data.uniqueID == id))
+        {
+            Debug.Log($"Skipping saving destroyed object: {gameObject.name}");
+            return;
+        }
 
         if ((gameObject.name == "Player" || HasItemComponent(gameObject)) && gameObject.name != "Mensagem")
         {
-            Debug.Log($"Processing GameObject: {gameObject.name}");
+            Debug.Log($"Saving GameObject: {gameObject.name}");
             sceneData.Add(new GameObjectData(gameObject));
-            Debug.Log("Saved");
         }
 
         foreach (Transform child in gameObject.transform)
         {
-           if(child.gameObject.name != "Mensagem") SaveObject(child.gameObject, sceneData);
+            if (child.gameObject.name != "Mensagem")
+                SaveObject(child.gameObject, sceneData);
         }
     }
 
@@ -122,11 +151,11 @@ public class SceneSerializationManager : MonoBehaviour
         SerializationWrapper<GameObjectData> wrapper = JsonUtility.FromJson<SerializationWrapper<GameObjectData>>(json);
         Dictionary<string, GameObject> allObjects = new Dictionary<string, GameObject>();
 
-        // Reconstruct all GameObjects and apply component data
+        HashSet<string> savedObjectIDs = new HashSet<string>(wrapper.items.Select(data => data.uniqueID));
+
         foreach (GameObjectData data in wrapper.items)
         {
             GameObject gameObject = data.Reconstruct(allObjects);
-
             if (gameObject != null)
             {
                 foreach (var componentData in data.componentsData)
@@ -134,16 +163,33 @@ public class SceneSerializationManager : MonoBehaviour
                     componentData.ApplyTo(gameObject);
                 }
             }
-            else
-            {
-                Debug.LogError($"Falha ao reconstruir o GameObject com ID {gameObject.name}. Objeto é null.");
-            }
-
             allObjects[data.uniqueID] = gameObject;
         }
 
-        Debug.Log("Scene loaded.");
-        MessageText.instance.Research();
+        foreach (GameObject gameObject in SceneManager.GetActiveScene().GetRootGameObjects())
+        {
+            CheckAndDestroyUnsavedItems(gameObject, savedObjectIDs);
+        }
+    }
+
+    private void CheckAndDestroyUnsavedItems(GameObject gameObject, HashSet<string> savedObjectIDs)
+    {
+        string name = gameObject.name;
+
+        if (HasItemComponent(gameObject))
+        {
+            if (destroyedObjects.Any(data => data.name == name))
+            {
+                Debug.Log($"Destroying previously destroyed Item: {gameObject.name}");
+                gameObject.SetActive(false);
+                return;
+            }
+        }
+
+        foreach (Transform child in gameObject.transform)
+        {
+            CheckAndDestroyUnsavedItems(child.gameObject, savedObjectIDs);
+        }
     }
 }
 
@@ -151,11 +197,6 @@ public class SceneSerializationManager : MonoBehaviour
 public class SerializationWrapper<T>
 {
     public List<T> items;
-
     public SerializationWrapper() { }
-
-    public SerializationWrapper(List<T> items)
-    {
-        this.items = items;
-    }
+    public SerializationWrapper(List<T> items) { this.items = items; }
 }

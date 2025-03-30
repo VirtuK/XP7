@@ -14,7 +14,7 @@ public class InteractionManagar : MonoBehaviour
     [SerializeField] private Item interacted;
     [SerializeField] public bool interacting;
 
-    public Item selectedItem ;
+    public ItemData selectedItem ;
     private void Awake()
     {
         if (instance != null)

@@ -179,6 +179,11 @@ public class GameObjectData
         {
             existingGameObject = GameObject.Find(name);
             existingObjects[uniqueID] = existingGameObject;
+            if(existingGameObject == null)
+            {
+                return null;
+            }
+         
         }
 
             // Apply component data
@@ -186,27 +191,17 @@ public class GameObjectData
             {
                 componentData.ApplyTo(existingGameObject);
             }
-
-        if (existingGameObject.name == "Mensagem")
-        {
-            transformData.ApplyToRec(existingGameObject.GetComponent<RectTransform>()); 
-        }
-        else
-        {
             transformData.ApplyTo(existingGameObject.transform);
-        }
+ 
         // Reconstruct child GameObjects and set their parents after applying the transform
         foreach (var childData in childData)
         {
             GameObject childObject = childData.Reconstruct(existingObjects);
-            if (childObject.name == "Mensagem")
+            if(childObject == null)
             {
-                childData.transformData.ApplyToRec(childObject.GetComponent<RectTransform>());
+                continue;
             }
-            else 
-            {
                 childData.transformData.ApplyTo(childObject.transform);
-            }
             childObject.transform.SetParent(existingGameObject.transform);
         }
 

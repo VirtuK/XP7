@@ -7,6 +7,7 @@ public class Key : Item
 
     public override void Pick()
     {
-        InventoryManager.instance.AddItem(this);
+        ItemData item = new ItemData(itemName, itemID, icon, this);
+        InventoryManager.instance.AddItem(item);
     }
 }

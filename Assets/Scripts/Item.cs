@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 [System.Serializable]
 [Flags]
@@ -18,11 +19,25 @@ public abstract class Item : MonoBehaviour, IInteractable
     [SerializeField] public Sprite icon;
     [SerializeField, TextArea(3, 6)] public string seeDescription;
     [SerializeField] public InteractionType interactions;
+    [SerializeField] public string itemID;
 
+    private void Awake()
+    {
+        itemID = gameObject.GetInstanceID().ToString();
+    }
     public virtual void Pick() { }
     public virtual void See() 
     {
         MessageText.instance.ShowText(seeDescription);
     }
     public virtual void Use() { }
+
+    public void ListDestruction()
+    {
+        // Notify SceneSerializationManager when this object is destroyed
+        if (SceneSerializationManager.instance != null)
+        {
+            SceneSerializationManager.instance.RegisterDestroyedObject(this.gameObject);
+        }
+    }
 }

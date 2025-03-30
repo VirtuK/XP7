@@ -1,20 +1,20 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public class HighlightItens : MonoBehaviour
 {
-    [SerializeField] public Material outlineMaterial;
-    [SerializeField] private List<Material> originalMaterials = new List<Material>();
-    [SerializeField] private Renderer lastRenderer;
-    [SerializeField] private Camera mainCamera;
+    public Material outlineMaterial;
+    private List<Material> originalMaterial = new List<Material>();
+    private Renderer lastRenderer;
+    private Camera mainCamera;
 
     void Start()
     {
         mainCamera = Camera.main;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         HighlightObject();
     }
@@ -34,32 +34,45 @@ public class HighlightItens : MonoBehaviour
                 {
                     if (renderer != lastRenderer)
                     {
-                        ResetHighlight();
-                        lastRenderer = renderer;
-                        originalMaterials.Clear();
-                        foreach (Material m in renderer.materials)
-                        {
-                            originalMaterials.Add(m);
-                        }
-                        List<Material> materials = new List<Material>(originalMaterials)
-                        {
-                            outlineMaterial
-                        };
-                        renderer.materials = materials.ToArray();
+                        /* ResetHighlight();
+                         lastRenderer = renderer;
+                         originalMaterial = renderer.material;
+                         foreach(Material m in renderer.materials)
+                         {
+                             originalMaterial.Add(m);
+                         }
+                         List<Material> materials = new List<Material>();
+                         materials.Add(originalMaterial);
+                         foreach(Material m in originalMaterial)
+                         {
+                             materials.Add(m);
+                         }
+                         materials.Add(outlineMaterial);
+                         //renderer.SetMaterials(materials);
+                         renderer.SetMaterials(materials);*/
+                        CursorGame.instance.InteractCursor();
                     }
                 }
                 return;
             }
         }
-        ResetHighlight();
+        // ResetHighlight();
+        CursorGame.instance.ResetInteractCursor();
     }
 
-    void ResetHighlight()
+    /*void ResetHighlight()
     {
         if (lastRenderer != null)
         {
-            lastRenderer.materials = originalMaterials.ToArray();
+            List<Material> material = new List<Material>();
+            material.Add(originalMaterial);
+            foreach (Material m in originalMaterial)
+            {
+                material.Add(m);
+            }
+            lastRenderer.SetMaterials(material);
+            lastRenderer.material = originalMaterial;
             lastRenderer = null;
         }
-    }
+    }*/
 }

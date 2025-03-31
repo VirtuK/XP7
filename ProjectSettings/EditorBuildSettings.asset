@@ -12,16 +12,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Puzzles/SlidingPuzzle.unity
     guid: f49a3c6d4e97ec940928864d71a9e3fc
   - enabled: 1
-    path: Assets/Scenes/Quarto2.unity
+    path: Assets/Scenes/QuartoAmelia.unity
     guid: 2b2b0084cfc67974db680dd92b547f5c
   - enabled: 1
     path: Assets/Scenes/Corredor V1.unity
     guid: 21a1b49fb4576b347815d4dcdccc745e
   - enabled: 1
-    path: Assets/Scenes/Quarto1.unity
+    path: Assets/Scenes/QuartoRoberto.unity
     guid: cf9fccda76d7d9747975bde7ebb97fc4
   - enabled: 1
-    path: Assets/Scenes/Quarto3.unity
+    path: Assets/Scenes/QuartoVinicius.unity
     guid: 1faef97e12ce7544bb22dc338364c3be
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

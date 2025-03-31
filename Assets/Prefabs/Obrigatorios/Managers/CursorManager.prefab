@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorObject: {fileID: 0}
-  cursorPrincipalSprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-  cursorInteractionSprite: {fileID: 10913, guid: 0000000000000000f000000000000000,
-    type: 0}
+  cursorPrincipalSprite: {fileID: 21300000, guid: 182e3c06d2e7e1b4aade88d822966e7c,
+    type: 3}
+  cursorInteractionSprite: {fileID: 21300000, guid: 0475b105b40315b42a839771d2b4871f,
+    type: 3}

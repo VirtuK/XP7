@@ -2,10 +2,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-[System.Serializable]
+
 public class DialogueManager : MonoBehaviour
 {
-    public static DialogueManager instance; 
+    public static DialogueManager instance;
 
     public GameObject dialogueBox;
     public Image leftCharacterImage;
@@ -28,7 +28,6 @@ public class DialogueManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
-        
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -49,40 +48,52 @@ public class DialogueManager : MonoBehaviour
         dialogueIndex = 0;
 
         leftCharacterImage.sprite = currentDialogue.character1Sprite;
-        rightCharacterImage.sprite = currentDialogue.character2Sprite;
         leftCharacterName.text = currentDialogue.character1Name;
-        rightCharacterName.text = currentDialogue.character2Name;
+
+        if (currentDialogue.character2Sprite != null)
+        {
+            rightCharacterImage.sprite = currentDialogue.character2Sprite;
+            rightCharacterName.text = currentDialogue.character2Name;
+            rightCharacterImage.gameObject.SetActive(true);
+            rightCharacterName.gameObject.SetActive(true);
+        }
+        else
+        {
+            rightCharacterImage.gameObject.SetActive(false);
+            rightCharacterName.gameObject.SetActive(false);
+        }
 
         DisplayNextLine();
         isDialogue = true;
-        
     }
 
     private void Update()
     {
-        if(isDialogue && Input.GetMouseButtonDown(0))
+        if (isDialogue && Input.GetMouseButtonDown(0))
         {
             DisplayNextLine();
         }
     }
+
     public void DisplayNextLine()
     {
-        
         if (dialogueIndex < currentDialogue.dialogueLines.Count)
         {
             InteractionManagar.instance.interacting = true;
-            string line = currentDialogue.dialogueLines[dialogueIndex];
-            dialogueText.text = line;
 
-            if (dialogueIndex % 2 == 0)
+            var line = currentDialogue.dialogueLines[dialogueIndex];
+            dialogueText.text = line.text;
+
+            if (line.speakerIndex == 1)
             {
-                // Highlight left character
                 leftCharacterImage.color = Color.white;
-                rightCharacterImage.color = Color.gray;
+                if (currentDialogue.character2Sprite != null)
+                {
+                    rightCharacterImage.color = Color.gray;
+                }
             }
-            else
+            else if (line.speakerIndex == 2 && currentDialogue.character2Sprite != null)
             {
-                // Highlight right character
                 leftCharacterImage.color = Color.gray;
                 rightCharacterImage.color = Color.white;
             }

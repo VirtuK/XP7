@@ -33,8 +33,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4030569816900301736}
-  - {fileID: 992222986912387768}
   - {fileID: 5977799448490578254}
+  - {fileID: 992222986912387768}
   - {fileID: 2488795715912504855}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -264,6 +264,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DialogueBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 4623361981959186876, guid: 81a8308e7507eb949bee705e74f2d06b,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4623361981959186876, guid: 81a8308e7507eb949bee705e74f2d06b,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4623361981959186876, guid: 81a8308e7507eb949bee705e74f2d06b,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5360199538517612675, guid: 81a8308e7507eb949bee705e74f2d06b,
         type: 3}

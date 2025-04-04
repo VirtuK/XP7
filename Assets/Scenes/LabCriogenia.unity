@@ -2169,6 +2169,7 @@ MonoBehaviour:
   seeDescription: Esse computador parece estar conectado a algo
   interactions: 6
   itemID: 
+  doorName: 
   door: {fileID: 8717938015752479720}
 --- !u!1001 &1669512027
 PrefabInstance:

@@ -101,14 +101,12 @@ public class InventoryUI : MonoBehaviour
     public void OpenUI()
     {
         HUD.SetActive(true);
-        OpenButton.SetActive(false);
         InteractionManagar.instance.resetInteractions();
     }
 
     public void CloseUI()
     {
         HUD.SetActive(false);
-        OpenButton.SetActive(true);
     }
 
     public void SelectItem(ItemData itemData)

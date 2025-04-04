@@ -121,8 +121,17 @@ public class SceneSerializationManager : MonoBehaviour
 
         if ((gameObject.name == "Player" || HasItemComponent(gameObject)) && gameObject.name != "Mensagem")
         {
-            Debug.Log($"Saving GameObject: {gameObject.name}");
-            sceneData.Add(new GameObjectData(gameObject));
+            if(gameObject.name == "Player")
+            {
+                Debug.Log($"Saving GameObject: {gameObject.name}");
+                sceneData.Add(new GameObjectData(gameObject));
+            }
+            else if (!gameObject.GetComponent<Item>().IgnoreOnSave)
+            {
+                Debug.Log($"Saving GameObject: {gameObject.name}");
+                sceneData.Add(new GameObjectData(gameObject));
+            }
+            
         }
 
         foreach (Transform child in gameObject.transform)
@@ -134,6 +143,7 @@ public class SceneSerializationManager : MonoBehaviour
 
     public bool HasItemComponent(GameObject gameObject)
     {
+        
         return gameObject.GetComponent<Item>() != null;
     }
 

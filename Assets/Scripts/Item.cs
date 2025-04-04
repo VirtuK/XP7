@@ -21,6 +21,8 @@ public abstract class Item : MonoBehaviour, IInteractable
     [SerializeField] public InteractionType interactions;
     [SerializeField] public string itemID;
 
+    [SerializeField] public bool IgnoreOnSave; 
+
     private void Awake()
     {
         itemID = gameObject.GetInstanceID().ToString();

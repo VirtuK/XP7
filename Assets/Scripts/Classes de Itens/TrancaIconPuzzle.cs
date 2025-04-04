@@ -1,16 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
-[System.Serializable]
-public class Door_Button : Item
+using UnityEngine.SceneManagement;
+
+[Serializable]
+public class TrancaIconPuzzle : Item
 {
+    [SerializeField] private GameObject iconPuzzle;
     [SerializeField] private string doorName; // Store Door name instead of reference
     public Door door; // Runtime reference (not serialized)
 
 
     private void Start()
     {
+        iconPuzzle = GameObject.Find("Icon Match Puzzle");
         StartCoroutine(InitializeAfterSceneLoad());
     }
 
@@ -21,24 +25,27 @@ public class Door_Button : Item
         {
             doorName = door.gameObject.name;
         }
+        iconPuzzle.SetActive(false);
         FindDoor();
+
+        
     }
+
 
     public override void Use()
     {
-        if (door != null && !door.isButtonPressed)
+        if (!door.isButtonPressed)
         {
-            MessageText.instance.ShowText("Apertei o botão");
-            door.isButtonPressed = true;
-            if (door.haveDisplay) door.turnOnDisplay();
+            InventoryUI.instance.CloseUI();
+            iconPuzzle.SetActive(true);
+            InteractionManagar.instance.interacting = true;
         }
         else
         {
-            MessageText.instance.ShowText("Esse botão já foi apertado");
+            MessageText.instance.ShowText("Eu já resolvi isso");
         }
     }
 
-    // Look for the Door object using its stored name
     public void FindDoor()
     {
         GameObject doorObject = GameObject.Find(doorName);

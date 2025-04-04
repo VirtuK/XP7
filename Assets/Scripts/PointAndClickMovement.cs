@@ -163,7 +163,7 @@ public class ClickToMove : MonoBehaviour
         }
         else
         {
-            textTransform.localPosition = new Vector3(2.05f, 4.04f, 0);
+            textTransform.localPosition = new Vector3(2.05f, 4.56f, 0);
         }
 
 

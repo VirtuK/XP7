@@ -1060,6 +1060,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1791882869960626237, guid: 93ff29cb9ef75644ca932559dd1e92a2,
+        type: 3}
+      propertyPath: InvBackground
+      value: 
+      objectReference: {fileID: 1881486900}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1561,10 +1566,40 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 94.3191
       objectReference: {fileID: 0}
+    - target: {fileID: 4151809295303788060, guid: c332f69ae6372c248913ae292345df7d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5458761340014499774, guid: c332f69ae6372c248913ae292345df7d,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5458761340014499774, guid: c332f69ae6372c248913ae292345df7d,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5977799448490578254, guid: c332f69ae6372c248913ae292345df7d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -380.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117085506206884699, guid: c332f69ae6372c248913ae292345df7d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 102.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117085506206884699, guid: c332f69ae6372c248913ae292345df7d,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 57.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117085506206884699, guid: c332f69ae6372c248913ae292345df7d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -43
       objectReference: {fileID: 0}
     - target: {fileID: 6506105269657873108, guid: c332f69ae6372c248913ae292345df7d,
         type: 3}
@@ -2169,6 +2204,7 @@ MonoBehaviour:
   seeDescription: Esse computador parece estar conectado a algo
   interactions: 6
   itemID: 
+  IgnoreOnSave: 0
   doorName: 
   door: {fileID: 8717938015752479720}
 --- !u!1001 &1669512027
@@ -2408,6 +2444,12 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.20000014, y: 4, z: 3.9999995}
   m_Center: {x: -1.8999991, y: -0.000000029802322, z: -1.9999998}
+--- !u!1 &1881486900 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5243802254384203343, guid: c332f69ae6372c248913ae292345df7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1302112777}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1911177035 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b81d51f189de95546b1e57be584ffbdc,
@@ -2452,6 +2494,7 @@ MonoBehaviour:
   seeDescription: "O que \xE9 isso?"
   interactions: 2
   itemID: 
+  IgnoreOnSave: 0
 --- !u!1 &1922562151
 GameObject:
   m_ObjectHideFlags: 0
@@ -2783,6 +2826,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 3094835621378484808, guid: f68aa5b7ee96a3e48a51a13e0e5642d0,
+        type: 3}
+      propertyPath: m_Cameras.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3094835621378484808, guid: f68aa5b7ee96a3e48a51a13e0e5642d0,
+        type: 3}
+      propertyPath: 'm_Cameras.Array.data[1]'
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3010,6 +3063,7 @@ MonoBehaviour:
   seeDescription: "\xC9 uma porta"
   interactions: 6
   itemID: 
+  IgnoreOnSave: 0
   isLocked: 0
   keyItemName: 
   button: 1

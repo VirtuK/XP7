@@ -265,6 +265,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueBox
       objectReference: {fileID: 0}
+    - target: {fileID: 3971167947799845801, guid: 81a8308e7507eb949bee705e74f2d06b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4623361981959186876, guid: 81a8308e7507eb949bee705e74f2d06b,
         type: 3}
       propertyPath: m_Color.b
@@ -403,6 +408,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Interactions
+      objectReference: {fileID: 0}
+    - target: {fileID: 558027706590466409, guid: 7c2367bdd65a36b43acd24a4e1bb93f7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4347379559107371299, guid: 7c2367bdd65a36b43acd24a4e1bb93f7,
         type: 3}

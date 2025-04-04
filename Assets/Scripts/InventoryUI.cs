@@ -34,16 +34,11 @@ public class InventoryUI : MonoBehaviour
         canvasGroup = GameObject.Find("Canvas").GetComponent<CanvasGroup>();
         Inventory = GameObject.Find("Itens");
         HUD = GameObject.Find("Inventory");
-        OpenButton = GameObject.Find("OpenInventory");
-        OpenButton.GetComponent<Button>().onClick.AddListener(() => OpenUI());
-        GameObject CloseButton = GameObject.Find("Close Button");
         cursor = GameObject.Find("CursorManager").GetComponent<CursorGame>();
-        CloseButton.GetComponent<Button>().onClick.AddListener(() => CloseUI());
         canvasGroup.alpha = 1;
 
         // Reload inventory UI after scene change
         RefreshInventoryUI();
-        HUD.SetActive(false);
     }
 
     private void RefreshInventoryUI()
@@ -87,18 +82,19 @@ public class InventoryUI : MonoBehaviour
     {
         for (int i = 0; i < itens.Count; i++)
         {
-            float startX = -321;
-            float startY = 190;
-            float slotSpacingX = 193;
-            float slotSpacingY = 246;
+            float startX = -448;
+            float startY = -28.7f;
+            float slotSpacingX = 80;
+            float slotSpacingY = 31;
 
-            int row = i / 5;
-            int column = i % 5;
+            int row = i / 10;
+            int column = i % 10;
 
             float itemX = startX + (slotSpacingX * column);
             float itemY = startY - (slotSpacingY * row);
 
             itens[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(itemX, itemY);
+            itens[i].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
         }
     }
 
@@ -145,6 +141,6 @@ public class InventoryUI : MonoBehaviour
         cursorImage.sprite = itemData.itemIcon;
         InteractionManagar.instance.selectedItem = itemData;
         print("Item selected: " + itemData.itemName);
-        CloseUI();
+        //CloseUI();
     }
 }

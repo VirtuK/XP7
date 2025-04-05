@@ -1,158 +1,115 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class DraggableStone : MonoBehaviour
+public class DraggableStone : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
-    public Camera mainCamera;
-
-    private Transform selectedPiece;
-    private Transform originalSlot;
+    private RectTransform rectTransform;
+    private CanvasGroup canvasGroup;
+    private Vector3 originalPosition;
+    private Transform originalTransform;
     private bool isDragging = false;
-    private Vector3 pieceOffset;
+    private Transform pieceTransform;
 
-    public int side1;
-    public int side2;
-    public int actualSide;
-
-    private void Start()
+    private void Awake()
     {
-        if (mainCamera == null)
-            mainCamera = Camera.main;
-
-        actualSide = side1;
+        rectTransform = GetComponent<RectTransform>();
+        canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    void Update()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        // Right-click: flip the piece on a slot
-        if (Input.GetMouseButtonDown(1))
+        if (eventData.button == PointerEventData.InputButton.Right)
         {
-            if (RaycastSlot(out Transform slot))
+            if (eventData.pointerEnter != null && eventData.pointerEnter.CompareTag("Slot"))
             {
-                Transform piece = slot.Find("Piece");
-                if (piece != null)
-                {
-                    FlipStone(piece.gameObject);
-                }
+                Transform child = eventData.pointerEnter.transform.Find("Piece");
+                FlipStone(child.gameObject);
             }
         }
+    }
 
-        // Left-click down: begin dragging a piece from a slot
-        if (Input.GetMouseButtonDown(0))
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        // Ensure the clicked object is a Slot
+        if (eventData.pointerEnter != null && eventData.pointerEnter.CompareTag("Slot"))
         {
-            if (RaycastSlot(out Transform slot))
+            // Find the child Piece within the Slot
+            pieceTransform = eventData.pointerEnter.transform.Find("Piece");
+            if (pieceTransform != null)
             {
-                Transform piece = slot.Find("Piece");
-                if (piece != null)
-                {
-                    selectedPiece = piece;
-                    originalSlot = slot;
-
-                    // Move piece to world space so we can drag freely
-                    selectedPiece.SetParent(null);
-                    pieceOffset = selectedPiece.position - GetMouseWorldPoint();
-                    isDragging = true;
-                }
+                // Set up the piece for dragging
+                originalPosition = pieceTransform.position;
+                originalTransform = pieceTransform;
+                isDragging = true;
+                pieceTransform.SetParent(originalTransform); // Move to top level to avoid being masked by other UI elements
+                canvasGroup.alpha = 0.6f;
+                canvasGroup.blocksRaycasts = false;
             }
         }
+    }
 
-        // While dragging: move the piece with the mouse
-        if (isDragging && selectedPiece != null)
+    public void OnDrag(PointerEventData eventData)
+    {
+        if (isDragging)
         {
-            Vector3 targetPos = GetMouseWorldPoint() + pieceOffset;
-            selectedPiece.position = targetPos;
+            originalTransform.position = Input.mousePosition;
         }
+    }
 
-        // Left-click up: drop the piece
-        if (Input.GetMouseButtonUp(0) && isDragging)
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        if (isDragging)
         {
-            if (RaycastSlot(out Transform targetSlot))
-            {
-                Transform targetPiece = targetSlot.Find("Piece");
+            canvasGroup.alpha = 1f;
+            canvasGroup.blocksRaycasts = true;
 
-                if (targetSlot == originalSlot)
+            if (eventData.pointerEnter != null && eventData.pointerEnter.CompareTag("Slot"))
+            {
+                Transform targetSlot = eventData.pointerEnter.transform;
+                Transform existingPiece = targetSlot.childCount > 0 ? targetSlot.GetChild(0) : null;
+
+                if (existingPiece != null)
                 {
-                    ResetPieceToSlot(selectedPiece, originalSlot);
-                }
-                else if (targetPiece != null)
-                {
-                    // Swap the two pieces
-                    SwapPieces(originalSlot, selectedPiece, targetSlot, targetPiece);
+                    // Swap the current piece with the existing piece
+                    SwapPieces(existingPiece);
                 }
                 else
                 {
-                    // Drop into empty slot
-                    MovePieceToSlot(selectedPiece, targetSlot);
+                    pieceTransform.position = eventData.pointerEnter.transform.position;
+                    pieceTransform.SetParent(eventData.pointerEnter.transform);
                 }
             }
             else
             {
-                // Dropped outside → reset
-                ResetPieceToSlot(selectedPiece, originalSlot);
+                pieceTransform.position = originalPosition;
+                pieceTransform.SetParent(originalTransform);
             }
 
-            selectedPiece = null;
-            originalSlot = null;
-            isDragging = false;
+            isDragging = false; // Reset the dragging state
         }
-    }
-
-    private bool RaycastSlot(out Transform slot)
-    {
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit) && hit.collider.CompareTag("Slot"))
-        {
-            slot = hit.collider.transform;
-            return true;
-        }
-
-        slot = null;
-        return false;
-    }
-
-    private Vector3 GetMouseWorldPoint()
-    {
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit))
-        {
-            return hit.point;
-        }
-
-        return Vector3.zero;
     }
 
     private void FlipStone(GameObject piece)
     {
         piece.GetComponent<StoneRotation>().FlipStone();
-
-        actualSide = (actualSide == side1) ? side2 : side1;
-
         GameObject.Find("PuzzleManager").GetComponent<PuzzleManager>().CheckSolution();
     }
 
-    private void ResetPieceToSlot(Transform piece, Transform slot)
+    private void SwapPieces(Transform otherPiece)
     {
-        piece.SetParent(slot);
-        piece.localPosition = Vector3.zero; // Properly center the piece in slot
+        // Store the original parent and position of the other piece
+        Transform otherParent = otherPiece.parent;
+        Vector3 otherPosition = otherPiece.position;
+
+        // Move the current piece to the other piece's slot
+        pieceTransform.SetParent(otherParent);
+        pieceTransform.position = otherPosition;
+
+        // Move the other piece to the original slot of the current piece
+        otherPiece.SetParent(transform);
+        otherPiece.position = originalPosition;
     }
 
-    private void MovePieceToSlot(Transform piece, Transform slot)
-    {
-        piece.SetParent(slot);
-        piece.localPosition = Vector3.zero;
-    }
 
-    private void SwapPieces(Transform slotA, Transform pieceA, Transform slotB, Transform pieceB)
-    {
-        // Store world positions
-        Vector3 posA = pieceA.position;
-        Vector3 posB = pieceB.position;
-
-        // Swap parents
-        pieceA.SetParent(slotB);
-        pieceB.SetParent(slotA);
-
-        // Set world positions so they visually swap places
-        pieceA.position = posB;
-        pieceB.position = posA;
-    }
 }

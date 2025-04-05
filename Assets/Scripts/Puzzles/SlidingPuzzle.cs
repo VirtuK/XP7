@@ -80,7 +80,7 @@ public class SlidingPuzzle : MonoBehaviour
                 piece.localPosition = new Vector3(-1 + (2 * width * col) + width, +1 - (2 * width * row) - width, 0);
                 piece.localScale = ((2 * width) - gapThickness) * Vector3.one;
                 piece.name = $"{(row * size) + col}";
-                piece.GetComponentInChildren<TMP_Text>().text = piece.name;
+
                 
 
                 if ((row == size - 1) && (col == size - 1))

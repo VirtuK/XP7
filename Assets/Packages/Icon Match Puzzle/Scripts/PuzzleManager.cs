@@ -9,7 +9,7 @@ public class PuzzleManager : MonoBehaviour
 {
     [SerializeField] private GameObject puzzle;
     [SerializeField] public GameObject[] slots;
-    [SerializeField] public Sprite[] correctSymbols;
+    [SerializeField] public int[] correctSymbols;
     [SerializeField] private string doorName; // Store Door name instead of reference
     public Door door; // Runtime reference (not serialized)
 
@@ -36,7 +36,7 @@ public class PuzzleManager : MonoBehaviour
         for (int i = 0; i < slots.Length; i++)
         {
             Transform stone = slots[i].transform.GetChild(0);
-            if (stone == null || stone.GetComponent<Image>().sprite != correctSymbols[i])
+            if (stone == null || stone.GetComponent<DraggableStone>().actualSide != correctSymbols[i])
             {
                 isSolved = false;
                 break;

@@ -30,7 +30,7 @@ public class Tranca : Item
                 InventoryManager.instance.RemoveItem(InteractionManagar.instance.selectedItem);
             }
         }
-
+        StartCoroutine(SceneChanger.instance.changeScene(puzzleScene));
         if (requiredComponentIDs.Count == 0)
         {
             StartCoroutine(SceneChanger.instance.changeScene(puzzleScene));

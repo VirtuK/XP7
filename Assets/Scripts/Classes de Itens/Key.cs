@@ -9,5 +9,6 @@ public class Key : Item
     {
         ItemData item = new ItemData(itemName, itemID, icon, this);
         InventoryManager.instance.AddItem(item);
+        Destroy(this.gameObject);
     }
 }

@@ -1,2 +1,18 @@
 fileFormatVersion: 2
 guid: 15f8a22dbbd7f16488150ce8a458759e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - icon: {instanceID: 0}
+  - display: {instanceID: 0}
+  - displayOn: {instanceID: 0}
+  - displayOff: {instanceID: 0}
+  - doorDestination: {instanceID: 0}
+  - audioSC: {instanceID: 0}
+  - openingSound: {fileID: 8300000, guid: c195c9f674d406c458003803edd783cc, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

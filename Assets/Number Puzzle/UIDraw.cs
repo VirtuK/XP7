@@ -10,6 +10,8 @@ public class UIDraw : MonoBehaviour
     private Texture2D drawTexture;
     private RawImage rawImage;
 
+    public GameObject puzzle;
+
     void Start()
     {
         rawImage = GetComponent<RawImage>();
@@ -97,5 +99,10 @@ public class UIDraw : MonoBehaviour
         }
         drawTexture.SetPixels(colors);
         drawTexture.Apply();
+    }
+
+    public void closePuzzle()
+    {
+        puzzle.SetActive(false);
     }
 }

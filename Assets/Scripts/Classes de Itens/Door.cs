@@ -16,6 +16,10 @@ public class Door : Item
     [SerializeField, ConditionalHide("haveDisplay")] private Material displayOff;
     [SerializeField] private SceneAsset doorDestination;
 
+
+    [SerializeField] private AudioSource audioSC;
+    [SerializeField] private AudioClip openingSound;
+    [SerializeField, ConditionalHide("haveDisplay")] private AudioClip displaySound;
     private void Awake()
     {
         StartCoroutine(InitializeAfterSceneLoad());
@@ -25,6 +29,7 @@ public class Door : Item
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
         if (haveDisplay) startDoorDisplay();
+        audioSC = GetComponent<AudioSource>();
     }
     public void startDoorDisplay()
     {
@@ -40,6 +45,9 @@ public class Door : Item
             if (InteractionManagar.instance.selectedItem != null && InteractionManagar.instance.selectedItem.itemName == keyItemName)
             {
                 print("a porta abriu");
+                audioSC.Stop();
+                audioSC.clip = openingSound;
+                audioSC.Play();
                 InventoryManager.instance.RemoveItem(InteractionManagar.instance.selectedItem);
                 SceneSerializationManager.instance.SaveScene();
                 StartCoroutine(SceneChanger.instance.changeScene(doorDestination));
@@ -58,12 +66,18 @@ public class Door : Item
             }
             else
             {
+                audioSC.Stop();
+                audioSC.clip = openingSound;
+                audioSC.Play();
                 SceneSerializationManager.instance.SaveScene();
                 StartCoroutine(SceneChanger.instance.changeScene(doorDestination));
             }
         }
         else
         {
+            audioSC.Stop();
+            audioSC.clip = openingSound;
+            audioSC.Play();
             SceneSerializationManager.instance.SaveScene();
             StartCoroutine(SceneChanger.instance.changeScene(doorDestination));
         }
@@ -71,6 +85,9 @@ public class Door : Item
 
     public void turnOnDisplay()
     {
+        audioSC.Stop();
+        audioSC.clip = displaySound;
+        audioSC.Play();
         display.material = displayOn;
     }
 

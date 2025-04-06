@@ -83,7 +83,7 @@ public class InventoryUI : MonoBehaviour
         for (int i = 0; i < itens.Count; i++)
         {
             float startX = -299;
-            float startY = -55.5f;
+            float startY = -8.1f;
             float slotSpacingX = 90;
             float slotSpacingY = 50;
 
@@ -94,7 +94,7 @@ public class InventoryUI : MonoBehaviour
             float itemY = startY - (slotSpacingY * row);
 
             itens[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(itemX, itemY);
-            itens[i].transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+            itens[i].transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
         }
     }
 

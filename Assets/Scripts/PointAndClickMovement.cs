@@ -21,6 +21,9 @@ public class ClickToMove : MonoBehaviour
     private Transform textTransform;
     private Vector3 originalTextLocalPosition;
 
+    [SerializeField] private AudioSource audioSC;
+    [SerializeField] private AudioClip footsteps;
+
 
     void Start()
     {
@@ -101,6 +104,7 @@ public class ClickToMove : MonoBehaviour
                 {
                     animator.SetBool("Moving", false);
                     VerifyMousePosition();
+                    StopFootStepSound();
 
                 }
             }
@@ -169,9 +173,17 @@ public class ClickToMove : MonoBehaviour
 
             directionSide *= -1;
 
-        
+    }
+
+    public void FootStepSound()
+    {
+        audioSC.clip = footsteps;
+        audioSC.Play();
 
     }
 
-
+    private void StopFootStepSound()
+    {
+        audioSC.Stop();
+    }
 }

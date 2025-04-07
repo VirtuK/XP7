@@ -27,6 +27,8 @@ public class Cofre : Item
         yield return new WaitForEndOfFrame();
         numberPuzzle = GameObject.Find("NumberPuzzle");
         player = GameObject.Find("Player");
+        input = GameObject.Find("InputField (TMP)").GetComponent<TMP_InputField>();
+        animator = GameObject.Find("cofreFechado").GetComponent<Animator>();
         numberPuzzle.SetActive(false);
     }
 
@@ -34,6 +36,7 @@ public class Cofre : Item
     {
         if (!abriu)
         {
+            input.text = "";
             numberPuzzle.SetActive(true);
             player.GetComponent<ClickToMove>().doingPuzzle = true;
         }

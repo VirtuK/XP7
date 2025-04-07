@@ -60,6 +60,10 @@ public class SceneSerializationManager : MonoBehaviour
         {
             File.Delete(saveFilePath);
         }
+        if (File.Exists(destroyedObjectsFilePath))
+        {
+            File.Delete(destroyedObjectsFilePath);
+        }
     }
 
     private void LoadDestroyedObjects()

@@ -710,7 +710,7 @@ MonoBehaviour:
   gameTransform: {fileID: 1386486297}
   piecePrefab: {fileID: 6849304208280597474, guid: dd22b0ffa11cdf64dbed336cc6d11082,
     type: 3}
-  returnToScene: {fileID: 102900000, guid: 21a1b49fb4576b347815d4dcdccc745e, type: 3}
+  returnToScene: Corredor V1
   inventory: {fileID: 572738435}
 --- !u!4 &1961405709
 Transform:

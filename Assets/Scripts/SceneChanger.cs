@@ -18,13 +18,13 @@ public class SceneChanger : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public IEnumerator changeScene(SceneAsset scene)
+    public IEnumerator changeScene(string scene)
     {
         yield return new WaitForSeconds(2f);
-        if(scene == null)
+        if(scene == "sair")
         {
             Application.Quit();
         }
-        else SceneManager.LoadScene(scene.name);
+        else SceneManager.LoadScene(scene);
     }
 }

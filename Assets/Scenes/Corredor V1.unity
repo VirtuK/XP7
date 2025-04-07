@@ -710,7 +710,8 @@ MonoBehaviour:
   - {fileID: 847669837}
   - {fileID: 1284522481}
   onMaterial: {fileID: 2100000, guid: 6f914016fd9808844b62ac64c008e4ac, type: 2}
-  puzzleScene: {fileID: 102900000, guid: f49a3c6d4e97ec940928864d71a9e3fc, type: 3}
+  puzzleSceneName: SlidingPuzzle
+  puzzleSceneAsset: {fileID: 0}
 --- !u!65 &457895536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1834,7 +1835,8 @@ MonoBehaviour:
   display: {fileID: 1607851580}
   displayOn: {fileID: 2100000, guid: 704c5309b9c13e044b4a5f77967584df, type: 2}
   displayOff: {fileID: 2100000, guid: 2ccbab978c03ec44c9a89f85b02ba5a1, type: 2}
-  doorDestination: {fileID: 0}
+  doorDestinationSceneName: sair
+  doorDestinationSceneAsset: {fileID: 0}
   isPuzzleDoor: 1
   audioSC: {fileID: 0}
   openingSound: {fileID: 8300000, guid: c195c9f674d406c458003803edd783cc, type: 3}
@@ -2210,7 +2212,8 @@ MonoBehaviour:
   display: {fileID: 0}
   displayOn: {fileID: 0}
   displayOff: {fileID: 0}
-  doorDestination: {fileID: 102900000, guid: cf9fccda76d7d9747975bde7ebb97fc4, type: 3}
+  doorDestinationSceneName: QuartoRoberto
+  doorDestinationSceneAsset: {fileID: 0}
   isPuzzleDoor: 0
   audioSC: {fileID: 0}
   openingSound: {fileID: 8300000, guid: c195c9f674d406c458003803edd783cc, type: 3}
@@ -3533,7 +3536,8 @@ MonoBehaviour:
   display: {fileID: 0}
   displayOn: {fileID: 0}
   displayOff: {fileID: 0}
-  doorDestination: {fileID: 102900000, guid: 1faef97e12ce7544bb22dc338364c3be, type: 3}
+  doorDestinationSceneName: QuartoVinicius
+  doorDestinationSceneAsset: {fileID: 0}
   isPuzzleDoor: 0
   audioSC: {fileID: 0}
   openingSound: {fileID: 8300000, guid: c195c9f674d406c458003803edd783cc, type: 3}
@@ -5500,7 +5504,8 @@ MonoBehaviour:
   display: {fileID: 1158765947}
   displayOn: {fileID: 2100000, guid: 704c5309b9c13e044b4a5f77967584df, type: 2}
   displayOff: {fileID: 2100000, guid: 2ccbab978c03ec44c9a89f85b02ba5a1, type: 2}
-  doorDestination: {fileID: 102900000, guid: 2b2b0084cfc67974db680dd92b547f5c, type: 3}
+  doorDestinationSceneName: QuartoAmelia
+  doorDestinationSceneAsset: {fileID: 0}
   isPuzzleDoor: 0
   audioSC: {fileID: 0}
   openingSound: {fileID: 8300000, guid: c195c9f674d406c458003803edd783cc, type: 3}
@@ -5833,7 +5838,8 @@ MonoBehaviour:
   display: {fileID: 0}
   displayOn: {fileID: 0}
   displayOff: {fileID: 0}
-  doorDestination: {fileID: 102900000, guid: f469f343b02a52b4f88cdbe7cf3211f3, type: 3}
+  doorDestinationSceneName: LabCriogenia
+  doorDestinationSceneAsset: {fileID: 0}
   isPuzzleDoor: 0
   audioSC: {fileID: 0}
   openingSound: {fileID: 8300000, guid: c195c9f674d406c458003803edd783cc, type: 3}

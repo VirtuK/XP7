@@ -1,17 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 [System.Serializable]
 public class SlidingPuzzle : MonoBehaviour
 {
     [SerializeField] private Transform gameTransform;
     [SerializeField] private Transform piecePrefab;
-    [SerializeField] private SceneAsset returnToScene;
+    [SerializeField] private string returnToScene;
     [SerializeField] private GameObject inventory;
 
     private List<Transform> pieces;

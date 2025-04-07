@@ -11,6 +11,7 @@ public class UIDraw : MonoBehaviour
     private RawImage rawImage;
 
     public GameObject puzzle;
+    public GameObject player;
 
     void Start()
     {
@@ -32,6 +33,8 @@ public class UIDraw : MonoBehaviour
 
         // Assign the unique texture to the RawImage
         rawImage.texture = drawTexture;
+
+        player = GameObject.Find("Player");
     }
 
     void Update()
@@ -104,5 +107,6 @@ public class UIDraw : MonoBehaviour
     public void closePuzzle()
     {
         puzzle.SetActive(false);
+        player.GetComponent<ClickToMove>().doingPuzzle = false;
     }
 }

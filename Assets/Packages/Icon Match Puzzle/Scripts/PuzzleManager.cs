@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class PuzzleManager : MonoBehaviour
 {
     [SerializeField] private GameObject puzzle;
+    [SerializeField] private GameObject player;
     [SerializeField] public GameObject[] slots;
     [SerializeField] public Sprite[] correctSymbols;
     [SerializeField] private string doorName; // Store Door name instead of reference
@@ -17,6 +18,7 @@ public class PuzzleManager : MonoBehaviour
     private void Start()
     {
         puzzle = GameObject.Find("Icon Match Puzzle");
+        player = GameObject.Find("Player");
         StartCoroutine(InitializeAfterSceneLoad());
     }
 
@@ -60,6 +62,7 @@ public class PuzzleManager : MonoBehaviour
         puzzle.SetActive(false);
         InventoryUI.instance.OpenUI();
         InteractionManagar.instance.interacting = false;
+        player.GetComponent<ClickToMove>().doingPuzzle = false;
     }
 
     public void FindDoor()

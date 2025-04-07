@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class TrancaIconPuzzle : Item
 {
     [SerializeField] private GameObject iconPuzzle;
+    [SerializeField] private GameObject player;
     [SerializeField] private string doorName; // Store Door name instead of reference
     public Door door; // Runtime reference (not serialized)
 
@@ -26,6 +27,7 @@ public class TrancaIconPuzzle : Item
             doorName = door.gameObject.name;
         }
         iconPuzzle.SetActive(false);
+        player = GameObject.Find("Player");
         FindDoor();
 
         
@@ -39,6 +41,7 @@ public class TrancaIconPuzzle : Item
             InventoryUI.instance.CloseUI();
             iconPuzzle.SetActive(true);
             InteractionManagar.instance.interacting = true;
+            player.GetComponent<ClickToMove>().doingPuzzle = true;
         }
         else
         {

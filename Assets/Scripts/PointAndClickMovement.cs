@@ -24,6 +24,8 @@ public class ClickToMove : MonoBehaviour
     [SerializeField] private AudioSource audioSC;
     [SerializeField] private AudioClip footsteps;
 
+    [SerializeField] public bool doingPuzzle = false;
+
 
     void Start()
     {
@@ -32,7 +34,7 @@ public class ClickToMove : MonoBehaviour
         animator = GetComponent<Animator>();
         if (mainCamera == null)
         {
-            mainCamera = Camera.main; // Pega a câmera principal automaticamente
+            mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>(); // Pega a câmera principal automaticamente
         }
         textTransform = MessageText.instance.getText().transform;
         originalTextLocalPosition = textTransform.localPosition;
@@ -48,7 +50,7 @@ public class ClickToMove : MonoBehaviour
 
     void HandleMouseInput()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !doingPuzzle)
         {
             if (EventSystem.current.IsPointerOverGameObject())
                 return;

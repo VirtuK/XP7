@@ -28,8 +28,8 @@ public class Door : Item
     {
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
-        if (haveDisplay) startDoorDisplay();
         audioSC = GetComponent<AudioSource>();
+        if (haveDisplay) startDoorDisplay();
     }
     public void startDoorDisplay()
     {

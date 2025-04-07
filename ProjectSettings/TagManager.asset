@@ -8,6 +8,7 @@ TagManager:
   - Item
   - Slot
   - Piece
+  - Display
   layers:
   - Default
   - TransparentFX

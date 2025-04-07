@@ -64,6 +64,7 @@ public class SceneSerializationManager : MonoBehaviour
 
     private void LoadDestroyedObjects()
     {
+        UpdateSaveFilePath();
         if (File.Exists(destroyedObjectsFilePath))
         {
             string json = File.ReadAllText(destroyedObjectsFilePath);

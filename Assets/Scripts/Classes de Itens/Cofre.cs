@@ -10,13 +10,13 @@ public class Cofre : Item
     [SerializeField] GameObject player;
     [SerializeField] TMP_InputField input;
     [SerializeField] bool abriu;
+    [SerializeField] Animator animator;
 
     private void Start()
     {
         StartCoroutine(InitializeAfterSceneLoad());
         if (abriu)
         {
-            Animator animator = GetComponent<Animator>();
             animator.SetBool("abriu", true);
             GetComponent<BoxCollider>().enabled = false;
         }
@@ -50,7 +50,6 @@ public class Cofre : Item
         string i = input.text;
         if(i == "2501")
         {
-            Animator animator = GetComponent<Animator>();
             animator.SetBool("abriu", true);
             abriu = true;
             GetComponent<BoxCollider>().enabled = false;

@@ -51,6 +51,7 @@ public class UIDraw : MonoBehaviour
 
     void DrawAtMousePosition(Color color, float size)
     {
+        print("a");
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(rawImage.rectTransform, Input.mousePosition, null, out localPoint);
 
@@ -108,5 +109,6 @@ public class UIDraw : MonoBehaviour
     {
         puzzle.SetActive(false);
         player.GetComponent<ClickToMove>().doingPuzzle = false;
+        CursorGame.instance.ResetDrawCursor();
     }
 }

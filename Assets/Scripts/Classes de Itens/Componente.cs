@@ -11,7 +11,7 @@ public class Componente : Item
         Tranca tranca = GameObject.Find("TrancaDormitorios").GetComponent<Tranca>();
         if(tranca != null)
         {
-            if (!tranca.GetRequiredComponents().Contains(ID))
+            if (!tranca.GetRequiredComponents().Contains(itemName))
             {
                 tranca.setComponentMaterial(this);
             }
@@ -21,6 +21,7 @@ public class Componente : Item
     {
         ItemData item = new ItemData(itemName, itemID, icon, this);
         InventoryManager.instance.AddItem(item);
+        ListDestruction();
         gameObject.SetActive(false);
     }
 }

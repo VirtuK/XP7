@@ -15,7 +15,7 @@ public class Door : Item
     [SerializeField, ConditionalHide("haveDisplay")] private Material displayOn;
     [SerializeField, ConditionalHide("haveDisplay")] private Material displayOff;
     [SerializeField] private SceneAsset doorDestination;
-
+    [SerializeField] private bool isPuzzleDoor;
 
     [SerializeField] private AudioSource audioSC;
     [SerializeField] private AudioClip openingSound;
@@ -33,11 +33,39 @@ public class Door : Item
     }
     public void startDoorDisplay()
     {
-        display = GameObject.Find("Display").GetComponent<MeshRenderer>();
-        if (!isButtonPressed) turnOffDisplay();
-        else turnOnDisplay();
+        display = FindDisplayInChildren(transform, "Display");
+
+        if (display != null)
+        {
+            
+            if (!isButtonPressed) turnOffDisplay();
+            else turnOnDisplay();
+
+            if (isPuzzleDoor)
+            {
+                if (ProgressManager.instance.puzzleResolved)
+                {
+                    turnOnDisplay();
+                }
+            }
+        }
+        else
+        {
+            Debug.LogError("Tagged display not found in children of " + gameObject.name);
+        }
     }
 
+    private MeshRenderer FindDisplayInChildren(Transform parent, string tag)
+    {
+        foreach (Transform child in parent.GetComponentsInChildren<Transform>(true))
+        {
+            if (child.CompareTag(tag))
+            {
+                return child.GetComponent<MeshRenderer>();
+            }
+        }
+        return null;
+    }
     public override void Use()
     {
         if (isLocked)
@@ -71,6 +99,17 @@ public class Door : Item
                 audioSC.Play();
                 SceneSerializationManager.instance.SaveScene();
                 StartCoroutine(SceneChanger.instance.changeScene(doorDestination));
+            }
+        }
+        else if (isPuzzleDoor)
+        {
+            if (ProgressManager.instance.puzzleResolved)
+            {
+                audioSC.Stop();
+                audioSC.clip = openingSound;
+                audioSC.Play();
+                SceneSerializationManager.instance.SaveScene();
+                StartCoroutine(SceneChanger.instance.changeScene(null));
             }
         }
         else

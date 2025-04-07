@@ -12,6 +12,7 @@ public class SlidingPuzzle : MonoBehaviour
     [SerializeField] private Transform gameTransform;
     [SerializeField] private Transform piecePrefab;
     [SerializeField] private SceneAsset returnToScene;
+    [SerializeField] private GameObject inventory;
 
     private List<Transform> pieces;
     private int emptyLocation;
@@ -25,6 +26,7 @@ public class SlidingPuzzle : MonoBehaviour
         pieces = new List<Transform>();
         size = 3;
         CreateGamePieces(0.01f);
+        inventory.SetActive(false);
     }
 
     private void Update()
@@ -39,6 +41,7 @@ public class SlidingPuzzle : MonoBehaviour
             }
             else
             {
+                ProgressManager.instance.puzzleResolved = true;
                 StartCoroutine(SceneChanger.instance.changeScene(returnToScene));
             }
         }

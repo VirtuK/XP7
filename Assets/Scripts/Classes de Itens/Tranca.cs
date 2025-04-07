@@ -6,7 +6,7 @@ using static UnityEditor.Progress;
 
 public class Tranca : Item
 {
-    [SerializeField] private List<int> requiredComponentIDs; // Unique IDs of required components
+    [SerializeField] private List<string> requiredComponentNames; // Unique IDs of required components
     [SerializeField] private List<MeshRenderer> tilesMesh;
     [SerializeField] private Material onMaterial;
     [SerializeField] private SceneAsset puzzleScene;
@@ -15,37 +15,29 @@ public class Tranca : Item
     {
         if (InteractionManagar.instance.selectedItem != null)
         {
-            Componente selectedComponent = null;
-
-            if (InteractionManagar.instance.selectedItem.returnComponent() is Componente comp)
+            ItemData selectedComponent = InteractionManagar.instance.selectedItem;
+            print(selectedComponent.itemName);
+            if (selectedComponent != null && requiredComponentNames.Contains(selectedComponent.itemName))
             {
-                selectedComponent = comp;
-            }
-
-
-            if (selectedComponent != null && requiredComponentIDs.Contains(selectedComponent.ID))
-            {
-                setComponentMaterial(selectedComponent);
-                requiredComponentIDs.Remove(selectedComponent.ID);
+                requiredComponentNames.Remove(selectedComponent.itemName);
                 InventoryManager.instance.RemoveItem(InteractionManagar.instance.selectedItem);
             }
         }
-        StartCoroutine(SceneChanger.instance.changeScene(puzzleScene));
-        if (requiredComponentIDs.Count == 0)
+        if (requiredComponentNames.Count == 0)
         {
             StartCoroutine(SceneChanger.instance.changeScene(puzzleScene));
         }
         else
         {
-            MessageText.instance.ShowText($"Parece que faltam {requiredComponentIDs.Count} peças nesse dispositivo");
+            MessageText.instance.ShowText($"Parece que faltam {requiredComponentNames.Count} peças nesse dispositivo");
         }
 
         CursorGame.instance.resetCursor();
     }
 
-    public List<int> GetRequiredComponents()
+    public List<string> GetRequiredComponents()
     {
-        return requiredComponentIDs;
+        return requiredComponentNames;
     }
 
     public void setComponentMaterial(Componente component)

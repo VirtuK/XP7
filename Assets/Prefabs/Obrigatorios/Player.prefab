@@ -156,6 +156,7 @@ MonoBehaviour:
   playerDefault: {fileID: 0}
   audioSC: {fileID: 2636267683048475991}
   footsteps: {fileID: 8300000, guid: b5956d7b79be0254d96bf465dfa82426, type: 3}
+  doingPuzzle: 0
 --- !u!114 &1755972380195310660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,6 +580,44 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6937932181508881800, guid: 457c6f4af7107664abce1c603dd9a31c,
+        type: 3}
+      propertyPath: m_text
+      value: ' Teste'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937932181508881800, guid: 457c6f4af7107664abce1c603dd9a31c,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 12.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937932181508881800, guid: 457c6f4af7107664abce1c603dd9a31c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: b8fa2aa6624e30845803db1421db73e3,
+        type: 2}
+    - target: {fileID: 6937932181508881800, guid: 457c6f4af7107664abce1c603dd9a31c,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 12.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937932181508881800, guid: 457c6f4af7107664abce1c603dd9a31c,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6733584607209429869, guid: b8fa2aa6624e30845803db1421db73e3,
+        type: 2}
+    - target: {fileID: 6937932181508881800, guid: 457c6f4af7107664abce1c603dd9a31c,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7328134792041258936, guid: 457c6f4af7107664abce1c603dd9a31c,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6733584607209429869, guid: b8fa2aa6624e30845803db1421db73e3,
+        type: 2}
     - target: {fileID: 7995455537957773992, guid: 457c6f4af7107664abce1c603dd9a31c,
         type: 3}
       propertyPath: m_Name

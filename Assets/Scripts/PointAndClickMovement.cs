@@ -10,7 +10,7 @@ public class ClickToMove : MonoBehaviour
     public Camera mainCamera; // A câmera principal
     private NavMeshAgent agent;
     private GameObject targetItem = null; // Stores the selected item
-    private float interactionDistance = 2f; // Distance at which interaction happens
+    public float interactionDistance = 4f; // Distance at which interaction happens
     private Vector3 clickPosition;
     private Animator animator;
 

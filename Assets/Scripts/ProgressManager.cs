@@ -11,6 +11,7 @@ public class ProgressManager : MonoBehaviour
 {
     public static ProgressManager instance;
     [SerializeField] private List<string> loadedScenes = new List<string>();
+    [SerializeField] public bool puzzleResolved;
     private void Awake()
     {
         if (instance != null)

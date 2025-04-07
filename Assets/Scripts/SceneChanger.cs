@@ -21,6 +21,10 @@ public class SceneChanger : MonoBehaviour
     public IEnumerator changeScene(SceneAsset scene)
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(scene.name);
+        if(scene == null)
+        {
+            Application.Quit();
+        }
+        else SceneManager.LoadScene(scene.name);
     }
 }

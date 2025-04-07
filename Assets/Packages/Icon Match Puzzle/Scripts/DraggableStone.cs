@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using NUnit.Framework;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -11,11 +14,13 @@ public class DraggableStone : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private bool isDragging = false;
     private Transform pieceTransform;
 
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
+
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -24,7 +29,7 @@ public class DraggableStone : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             if (eventData.pointerEnter != null && eventData.pointerEnter.CompareTag("Slot"))
             {
                 Transform child = eventData.pointerEnter.transform.Find("Piece");
-                FlipStone(child.gameObject);
+                //FlipStone(child.gameObject);
             }
         }
     }
@@ -98,6 +103,7 @@ public class DraggableStone : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     private void SwapPieces(Transform otherPiece)
     {
+
         // Store the original parent and position of the other piece
         Transform otherParent = otherPiece.parent;
         Vector3 otherPosition = otherPiece.position;
@@ -109,6 +115,8 @@ public class DraggableStone : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         // Move the other piece to the original slot of the current piece
         otherPiece.SetParent(transform);
         otherPiece.position = originalPosition;
+
+        GameObject.Find("PuzzleManager").GetComponent<PuzzleManager>().CheckSolution();
     }
 
 

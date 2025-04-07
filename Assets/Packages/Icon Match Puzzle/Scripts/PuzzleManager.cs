@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,7 +16,9 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private string doorName; // Store Door name instead of reference
     public Door door; // Runtime reference (not serialized)
 
-
+    public List<Sprite> figures = new List<Sprite>();
+    public List<Image> pieces = new List<Image>();
+    private int index;
     private void Start()
     {
         puzzle = GameObject.Find("Icon Match Puzzle");
@@ -31,6 +35,33 @@ public class PuzzleManager : MonoBehaviour
         }
         puzzle.SetActive(false);
         FindDoor();
+        index = 0;
+        foreach (Image im in pieces)
+        {
+            RandomizePiece(im);
+        }
+    }
+
+    public void RandomizePiece(Image im)
+    {
+        if (figures.Count == 0)
+        {
+            return;
+        }
+
+        int r;
+        Sprite selectedSprite;
+
+        do
+        {
+            r = UnityEngine.Random.Range(0, figures.Count);
+            selectedSprite = figures[r];
+        }
+        while (selectedSprite == correctSymbols[index] && figures.Count > 1);
+
+        im.sprite = selectedSprite;
+        figures.RemoveAt(r);
+        index++;
     }
     public void CheckSolution()
     {

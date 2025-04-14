@@ -136,6 +136,13 @@ public class InventoryUI : MonoBehaviour
             return;
         }
 
+        if(itemData == InteractionManagar.instance.selectedItem)
+        {
+            CursorGame.instance.resetCursor();
+            InteractionManagar.instance.selectedItem = null;
+            return;
+        }
+
         cursorImage.sprite = itemData.itemIcon;
         InteractionManagar.instance.selectedItem = itemData;
         print("Item selected: " + itemData.itemName);

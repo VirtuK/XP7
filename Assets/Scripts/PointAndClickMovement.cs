@@ -63,15 +63,19 @@ public class ClickToMove : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.gameObject.CompareTag("Ground") && hit.distance < 15 && !InteractionManagar.instance.interacting)
+                if (hit.collider.gameObject.layer != 6)
                 {
-                    SetDestination(hit.point);
-                }
-                else if (hit.collider.gameObject.CompareTag("Item"))
-                {
-                    SetItemDestination(hit.collider.gameObject);
-                }
 
+
+                    if (hit.collider.gameObject.CompareTag("Ground") && hit.distance < 15 && !InteractionManagar.instance.interacting)
+                    {
+                        SetDestination(hit.point);
+                    }
+                    else if (hit.collider.gameObject.CompareTag("Item"))
+                    {
+                        SetItemDestination(hit.collider.gameObject);
+                    }
+                }
                 if (InteractionManagar.instance.interacting)
                 {
                     InteractionManagar.instance.resetInteractions();

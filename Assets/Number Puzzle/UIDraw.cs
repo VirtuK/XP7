@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class UIDraw : MonoBehaviour
 {
@@ -51,7 +52,10 @@ public class UIDraw : MonoBehaviour
 
     void DrawAtMousePosition(Color color, float size)
     {
-        print("a");
+        // Check if mouse is over the RawImage
+        if (!RectTransformUtility.RectangleContainsScreenPoint(rawImage.rectTransform, Input.mousePosition, null))
+            return;
+
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(rawImage.rectTransform, Input.mousePosition, null, out localPoint);
 
@@ -61,7 +65,6 @@ public class UIDraw : MonoBehaviour
 
         DrawCircle(x, y, size, color);
     }
-
     void DrawCircle(int centerX, int centerY, float radius, Color color)
     {
         int x0 = Mathf.RoundToInt(centerX - radius);

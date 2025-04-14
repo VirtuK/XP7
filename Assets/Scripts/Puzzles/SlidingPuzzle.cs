@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEditor;
 using UnityEngine;
 [System.Serializable]
@@ -9,6 +10,7 @@ public class SlidingPuzzle : MonoBehaviour
     [SerializeField] private Transform piecePrefab;
     [SerializeField] private string returnToScene;
     [SerializeField] private GameObject inventory;
+    [SerializeField] private GameObject resetButton;
 
     private List<Transform> pieces;
     private int emptyLocation;
@@ -16,7 +18,7 @@ public class SlidingPuzzle : MonoBehaviour
     private bool shuffling = false;
     private bool first = true;
     private float moveDuration = 0.3f;
-
+    private float timer = 29f;
     private void Start()
     {
         pieces = new List<Transform>();
@@ -64,6 +66,15 @@ public class SlidingPuzzle : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(WaitShuffle(0.5f));
+        }
+
+        if(timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
+        else
+        {
+            resetButton.SetActive(true);
         }
     }
 
@@ -161,5 +172,14 @@ public class SlidingPuzzle : MonoBehaviour
             yield return null;
         }
         piece.localPosition = targetPosition;
+    }
+
+    public void ResetPuzzle()
+    {
+        if (!shuffling)
+        {
+            StartCoroutine(WaitShuffle(0.5f));
+            shuffling = true;
+        }
     }
 }

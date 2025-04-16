@@ -145,7 +145,6 @@ public class InventoryUI : MonoBehaviour
             {
                 GameObject p = GameObject.Find(g.name);
                 if (p != null) Destroy(p);
-                else Debug.LogError("Paper not found with " + g.name + " name");
             }
             InteractionManagar.instance.selectedItem = null;
             return;
@@ -155,12 +154,23 @@ public class InventoryUI : MonoBehaviour
         InteractionManagar.instance.selectedItem = itemData;
         print("Item selected: " + itemData.itemName);
 
-        if (itemData.itemName == "PapelCofre")
+
+        switch (itemData.itemName)
         {
-            GameObject p = Instantiate(papeis[0], canvasGroup.gameObject.transform);
-            p.name = papeis[0].name;
-            p.gameObject.transform.SetSiblingIndex(3);
-            CursorGame.instance.resetCursor();
+            case "PapelCofre":
+                GameObject pc = Instantiate(papeis[0], canvasGroup.gameObject.transform);
+                pc.name = papeis[0].name;
+                pc.gameObject.transform.SetSiblingIndex(3);
+                CursorGame.instance.resetCursor();
+                InteractionManagar.instance.selectedItem = itemData;
+                break;
+            case "PapelQuarto":
+                GameObject pq = Instantiate(papeis[1], canvasGroup.gameObject.transform);
+                pq.name = papeis[1].name;
+                pq.gameObject.transform.SetSiblingIndex(3);
+                CursorGame.instance.resetCursor();
+                InteractionManagar.instance.selectedItem = itemData;
+                break;
         }
         //CloseUI();
     }

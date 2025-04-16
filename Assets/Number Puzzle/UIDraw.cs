@@ -113,5 +113,6 @@ public class UIDraw : MonoBehaviour
         Destroy(puzzle);
         player.GetComponent<ClickToMove>().doingPuzzle = false;
         CursorGame.instance.ResetDrawCursor();
+        InteractionManagar.instance.selectedItem = null;
     }
 }

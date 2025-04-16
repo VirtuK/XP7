@@ -68,3 +68,4 @@ MonoBehaviour:
   itens: []
   papeis:
   - {fileID: 2408854842199586680, guid: beb31d50a83c558459bb730df7962f10, type: 3}
+  - {fileID: 2984806837893954256, guid: 88df11b4ce03ee240a6dd2e878c58b01, type: 3}

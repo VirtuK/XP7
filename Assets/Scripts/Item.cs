@@ -27,7 +27,13 @@ public abstract class Item : MonoBehaviour, IInteractable
     {
         itemID = gameObject.GetInstanceID().ToString();
     }
-    public virtual void Pick() { }
+    public virtual void Pick() 
+    {
+        ItemData item = new ItemData(itemName, itemID, icon, this);
+        InventoryManager.instance.AddItem(item);
+        ListDestruction();
+        gameObject.SetActive(false);
+    }
     public virtual void See() 
     {
         MessageText.instance.ShowText(seeDescription);

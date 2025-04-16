@@ -110,7 +110,7 @@ public class UIDraw : MonoBehaviour
 
     public void closePuzzle()
     {
-        puzzle.SetActive(false);
+        Destroy(puzzle);
         player.GetComponent<ClickToMove>().doingPuzzle = false;
         CursorGame.instance.ResetDrawCursor();
     }

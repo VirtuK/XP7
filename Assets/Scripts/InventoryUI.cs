@@ -15,6 +15,8 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private CursorGame cursor;
     [SerializeField] private List<GameObject> itens = new List<GameObject>();
 
+    [SerializeField] private List<GameObject> papeis = new List<GameObject>();
+
     public static InventoryUI instance;
 
     private void Awake()
@@ -139,6 +141,12 @@ public class InventoryUI : MonoBehaviour
         if(itemData == InteractionManagar.instance.selectedItem)
         {
             CursorGame.instance.resetCursor();
+            foreach (GameObject g in papeis)
+            {
+                GameObject p = GameObject.Find(g.name);
+                if (p != null) Destroy(p);
+                else Debug.LogError("Paper not found with " + g.name + " name");
+            }
             InteractionManagar.instance.selectedItem = null;
             return;
         }
@@ -146,6 +154,14 @@ public class InventoryUI : MonoBehaviour
         cursorImage.sprite = itemData.itemIcon;
         InteractionManagar.instance.selectedItem = itemData;
         print("Item selected: " + itemData.itemName);
+
+        if (itemData.itemName == "PapelCofre")
+        {
+            GameObject p = Instantiate(papeis[0], canvasGroup.gameObject.transform);
+            p.name = papeis[0].name;
+            p.gameObject.transform.SetSiblingIndex(3);
+            CursorGame.instance.resetCursor();
+        }
         //CloseUI();
     }
 }

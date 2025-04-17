@@ -34,15 +34,16 @@ public class HighlightItens : MonoBehaviour
                 {
                     if (renderer != lastRenderer)
                     {
-                        /* ResetHighlight();
+                        
+                       /* ResetHighlight();
                          lastRenderer = renderer;
-                         originalMaterial = renderer.material;
-                         foreach(Material m in renderer.materials)
+                        originalMaterial.Clear();
+                        foreach (Material m in renderer.materials)
                          {
                              originalMaterial.Add(m);
                          }
                          List<Material> materials = new List<Material>();
-                         materials.Add(originalMaterial);
+                         //materials.Add(originalMaterial);
                          foreach(Material m in originalMaterial)
                          {
                              materials.Add(m);
@@ -56,23 +57,24 @@ public class HighlightItens : MonoBehaviour
                 return;
             }
         }
-        // ResetHighlight();
+        //ResetHighlight();
         CursorGame.instance.ResetInteractCursor();
     }
 
-    /*void ResetHighlight()
+    void ResetHighlight()
     {
         if (lastRenderer != null)
         {
+            lastRenderer.materials = new Material[0];
             List<Material> material = new List<Material>();
-            material.Add(originalMaterial);
+            //material.Add(originalMaterial);
             foreach (Material m in originalMaterial)
             {
                 material.Add(m);
             }
             lastRenderer.SetMaterials(material);
-            lastRenderer.material = originalMaterial;
+           // lastRenderer.material = originalMaterial;
             lastRenderer = null;
         }
-    }*/
+    }
 }

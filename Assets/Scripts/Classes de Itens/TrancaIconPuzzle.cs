@@ -9,6 +9,7 @@ public class TrancaIconPuzzle : Item
 {
     [SerializeField] private GameObject iconPuzzle;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject puzzleCam;
     [SerializeField] private string doorName; // Store Door name instead of reference
     public Door door; // Runtime reference (not serialized)
 
@@ -16,6 +17,7 @@ public class TrancaIconPuzzle : Item
     private void Start()
     {
         iconPuzzle = GameObject.Find("Icon Match Puzzle");
+        puzzleCam = GameObject.Find("PuzzleCamera");
         StartCoroutine(InitializeAfterSceneLoad());
     }
 
@@ -40,6 +42,7 @@ public class TrancaIconPuzzle : Item
         {
             InventoryUI.instance.CloseUI();
             iconPuzzle.SetActive(true);
+            puzzleCam.SetActive(true);
             InteractionManagar.instance.interacting = true;
             player.GetComponent<ClickToMove>().doingPuzzle = true;
         }

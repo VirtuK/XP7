@@ -8,6 +8,7 @@ public class Cofre : Item
 {
     [SerializeField] GameObject numberPuzzle;
     [SerializeField] GameObject player;
+    [SerializeField] GameObject puzzleCam;
     [SerializeField] TMP_InputField input;
     [SerializeField] bool abriu;
     [SerializeField] Animator animator;
@@ -29,6 +30,7 @@ public class Cofre : Item
         player = GameObject.Find("Player");
         input = GameObject.Find("InputField (TMP)").GetComponent<TMP_InputField>();
         animator = GameObject.Find("cofreFechado").GetComponent<Animator>();
+        puzzleCam = GameObject.Find("PuzzleCamera");
         numberPuzzle.SetActive(false);
     }
 
@@ -38,6 +40,7 @@ public class Cofre : Item
         {
             input.text = "";
             numberPuzzle.SetActive(true);
+            puzzleCam.SetActive(true);
             player.GetComponent<ClickToMove>().doingPuzzle = true;
         }
     }
@@ -45,6 +48,7 @@ public class Cofre : Item
     public void ClosePuzzle()
     {
         numberPuzzle.SetActive(false);
+        puzzleCam.SetActive(false);
         player.GetComponent<ClickToMove>().doingPuzzle = false;
     }
 

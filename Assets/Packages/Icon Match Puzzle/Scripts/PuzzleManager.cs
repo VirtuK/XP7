@@ -12,6 +12,7 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private GameObject puzzle;
     [SerializeField] private GameObject player;
     [SerializeField] public GameObject[] slots;
+    [SerializeField] public GameObject puzzleCam;
     [SerializeField] public Sprite[] correctSymbols;
     [SerializeField] private string doorName; // Store Door name instead of reference
     public Door door; // Runtime reference (not serialized)
@@ -23,6 +24,7 @@ public class PuzzleManager : MonoBehaviour
     {
         puzzle = GameObject.Find("Icon Match Puzzle");
         player = GameObject.Find("Player");
+        puzzleCam = GameObject.Find("PuzzleCamera");
         StartCoroutine(InitializeAfterSceneLoad());
     }
 
@@ -91,6 +93,7 @@ public class PuzzleManager : MonoBehaviour
     public void closePuzzle()
     {
         puzzle.SetActive(false);
+        puzzleCam.SetActive(false);
         InventoryUI.instance.OpenUI();
         InteractionManagar.instance.interacting = false;
         player.GetComponent<ClickToMove>().doingPuzzle = false;

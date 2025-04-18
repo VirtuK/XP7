@@ -227,12 +227,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4151809295303788060, guid: c332f69ae6372c248913ae292345df7d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6506105269657873108, guid: c332f69ae6372c248913ae292345df7d,
         type: 3}
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 6506105269657873108, guid: c332f69ae6372c248913ae292345df7d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122867194710921618, guid: c332f69ae6372c248913ae292345df7d,
         type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -385,7 +395,7 @@ RectTransform:
   m_GameObject: {fileID: 142750621}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.77905, y: 0.77905, z: 0.77905}
+  m_LocalScale: {x: 0.96990097, y: 0.96990097, z: 0.96990097}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 733579148}
@@ -395,7 +405,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.3257, y: 83}
+  m_AnchoredPosition: {x: 4, y: -125.29}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &153074996
@@ -1154,6 +1164,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 3094835621378484808, guid: f68aa5b7ee96a3e48a51a13e0e5642d0,
+        type: 3}
+      propertyPath: m_Cameras.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3094835621378484808, guid: f68aa5b7ee96a3e48a51a13e0e5642d0,
+        type: 3}
+      propertyPath: 'm_Cameras.Array.data[2]'
+      value: 
+      objectReference: {fileID: 947051415}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1282,7 +1302,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733579147}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1654,6 +1674,91 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 887077140}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &947051414
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 569405973587811600, guid: 03f1797e74f73f443a32d2b0bfc300dd,
+        type: 3}
+      propertyPath: m_Name
+      value: PuzzleCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 569405973587811600, guid: 03f1797e74f73f443a32d2b0bfc300dd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813025082592337847, guid: 03f1797e74f73f443a32d2b0bfc300dd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.304636
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813025082592337847, guid: 03f1797e74f73f443a32d2b0bfc300dd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.20148
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813025082592337847, guid: 03f1797e74f73f443a32d2b0bfc300dd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -45.59334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813025082592337847, guid: 03f1797e74f73f443a32d2b0bfc300dd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813025082592337847, guid: 03f1797e74f73f443a32d2b0bfc300dd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813025082592337847, guid: 03f1797e74f73f443a32d2b0bfc300dd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813025082592337847, guid: 03f1797e74f73f443a32d2b0bfc300dd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813025082592337847, guid: 03f1797e74f73f443a32d2b0bfc300dd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813025082592337847, guid: 03f1797e74f73f443a32d2b0bfc300dd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813025082592337847, guid: 03f1797e74f73f443a32d2b0bfc300dd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6078438208968797361, guid: 03f1797e74f73f443a32d2b0bfc300dd,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: 6e3829f3ec156ce439103012dc18410b,
+        type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 03f1797e74f73f443a32d2b0bfc300dd, type: 3}
+--- !u!20 &947051415 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2883922594860949279, guid: 03f1797e74f73f443a32d2b0bfc300dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 947051414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &998776825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,11 +1991,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1386568151070661211, guid: 128088799d037884299903ee08642e67,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 128088799d037884299903ee08642e67, type: 3}
 --- !u!1 &1230766381
 GameObject:
@@ -3298,6 +3399,7 @@ MonoBehaviour:
   IgnoreOnSave: 0
   numberPuzzle: {fileID: 142750621}
   player: {fileID: 0}
+  puzzleCam: {fileID: 0}
   input: {fileID: 1930333652}
   abriu: 0
   animator: {fileID: 1894743814}
@@ -4587,3 +4689,4 @@ SceneRoots:
   - {fileID: 2097136042}
   - {fileID: 1149839350}
   - {fileID: 1605121122}
+  - {fileID: 947051414}

@@ -56,17 +56,17 @@ MonoBehaviour:
   page1Button: {fileID: 5456019393427806755}
   page2Button: {fileID: 5857599922775527362}
   text: {fileID: 6690446293361784653}
-  page1: "A\xED garoto, se voc\xEA for precisar ir no quarto da Amelia, vai precisar
-    de uma senha, j\xE1 que ela \xE9 fissurada em gatos e tudo tem a ver com isso
-    na vida dela...  Tinha um poema que ela vivia recitando enquanto fazia testes
-    com aquela coisa no laborat\xF3rio para se acalmar. Era mais ou menos assim:
-    \"Em dias de fome, o gato branco sai para ca\xE7ar sua comida em um lago pr\xF3ximo,
-    enquanto distra\xEDdo, o peixe encara a luz acima que se afunda na \xE1gua, sonhando
-    um dia saber como \xE9 o lado de fora. J\xE1 o gato preto, anseia pelo movimento
-    das algas, que abaixo revelam a localiza\xE7\xE3o de sua presa"
-  page2: "E ali\xE1s... Voc\xEA deixou um papel na sala da c\xE1psula criog\xEAnica
-    ontem, n\xE3o v\xE1 esquecer de pegar. Espero que n\xE3o seja nada importante,
-    se n\xE3o, a Amelia vai tentar usar at\xE9 pra abrir seu cofre. Fica esperto"
+  page1: "Hey man, if you ever need to go into Amelia's room, you'll need a password,
+    since she's obsessed with cats and everything in her life revolves around them...\u200B 
+    There was a poem she used to recite while running tests with that thing in the
+    lab to calm herself down. It went something like this:\u200B  \"On days of hunger,
+    the white cat goes out to hunt its food in a nearby lake. Meanwhile, distracted,
+    the fish stares at the light above sinking into the water, dreaming of one day
+    knowing what it's like outside. The black cat, on the other hand, longs for the
+    movement of the algae, which below reveal the location of its prey.\" "
+  page2: 'By the way... You left a paper in the cryogenic capsule room yesterday.
+    Don''t forget to pick it up. I hope it''s nothing important, otherwise Amelia
+    might try to use it to open your safe. Stay sharp. '
 --- !u!1 &3622860996643020239
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,15 +604,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A\xED garoto, se voc\xEA for precisar ir no quarto da Amelia, vai precisar
-    de uma senha, j\xE1 que ela \xE9 fissurada em gatos e tudo tem a ver com isso
-    na vida dela...\r\n\r\nTinha um poema que ela vivia recitando enquanto fazia
-    testes com aquela coisa no laborat\xF3rio para se acalmar. Era mais ou menos
-    assim: \"Em dias de fome, o gato branco sai para ca\xE7ar sua comida em um lago
-    pr\xF3ximo, enquanto distra\xEDdo, o peixe encara a luz acima que se afunda na
-    \xE1gua, sonhando um dia saber como \xE9 o lado de fora. J\xE1 o gato preto,
-    anseia pelo movimento das algas, que abaixo revelam a localiza\xE7\xE3o de sua
-    presa"
+  m_text: "Hey man, if you ever need to go into Amelia's room, you'll need a password,
+    since she's obsessed with cats and everything in her life revolves around them...\u200B\r\n\r\nThere
+    was a poem she used to recite while running tests with that thing in the lab
+    to calm herself down. It went something like this:\u200B\r\n\r\n\"On days of
+    hunger, the white cat goes out to hunt its food in a nearby lake. Meanwhile,
+    distracted, the fish stares at the light above sinking into the water, dreaming
+    of one day knowing what it's like outside. The black cat, on the other hand,
+    longs for the movement of the algae, which below reveal the location of its prey.\"\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8fa2aa6624e30845803db1421db73e3, type: 2}
   m_sharedMaterial: {fileID: 6733584607209429869, guid: b8fa2aa6624e30845803db1421db73e3,
@@ -640,8 +639,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 4.95
-  m_fontSizeBase: 4.95
+  m_fontSize: 4.66
+  m_fontSizeBase: 4.66
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -678,7 +677,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 56.40609, y: 0, z: 27.792267, w: 0}
+  m_margin: {x: 56.40609, y: 0, z: 27.792267, w: -48.991894}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

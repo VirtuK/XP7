@@ -57,6 +57,7 @@ public class Cofre : Item
             abriu = true;
             GetComponent<BoxCollider>().enabled = false;
             ClosePuzzle();
+            seeDescription = "Why would they keep this in a safe?";
         }
     }
 }

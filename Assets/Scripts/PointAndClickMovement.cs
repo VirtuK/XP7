@@ -162,22 +162,6 @@ public class ClickToMove : MonoBehaviour
         Vector3 currentScale = transform.localScale;
         currentScale.x *= -1;
         transform.localScale = currentScale;
-        Transform textTransform = MessageText.instance.getText().transform;
-
-        Vector3 textScale = textTransform.localScale;
-        textScale.x *= -1;
-        textTransform.localScale = textScale;
-        if(directionSide == 1) 
-        {
-            textTransform.localPosition = originalTextLocalPosition;
-        }
-        else
-        {
-            textTransform.localPosition = new Vector3(2.05f, 4.56f, 0);
-        }
-
-
-            directionSide *= -1;
 
     }
 

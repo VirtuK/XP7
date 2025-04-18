@@ -45,7 +45,7 @@ public class TrancaIconPuzzle : Item
         }
         else
         {
-            MessageText.instance.ShowText("Eu já resolvi isso");
+            MessageText.instance.ShowText("The pieces don't move anymore.");
         }
     }
 

@@ -797,7 +797,8 @@ PrefabInstance:
         type: 3}
       propertyPath: icon
       value: 
-      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 21300000, guid: ae05d921fd158a3489778861eb8a0e88,
+        type: 3}
     - target: {fileID: 8574152723986435016, guid: f055c74faf9755942b935dd2e3b85024,
         type: 3}
       propertyPath: text
@@ -866,7 +867,8 @@ PrefabInstance:
     - target: {fileID: 8574152723986435016, guid: f055c74faf9755942b935dd2e3b85024,
         type: 3}
       propertyPath: seeDescription
-      value: Outro papel?
+      value: Hmm... Seems related to a poem about cats. Could the person from the
+        room with the cat panel have left this here?
       objectReference: {fileID: 0}
     - target: {fileID: 8846440356624032297, guid: f055c74faf9755942b935dd2e3b85024,
         type: 3}
@@ -882,10 +884,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 715709237}
-    - targetCorrespondingSourceObject: {fileID: 7331979948521085768, guid: f055c74faf9755942b935dd2e3b85024,
+    - targetCorrespondingSourceObject: {fileID: 1177536363160603420, guid: f055c74faf9755942b935dd2e3b85024,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 715709236}
+      addedObject: {fileID: 715709238}
   m_SourcePrefab: {fileID: 100100000, guid: f055c74faf9755942b935dd2e3b85024, type: 3}
 --- !u!4 &715709234 stripped
 Transform:
@@ -899,20 +901,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 715709233}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &715709236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!1 &715709236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1177536363160603420, guid: f055c74faf9755942b935dd2e3b85024,
+    type: 3}
+  m_PrefabInstance: {fileID: 715709233}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 715709235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed4a82d910cc0984b81556194e734511, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  storeInTexcoordChannel: 1
-  cospatialVertexDistance: 0.01
 --- !u!33 &715709237
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -921,6 +915,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 715709235}
   m_Mesh: {fileID: 0}
+--- !u!114 &715709238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715709236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4a82d910cc0984b81556194e734511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storeInTexcoordChannel: 1
+  cospatialVertexDistance: 0.01
 --- !u!1001 &788970011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1363,11 +1371,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1386568151070661211, guid: 128088799d037884299903ee08642e67,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 128088799d037884299903ee08642e67, type: 3}
 --- !u!1 &1331972646 stripped
 GameObject:
@@ -2444,6 +2448,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemName
       value: botao2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181862328388794260, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      propertyPath: seeDescription
+      value: Look, seems to be another one of the missing numbers...
       objectReference: {fileID: 0}
     - target: {fileID: 8025696331096507625, guid: ef56ac460e41a274684b6c50a4e252ff,
         type: 3}
@@ -3525,7 +3534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   icon: {fileID: 0}
-  seeDescription: 
+  seeDescription: The lights still seem about to burst...
   interactions: 6
   itemID: 
   IgnoreOnSave: 0

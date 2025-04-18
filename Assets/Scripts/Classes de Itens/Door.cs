@@ -83,7 +83,7 @@ public class Door : Item
         {
             if (InteractionManagar.instance.selectedItem != null && InteractionManagar.instance.selectedItem.itemName == keyItemName)
             {
-                Debug.Log("A porta abriu.");
+                Debug.Log("The door opened");
                 audioSC.Stop();
                 audioSC.clip = openingSound;
                 audioSC.Play();
@@ -93,7 +93,7 @@ public class Door : Item
             }
             else
             {
-                MessageText.instance.ShowText("Eu preciso de: " + keyItemName);
+                MessageText.instance.ShowText("I need something like a " + keyItemName + " here.");
             }
             CursorGame.instance.resetCursor();
         }
@@ -101,7 +101,7 @@ public class Door : Item
         {
             if (!isButtonPressed)
             {
-                MessageText.instance.ShowText("Parece que essa porta esta conectada a algum dispositivo.");
+                MessageText.instance.ShowText("Looks like this door is connected to something");
             }
             else
             {
@@ -139,6 +139,7 @@ public class Door : Item
         audioSC.clip = displaySound;
         audioSC.Play();
         display.material = displayOn;
+        interactions = InteractionType.Use;
     }
 
     public void turnOffDisplay()

@@ -2460,11 +2460,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1386568151070661211, guid: 128088799d037884299903ee08642e67,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 128088799d037884299903ee08642e67, type: 3}
 --- !u!4 &1561473310 stripped
 Transform:
@@ -2630,7 +2626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   icon: {fileID: 0}
-  seeDescription: Esse computador parece estar conectado a algo
+  seeDescription: They left the computer on...
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
@@ -3019,7 +3015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   icon: {fileID: 0}
-  seeDescription: "O que \xE9 isso?"
+  seeDescription: Is this where I came from? What is this...?
   interactions: 2
   itemID: 
   IgnoreOnSave: 0
@@ -3438,7 +3434,8 @@ PrefabInstance:
         type: 3}
       propertyPath: icon
       value: 
-      objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 21300000, guid: ae05d921fd158a3489778861eb8a0e88,
+        type: 3}
     - target: {fileID: 8574152723986435016, guid: f055c74faf9755942b935dd2e3b85024,
         type: 3}
       propertyPath: paper
@@ -3474,6 +3471,12 @@ PrefabInstance:
       propertyPath: interactions
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8574152723986435016, guid: f055c74faf9755942b935dd2e3b85024,
+        type: 3}
+      propertyPath: seeDescription
+      value: There seem to be some letters forming four lines... Could they mean
+        something?
+      objectReference: {fileID: 0}
     - target: {fileID: 8808581463394653678, guid: f055c74faf9755942b935dd2e3b85024,
         type: 3}
       propertyPath: m_Enabled
@@ -3503,10 +3506,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 712130483992443848}
-    - targetCorrespondingSourceObject: {fileID: 7331979948521085768, guid: f055c74faf9755942b935dd2e3b85024,
+    - targetCorrespondingSourceObject: {fileID: 1177536363160603420, guid: f055c74faf9755942b935dd2e3b85024,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 712130483992443847}
+      addedObject: {fileID: 712130483992443849}
   m_SourcePrefab: {fileID: 100100000, guid: f055c74faf9755942b935dd2e3b85024, type: 3}
 --- !u!1 &712130483992443846 stripped
 GameObject:
@@ -3514,20 +3517,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 712130483992443845}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &712130483992443847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!1 &712130483992443847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1177536363160603420, guid: f055c74faf9755942b935dd2e3b85024,
+    type: 3}
+  m_PrefabInstance: {fileID: 712130483992443845}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 712130483992443846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed4a82d910cc0984b81556194e734511, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  storeInTexcoordChannel: 1
-  cospatialVertexDistance: 0.01
 --- !u!33 &712130483992443848
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3536,6 +3531,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712130483992443846}
   m_Mesh: {fileID: 0}
+--- !u!114 &712130483992443849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712130483992443847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4a82d910cc0984b81556194e734511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storeInTexcoordChannel: 1
+  cospatialVertexDistance: 0.01
 --- !u!1001 &2635583335452789239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3851,7 +3860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Door
   icon: {fileID: 0}
-  seeDescription: "\xC9 uma porta"
+  seeDescription: Closed and there's no lock...
   interactions: 6
   itemID: 
   IgnoreOnSave: 0

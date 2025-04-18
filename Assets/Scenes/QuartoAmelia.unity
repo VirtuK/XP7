@@ -1826,6 +1826,11 @@ PrefabInstance:
       propertyPath: itemName
       value: botao1
       objectReference: {fileID: 0}
+    - target: {fileID: 4181862328388794260, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      propertyPath: seeDescription
+      value: Look, seems to be another one of the missing numbers...
+      objectReference: {fileID: 0}
     - target: {fileID: 8025696331096507625, guid: ef56ac460e41a274684b6c50a4e252ff,
         type: 3}
       propertyPath: m_Name
@@ -3603,7 +3608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   icon: {fileID: 0}
-  seeDescription: 
+  seeDescription: The doorknob is covered in fur...
   interactions: 6
   itemID: 
   IgnoreOnSave: 0

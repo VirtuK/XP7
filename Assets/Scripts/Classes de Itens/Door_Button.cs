@@ -28,13 +28,13 @@ public class Door_Button : Item
     {
         if (door != null && !door.isButtonPressed)
         {
-            MessageText.instance.ShowText("Apertei o botão");
+            MessageText.instance.ShowText("This activated something on this room");
             door.isButtonPressed = true;
             if (door.haveDisplay) door.turnOnDisplay();
         }
         else
         {
-            MessageText.instance.ShowText("Esse botão já foi apertado");
+            MessageText.instance.ShowText("Can't use it again.");
         }
     }
 

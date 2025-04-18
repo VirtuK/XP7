@@ -247,6 +247,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: botao4
       objectReference: {fileID: 0}
+    - target: {fileID: 2263155480191315131, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4181862328388794260, guid: ef56ac460e41a274684b6c50a4e252ff,
         type: 3}
       propertyPath: ID
@@ -266,6 +271,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: default4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025696331096507625, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8675251964263255795, guid: ef56ac460e41a274684b6c50a4e252ff,
         type: 3}
@@ -320,7 +330,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2263155480191315131, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 94835058}
+    - targetCorrespondingSourceObject: {fileID: 2263155480191315131, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 94835057}
   m_SourcePrefab: {fileID: 100100000, guid: ef56ac460e41a274684b6c50a4e252ff, type: 3}
 --- !u!4 &94835055 stripped
 Transform:
@@ -328,6 +346,34 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 94835054}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &94835056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2263155480191315131, guid: ef56ac460e41a274684b6c50a4e252ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 94835054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &94835057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94835056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4a82d910cc0984b81556194e734511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storeInTexcoordChannel: 1
+  cospatialVertexDistance: 0.01
+--- !u!33 &94835058
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94835056}
+  m_Mesh: {fileID: 0}
 --- !u!1 &172226454 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5753214659909834070, guid: 8284a190a326b1f49aea700ddab3eb81,
@@ -542,7 +588,7 @@ GameObject:
   - component: {fileID: 446632786}
   - component: {fileID: 446632785}
   - component: {fileID: 446632784}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -650,7 +696,8 @@ GameObject:
   - component: {fileID: 457895537}
   - component: {fileID: 457895536}
   - component: {fileID: 457895535}
-  m_Layer: 0
+  - component: {fileID: 457895539}
+  m_Layer: 7
   m_Name: TrancaDormitorios
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -785,6 +832,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 457895533}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &457895539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457895533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4a82d910cc0984b81556194e734511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storeInTexcoordChannel: 1
+  cospatialVertexDistance: 0.01
 --- !u!114 &469908884 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5878822961048575438, guid: 36fc5cff0fe8cd44f81d336f3ef7338d,
@@ -965,7 +1026,7 @@ GameObject:
   - component: {fileID: 679050011}
   - component: {fileID: 679050010}
   - component: {fileID: 679050009}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: botao1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1100,7 +1161,8 @@ GameObject:
   - component: {fileID: 780572112}
   - component: {fileID: 780572111}
   - component: {fileID: 780572110}
-  m_Layer: 0
+  - component: {fileID: 780572114}
+  m_Layer: 7
   m_Name: TrancaIconPuzzle
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -1221,6 +1283,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780572108}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &780572114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780572108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4a82d910cc0984b81556194e734511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storeInTexcoordChannel: 1
+  cospatialVertexDistance: 0.01
 --- !u!1001 &815059209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1286,6 +1362,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2dd67f56b37c8a4409c10d374218efd6,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2dd67f56b37c8a4409c10d374218efd6,
+        type: 3}
       propertyPath: m_TagString
       value: Item
       objectReference: {fileID: 0}
@@ -1309,6 +1390,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 979814552}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2dd67f56b37c8a4409c10d374218efd6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 979814553}
   m_SourcePrefab: {fileID: 100100000, guid: 2dd67f56b37c8a4409c10d374218efd6, type: 3}
 --- !u!1 &815059210 stripped
 GameObject:
@@ -1328,7 +1413,7 @@ GameObject:
   - component: {fileID: 847669838}
   - component: {fileID: 847669837}
   - component: {fileID: 847669836}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1435,7 +1520,7 @@ GameObject:
   - component: {fileID: 847757168}
   - component: {fileID: 847757167}
   - component: {fileID: 847757166}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1959,6 +2044,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &979814553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815059210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4a82d910cc0984b81556194e734511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storeInTexcoordChannel: 1
+  cospatialVertexDistance: 0.01
 --- !u!1 &993687918
 GameObject:
   m_ObjectHideFlags: 0
@@ -2089,7 +2188,7 @@ GameObject:
   - component: {fileID: 1031131053}
   - component: {fileID: 1031131052}
   - component: {fileID: 1031131051}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2199,6 +2298,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3529359134187822392, guid: 4bb17e67d46cc7945b7ac13c381a1ba0,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3529359134187822392, guid: 4bb17e67d46cc7945b7ac13c381a1ba0,
+        type: 3}
       propertyPath: m_TagString
       value: Item
       objectReference: {fileID: 0}
@@ -2264,6 +2368,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1049305017}
+    - targetCorrespondingSourceObject: {fileID: 3529359134187822392, guid: 4bb17e67d46cc7945b7ac13c381a1ba0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1049305018}
   m_SourcePrefab: {fileID: 100100000, guid: 4bb17e67d46cc7945b7ac13c381a1ba0, type: 3}
 --- !u!1 &1049305015 stripped
 GameObject:
@@ -2400,6 +2508,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1049305018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049305015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4a82d910cc0984b81556194e734511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storeInTexcoordChannel: 1
+  cospatialVertexDistance: 0.01
 --- !u!1001 &1063770423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2695,7 +2817,7 @@ GameObject:
   - component: {fileID: 1156258318}
   - component: {fileID: 1156258317}
   - component: {fileID: 1156258316}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2802,7 +2924,7 @@ GameObject:
   - component: {fileID: 1158765949}
   - component: {fileID: 1158765947}
   - component: {fileID: 1158765948}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Display2
   m_TagString: Display
   m_Icon: {fileID: 0}
@@ -3195,7 +3317,7 @@ GameObject:
   - component: {fileID: 1284522482}
   - component: {fileID: 1284522481}
   - component: {fileID: 1284522480}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3418,7 +3540,7 @@ GameObject:
   - component: {fileID: 1481778284}
   - component: {fileID: 1481778283}
   - component: {fileID: 1481778282}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3528,6 +3650,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3529359134187822392, guid: 4bb17e67d46cc7945b7ac13c381a1ba0,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3529359134187822392, guid: 4bb17e67d46cc7945b7ac13c381a1ba0,
+        type: 3}
       propertyPath: m_TagString
       value: Item
       objectReference: {fileID: 0}
@@ -3593,6 +3720,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1526038041}
+    - targetCorrespondingSourceObject: {fileID: 3529359134187822392, guid: 4bb17e67d46cc7945b7ac13c381a1ba0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1526038042}
   m_SourcePrefab: {fileID: 100100000, guid: 4bb17e67d46cc7945b7ac13c381a1ba0, type: 3}
 --- !u!1 &1526038039 stripped
 GameObject:
@@ -3729,6 +3860,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1526038042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526038039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4a82d910cc0984b81556194e734511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storeInTexcoordChannel: 1
+  cospatialVertexDistance: 0.01
 --- !u!1001 &1528287157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3858,7 +4003,7 @@ GameObject:
   - component: {fileID: 1607851581}
   - component: {fileID: 1607851580}
   - component: {fileID: 1607851579}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Display
   m_TagString: Display
   m_Icon: {fileID: 0}
@@ -3965,7 +4110,7 @@ GameObject:
   - component: {fileID: 1617999445}
   - component: {fileID: 1617999444}
   - component: {fileID: 1617999443}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4072,7 +4217,7 @@ GameObject:
   - component: {fileID: 1629728516}
   - component: {fileID: 1629728515}
   - component: {fileID: 1629728514}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: botao6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4460,7 +4605,7 @@ GameObject:
   - component: {fileID: 1741426717}
   - component: {fileID: 1741426716}
   - component: {fileID: 1741426715}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: botao5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5549,7 +5694,7 @@ GameObject:
   - component: {fileID: 2070917850}
   - component: {fileID: 2070917849}
   - component: {fileID: 2070917848}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: botao7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5656,7 +5801,7 @@ GameObject:
   - component: {fileID: 2086128419}
   - component: {fileID: 2086128418}
   - component: {fileID: 2086128417}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5797,6 +5942,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3529359134187822392, guid: 4bb17e67d46cc7945b7ac13c381a1ba0,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3529359134187822392, guid: 4bb17e67d46cc7945b7ac13c381a1ba0,
+        type: 3}
       propertyPath: m_TagString
       value: Item
       objectReference: {fileID: 0}
@@ -5866,6 +6016,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6136821408841063318}
+    - targetCorrespondingSourceObject: {fileID: 3529359134187822392, guid: 4bb17e67d46cc7945b7ac13c381a1ba0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6136821408841063319}
   m_SourcePrefab: {fileID: 100100000, guid: 4bb17e67d46cc7945b7ac13c381a1ba0, type: 3}
 --- !u!1 &6136821408841063316 stripped
 GameObject:
@@ -6002,6 +6156,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6136821408841063319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6136821408841063316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4a82d910cc0984b81556194e734511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storeInTexcoordChannel: 1
+  cospatialVertexDistance: 0.01
 --- !u!1001 &7099874661973285772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6116,6 +6284,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4711861415580447228, guid: 8b590a5bb53162746895411de550a261,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711861415580447228, guid: 8b590a5bb53162746895411de550a261,
+        type: 3}
       propertyPath: m_TagString
       value: Item
       objectReference: {fileID: 0}
@@ -6200,6 +6373,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8717938015752479722}
+    - targetCorrespondingSourceObject: {fileID: 4711861415580447228, guid: 8b590a5bb53162746895411de550a261,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8717938015752479723}
   m_SourcePrefab: {fileID: 100100000, guid: 8b590a5bb53162746895411de550a261, type: 3}
 --- !u!4 &8717938015752479719 stripped
 Transform:
@@ -6357,6 +6534,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8717938015752479723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724565519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4a82d910cc0984b81556194e734511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storeInTexcoordChannel: 1
+  cospatialVertexDistance: 0.01
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

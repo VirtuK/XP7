@@ -31,6 +31,7 @@ public class Cofre : Item
         input = GameObject.Find("InputField (TMP)").GetComponent<TMP_InputField>();
         animator = GameObject.Find("cofreFechado").GetComponent<Animator>();
         puzzleCam = GameObject.Find("PuzzleCamera");
+        puzzleCam.SetActive(false);
         numberPuzzle.SetActive(false);
     }
 

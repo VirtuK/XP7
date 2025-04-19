@@ -18,12 +18,14 @@ public class TrancaIconPuzzle : Item
     {
         iconPuzzle = GameObject.Find("Icon Match Puzzle");
         puzzleCam = GameObject.Find("PuzzleCamera");
+   
         StartCoroutine(InitializeAfterSceneLoad());
     }
 
     private IEnumerator InitializeAfterSceneLoad()
     {
         yield return new WaitForEndOfFrame();
+        puzzleCam.SetActive(false);
         if (door != null)
         {
             doorName = door.gameObject.name;

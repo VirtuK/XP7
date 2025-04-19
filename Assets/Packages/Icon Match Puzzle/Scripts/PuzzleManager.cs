@@ -22,9 +22,9 @@ public class PuzzleManager : MonoBehaviour
     private int index;
     private void Start()
     {
+        puzzleCam = GameObject.Find("PuzzleCamera");
         puzzle = GameObject.Find("Icon Match Puzzle");
         player = GameObject.Find("Player");
-        puzzleCam = GameObject.Find("PuzzleCamera");
         StartCoroutine(InitializeAfterSceneLoad());
     }
 

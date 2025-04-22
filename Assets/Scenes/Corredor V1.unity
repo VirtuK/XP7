@@ -340,10 +340,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 94835058}
-    - targetCorrespondingSourceObject: {fileID: 2263155480191315131, guid: ef56ac460e41a274684b6c50a4e252ff,
+    - targetCorrespondingSourceObject: {fileID: 8025696331096507625, guid: ef56ac460e41a274684b6c50a4e252ff,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 94835057}
+      addedObject: {fileID: 94835059}
   m_SourcePrefab: {fileID: 100100000, guid: ef56ac460e41a274684b6c50a4e252ff, type: 3}
 --- !u!4 &94835055 stripped
 Transform:
@@ -357,20 +357,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 94835054}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &94835057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!1 &94835057 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8025696331096507625, guid: ef56ac460e41a274684b6c50a4e252ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 94835054}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94835056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed4a82d910cc0984b81556194e734511, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  storeInTexcoordChannel: 1
-  cospatialVertexDistance: 0.01
 --- !u!33 &94835058
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -379,6 +371,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94835056}
   m_Mesh: {fileID: 0}
+--- !u!114 &94835059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94835057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4a82d910cc0984b81556194e734511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storeInTexcoordChannel: 1
+  cospatialVertexDistance: 0.01
 --- !u!1 &172226454 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5753214659909834070, guid: 8284a190a326b1f49aea700ddab3eb81,
@@ -5985,6 +5991,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1741357937}
     m_Modifications:
+    - target: {fileID: 160989919769200320, guid: 03f1797e74f73f443a32d2b0bfc300dd,
+        type: 3}
+      propertyPath: m_Name
+      value: painel
+      objectReference: {fileID: 0}
     - target: {fileID: 569405973587811600, guid: 03f1797e74f73f443a32d2b0bfc300dd,
         type: 3}
       propertyPath: m_Name

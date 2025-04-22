@@ -16,20 +16,22 @@ public class Cofre : Item
     private void Start()
     {
         StartCoroutine(InitializeAfterSceneLoad());
+    }
+
+    private IEnumerator InitializeAfterSceneLoad()
+    {
+       
+        yield return new WaitForEndOfFrame();
+        animator = GameObject.Find("cofreFechado").GetComponent<Animator>();
         if (abriu)
         {
             animator.SetBool("abriu", true);
             GetComponent<BoxCollider>().enabled = false;
         }
-    }
-
-    private IEnumerator InitializeAfterSceneLoad()
-    {
-        yield return new WaitForEndOfFrame();
         numberPuzzle = GameObject.Find("NumberPuzzle");
         player = GameObject.Find("Player");
         input = GameObject.Find("InputField (TMP)").GetComponent<TMP_InputField>();
-        animator = GameObject.Find("cofreFechado").GetComponent<Animator>();
+
         puzzleCam = GameObject.Find("PuzzleCamera");
         puzzleCam.SetActive(false);
         numberPuzzle.SetActive(false);

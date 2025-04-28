@@ -15,6 +15,7 @@ public class Door : Item
     [SerializeField] public bool isButtonPressed;
     [SerializeField] public bool haveDisplay;
     [SerializeField] private MeshRenderer display;
+    [SerializeField] private Light displayLight;
     [SerializeField] private Material displayOn;
     [SerializeField] private Material displayOff;
     [SerializeField] private string doorDestinationSceneName; // Scene name for runtime use
@@ -45,6 +46,7 @@ public class Door : Item
     public void StartDoorDisplay()
     {
         display = FindDisplayInChildren(transform, "Display");
+        displayLight = FindLightInChildren(transform, "DisplayLight");
 
         if (display != null)
         {
@@ -72,6 +74,18 @@ public class Door : Item
             if (child.CompareTag(tag))
             {
                 return child.GetComponent<MeshRenderer>();
+            }
+        }
+        return null;
+    }
+
+    private Light FindLightInChildren(Transform parent, string tag)
+    {
+        foreach (Transform child in parent.GetComponentsInChildren<Transform>(true))
+        {
+            if (child.CompareTag(tag))
+            {
+                return child.GetComponent<Light>();
             }
         }
         return null;
@@ -139,12 +153,14 @@ public class Door : Item
         audioSC.clip = displaySound;
         audioSC.Play();
         display.material = displayOn;
+        displayLight.color = new Color32(34, 180, 0, 255);
         interactions = InteractionType.Use;
     }
 
     public void turnOffDisplay()
     {
         display.material = displayOff;
+        displayLight.color = new Color32(180, 0, 0, 255);
     }
 
 #if UNITY_EDITOR

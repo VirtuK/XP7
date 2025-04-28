@@ -40,6 +40,10 @@ public abstract class Item : MonoBehaviour, IInteractable
     }
     public virtual void Use() { }
 
+    public virtual void Inspect()
+    {
+        ItemInspection.instance.StartInspection(transform.parent.gameObject);
+    }
     public void ListDestruction()
     {
         // Notify SceneSerializationManager when this object is destroyed

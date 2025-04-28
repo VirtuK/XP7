@@ -269,6 +269,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4181862328388794260, guid: ef56ac460e41a274684b6c50a4e252ff,
         type: 3}
+      propertyPath: interactions
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181862328388794260, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
       propertyPath: seeDescription
       value: Ah, seems to be one of the missing numbers on the number board...
       objectReference: {fileID: 0}
@@ -1656,6 +1661,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1607851578}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2dd67f56b37c8a4409c10d374218efd6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1557986098}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2dd67f56b37c8a4409c10d374218efd6,
         type: 3}
@@ -2202,6 +2211,7 @@ MonoBehaviour:
   isButtonPressed: 0
   haveDisplay: 1
   display: {fileID: 1607851580}
+  displayLight: {fileID: 0}
   displayOn: {fileID: 2100000, guid: 704c5309b9c13e044b4a5f77967584df, type: 2}
   displayOff: {fileID: 2100000, guid: 2ccbab978c03ec44c9a89f85b02ba5a1, type: 2}
   doorDestinationSceneName: sair
@@ -2442,7 +2452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1006614956
 Transform:
   m_ObjectHideFlags: 0
@@ -2820,6 +2830,7 @@ MonoBehaviour:
   isButtonPressed: 0
   haveDisplay: 0
   display: {fileID: 0}
+  displayLight: {fileID: 0}
   displayOn: {fileID: 0}
   displayOff: {fileID: 0}
   doorDestinationSceneName: QuartoRoberto
@@ -3976,7 +3987,7 @@ GameObject:
   - component: {fileID: 1406471596}
   m_Layer: 0
   m_Name: Point Light (3)
-  m_TagString: Untagged
+  m_TagString: DisplayLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3989,12 +4000,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406471594}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.25, y: 2.35, z: 1.31}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: -0.0766225, y: -1.4154439, z: -3.0389597}
+  m_LocalScale: {x: 0.86273795, y: 0.86273813, z: 0.86273813}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2048509780}
+  m_Father: {fileID: 1081364961}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1406471596
 MonoBehaviour:
@@ -4438,6 +4449,7 @@ MonoBehaviour:
   isButtonPressed: 0
   haveDisplay: 0
   display: {fileID: 0}
+  displayLight: {fileID: 0}
   displayOn: {fileID: 0}
   displayOff: {fileID: 0}
   doorDestinationSceneName: QuartoVinicius
@@ -4693,7 +4705,7 @@ GameObject:
   - component: {fileID: 1557986099}
   m_Layer: 0
   m_Name: Point Light (4)
-  m_TagString: Untagged
+  m_TagString: DisplayLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4706,12 +4718,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557986097}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.17, y: 2.35, z: 0.35}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: -0.11403474, y: -1.5268793, z: -3.066959}
+  m_LocalScale: {x: 0.86273825, y: 0.86273825, z: 0.86273825}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2048509780}
+  m_Father: {fileID: 979814549}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1557986099
 MonoBehaviour:
@@ -6287,8 +6299,6 @@ Transform:
   - {fileID: 1632859196}
   - {fileID: 1036731319}
   - {fileID: 1165082552}
-  - {fileID: 1406471595}
-  - {fileID: 1557986098}
   - {fileID: 431778326}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6742,6 +6752,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4301251840269076354, guid: 4bb17e67d46cc7945b7ac13c381a1ba0,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1406471595}
+    - targetCorrespondingSourceObject: {fileID: 4301251840269076354, guid: 4bb17e67d46cc7945b7ac13c381a1ba0,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1158765950}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3529359134187822392, guid: 4bb17e67d46cc7945b7ac13c381a1ba0,
@@ -6787,6 +6801,7 @@ MonoBehaviour:
   isButtonPressed: 0
   haveDisplay: 1
   display: {fileID: 1158765947}
+  displayLight: {fileID: 0}
   displayOn: {fileID: 2100000, guid: 704c5309b9c13e044b4a5f77967584df, type: 2}
   displayOff: {fileID: 2100000, guid: 2ccbab978c03ec44c9a89f85b02ba5a1, type: 2}
   doorDestinationSceneName: QuartoAmelia
@@ -7144,6 +7159,7 @@ MonoBehaviour:
   isButtonPressed: 0
   haveDisplay: 0
   display: {fileID: 0}
+  displayLight: {fileID: 0}
   displayOn: {fileID: 0}
   displayOff: {fileID: 0}
   doorDestinationSceneName: LabCriogenia

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 [System.Serializable]
 public class Componente : Item
@@ -23,5 +24,10 @@ public class Componente : Item
         InventoryManager.instance.AddItem(item);
         ListDestruction();
         gameObject.SetActive(false);
+    }
+
+   public override void Use()
+    {
+        Inspect();
     }
 }

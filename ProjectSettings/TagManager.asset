@@ -9,6 +9,7 @@ TagManager:
   - Slot
   - Piece
   - Display
+  - DisplayLight
   layers:
   - Default
   - TransparentFX

@@ -315,7 +315,6 @@ GameObject:
   - component: {fileID: 4451567164965041960}
   - component: {fileID: 8607353010436230616}
   - component: {fileID: 1663264577328569967}
-  - component: {fileID: 8581851132334428436}
   m_Layer: 0
   m_Name: Point Light player
   m_TagString: Untagged
@@ -332,7 +331,7 @@ Transform:
   m_GameObject: {fileID: 3328757033727672722}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.32, y: 3.71, z: -12.358976}
+  m_LocalPosition: {x: 0.04, y: 0.64, z: -1.2}
   m_LocalScale: {x: 2.5641026, y: 2.5641026, z: 2.5641026}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -422,21 +421,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!114 &8581851132334428436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3328757033727672722}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf1b027f39d12dd4d82dd314584da9aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minIntensity: 0.7
-  maxIntensity: 1
-  timeBetweenIntensity: 0.4
 --- !u!1 &7027715677433876271
 GameObject:
   m_ObjectHideFlags: 0

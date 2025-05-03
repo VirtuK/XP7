@@ -28,7 +28,7 @@ public class Tranca : Item
         }
         if (requiredComponentNames.Count == 0)
         {
-            StartCoroutine(SceneChanger.instance.changeScene(puzzleSceneName));
+            SceneChanger.instance.changeScene(puzzleSceneName);
         }
         else
         {

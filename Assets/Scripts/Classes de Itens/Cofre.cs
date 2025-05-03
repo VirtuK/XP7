@@ -32,8 +32,8 @@ public class Cofre : Item
         player = GameObject.Find("Player");
         input = GameObject.Find("InputField (TMP)").GetComponent<TMP_InputField>();
 
-        puzzleCam = GameObject.Find("PuzzleCamera");
-        puzzleCam.SetActive(false);
+        //puzzleCam = GameObject.Find("PuzzleCamera");
+        //puzzleCam.SetActive(false);
         numberPuzzle.SetActive(false);
     }
 

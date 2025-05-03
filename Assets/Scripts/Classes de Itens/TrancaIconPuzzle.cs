@@ -24,10 +24,10 @@ public class TrancaIconPuzzle : Item
 
     private IEnumerator InitializeAfterSceneLoad()
     {
-        puzzleCam.SetActive(false);
-        iconPuzzle.SetActive(false);
+        //puzzleCam.SetActive(false);
+        //iconPuzzle.SetActive(false);
         yield return new WaitForEndOfFrame();
-        puzzleCam.SetActive(false);
+        //puzzleCam.SetActive(false);
         if (door != null)
         {
             doorName = door.gameObject.name;

@@ -97,13 +97,7 @@ public class Door : Item
         {
             if (InteractionManagar.instance.selectedItem != null && InteractionManagar.instance.selectedItem.itemName == keyItemName)
             {
-                Debug.Log("The door opened");
-                audioSC.Stop();
-                audioSC.clip = openingSound;
-                audioSC.Play();
-                InventoryManager.instance.RemoveItem(InteractionManagar.instance.selectedItem);
-                SceneSerializationManager.instance.SaveScene();
-                StartCoroutine(SceneChanger.instance.changeScene(doorDestinationSceneName));
+                changeScene();
             }
             else
             {
@@ -119,32 +113,36 @@ public class Door : Item
             }
             else
             {
-                audioSC.Stop();
-                audioSC.clip = openingSound;
-                audioSC.Play();
-                SceneSerializationManager.instance.SaveScene();
-                StartCoroutine(SceneChanger.instance.changeScene(doorDestinationSceneName));
+                changeScene();
             }
         }
         else if (isPuzzleDoor)
         {
             if (ProgressManager.instance.puzzleResolved)
             {
-                audioSC.Stop();
-                audioSC.clip = openingSound;
-                audioSC.Play();
-                SceneSerializationManager.instance.SaveScene();
-                StartCoroutine(SceneChanger.instance.changeScene(doorDestinationSceneName));
+                changeScene();
+            }
+            else
+            {
+                changeScene();
             }
         }
         else
         {
-            audioSC.Stop();
-            audioSC.clip = openingSound;
-            audioSC.Play();
-            SceneSerializationManager.instance.SaveScene();
-            StartCoroutine(SceneChanger.instance.changeScene(doorDestinationSceneName));
+            changeScene();
         }
+    }
+
+
+    public void changeScene()
+    {
+        audioSC.Stop();
+        audioSC.clip = openingSound;
+        audioSC.Play();
+        GameObject.Find("Player").GetComponent<ClickToMove>().doingPuzzle = true;
+        InteractionManagar.instance.interacting = true;
+        SceneSerializationManager.instance.SaveScene();
+        SceneChanger.instance.changeScene(doorDestinationSceneName);
     }
 
     public void turnOnDisplay()

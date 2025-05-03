@@ -40,7 +40,7 @@ public class SlidingPuzzle : MonoBehaviour
             else
             {
                 ProgressManager.instance.puzzleResolved = true;
-                StartCoroutine(SceneChanger.instance.changeScene(returnToScene));
+                SceneChanger.instance.changeScene(returnToScene);
             }
         }
 

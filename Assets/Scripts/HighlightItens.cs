@@ -5,6 +5,7 @@ using UnityEngine;
 public class HighlightItens : MonoBehaviour
 {
     public Material outlineMaterial;
+    public Material outlineMaterial2;
     private List<Material> originalMaterial = new List<Material>();
     private Renderer lastRenderer;
     private Camera mainCamera;
@@ -47,7 +48,11 @@ public class HighlightItens : MonoBehaviour
                          {
                              materials.Add(m);
                          }
-                         materials.Add(outlineMaterial);
+                        if (hitObject.GetComponent<Door_Button>())
+                        {
+                            materials.Add(outlineMaterial2);
+                        }
+                        else materials.Add(outlineMaterial);
                          renderer.SetMaterials(materials);
                         CursorGame.instance.InteractCursor();
                     }

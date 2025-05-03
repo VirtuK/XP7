@@ -33,6 +33,7 @@ public class MessageText : MonoBehaviour
         textBackground = GameObject.Find("DialogueBox");
         text = mensagem.GetComponent<TMP_Text>();
         mensagem.SetActive(false);
+
       
     }
 

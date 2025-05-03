@@ -334,6 +334,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4415042749791892112, guid: cae46bba7350b5646b4ca1f86fadea55,
+        type: 3}
+      propertyPath: textBackground
+      value: 
+      objectReference: {fileID: 1203437826}
     - target: {fileID: 5003039416549314330, guid: cae46bba7350b5646b4ca1f86fadea55,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2692,6 +2697,12 @@ PrefabInstance:
 --- !u!224 &1203437825 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3861873085213189334, guid: c332f69ae6372c248913ae292345df7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1203437824}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1203437826 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8122867194710921618, guid: c332f69ae6372c248913ae292345df7d,
     type: 3}
   m_PrefabInstance: {fileID: 1203437824}
   m_PrefabAsset: {fileID: 0}

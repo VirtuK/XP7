@@ -84,15 +84,14 @@ public class InventoryUI : MonoBehaviour
     {
         for (int i = 0; i < itens.Count; i++)
         {
-            float startX = -299;
-            float startY = -1.8f;
-            float slotSpacingX = 90;
-            float slotSpacingY = 78;
+            float startX = 716;
+            float startY = 383;
+            float slotSpacingX = 0;
+            float slotSpacingY = 89;
 
-            int row = i / 3;
-            int column = i % 3;
+            int row = i;
 
-            float itemX = startX + (slotSpacingX * column);
+            float itemX = startX;
             float itemY = startY - (slotSpacingY * row);
 
             itens[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(itemX, itemY);

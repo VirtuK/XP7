@@ -11,6 +11,7 @@ public class MessageText : MonoBehaviour
     public static MessageText instance;
 
     [SerializeField] private TMP_Text text;
+    [SerializeField] private GameObject textBackground;
     private float timer = 3f;
     private bool timerActive;
 
@@ -29,6 +30,7 @@ public class MessageText : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         GameObject mensagem = GameObject.Find("Mensagem");
+        textBackground = GameObject.Find("DialogueBox");
         text = mensagem.GetComponent<TMP_Text>();
         mensagem.SetActive(false);
       
@@ -52,12 +54,14 @@ public class MessageText : MonoBehaviour
             timerActive = false;
             timer = 3f;
             text.gameObject.SetActive(false);
+            textBackground.SetActive(false);
         }
     }
 
     public void ShowText(string txt)
     {
         text.gameObject.SetActive(true);
+        textBackground.SetActive(true);
         text.text = txt;
         timerActive = true;
     }

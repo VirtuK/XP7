@@ -212,16 +212,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3479182098516070733}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1292343, y: 0.59926647, z: 0.3176822}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5977799448490578254}
+  m_Father: {fileID: 992222986912387768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48, y: 0}
+  m_AnchoredPosition: {x: -35, y: 29.4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2884149353466452602
@@ -256,8 +256,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b8fa2aa6624e30845803db1421db73e3, type: 2}
-  m_sharedMaterial: {fileID: 6733584607209429869, guid: b8fa2aa6624e30845803db1421db73e3,
+  m_fontAsset: {fileID: 11400000, guid: 5cd21bfbcc0cb3d409cfe979366d5eeb, type: 2}
+  m_sharedMaterial: {fileID: 3276267302191536025, guid: 5cd21bfbcc0cb3d409cfe979366d5eeb,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -374.9677, w: -75.69199}
+  m_margin: {x: 0, y: 0, z: -542.1627, w: -97.9711}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1020,7 +1020,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8055313333622544757, guid: 3f4bffdfbf2eb46459200dc0eea6f778,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3339927637470216011}
   m_SourcePrefab: {fileID: 100100000, guid: 3f4bffdfbf2eb46459200dc0eea6f778, type: 3}
 --- !u!224 &2488795715912504855 stripped
 RectTransform:
@@ -1028,6 +1032,34 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4822145095845325975}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3252033951963461090 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8055313333622544757, guid: 3f4bffdfbf2eb46459200dc0eea6f778,
+    type: 3}
+  m_PrefabInstance: {fileID: 4822145095845325975}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3339927637470216011
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3252033951963461090}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 760ac31275730da43afd6e581b0fd6db, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &5162907035082017339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1214,9 +1246,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6898473581027690482, guid: 81a8308e7507eb949bee705e74f2d06b,
         type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898473581027690482, guid: 81a8308e7507eb949bee705e74f2d06b,
+        type: 3}
       propertyPath: m_margin.x
       value: 2.804161
       objectReference: {fileID: 0}
+    - target: {fileID: 6898473581027690482, guid: 81a8308e7507eb949bee705e74f2d06b,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5cd21bfbcc0cb3d409cfe979366d5eeb,
+        type: 2}
     - target: {fileID: 6898473581027690482, guid: 81a8308e7507eb949bee705e74f2d06b,
         type: 3}
       propertyPath: m_fontColor.b
@@ -1234,8 +1277,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6898473581027690482, guid: 81a8308e7507eb949bee705e74f2d06b,
         type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3276267302191536025, guid: 5cd21bfbcc0cb3d409cfe979366d5eeb,
+        type: 2}
+    - target: {fileID: 6898473581027690482, guid: 81a8308e7507eb949bee705e74f2d06b,
+        type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898473581027690482, guid: 81a8308e7507eb949bee705e74f2d06b,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9126461234723611597, guid: 81a8308e7507eb949bee705e74f2d06b,
         type: 3}
@@ -1249,6 +1303,10 @@ PrefabInstance:
         type: 3}
       insertIndex: 0
       addedObject: {fileID: 8394774343353651673}
+    - targetCorrespondingSourceObject: {fileID: 5360199538517612675, guid: 81a8308e7507eb949bee705e74f2d06b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1911284150048350558}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81a8308e7507eb949bee705e74f2d06b, type: 3}
 --- !u!224 &992222986912387768 stripped
@@ -1275,6 +1333,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1488209186407240289, guid: 7c2367bdd65a36b43acd24a4e1bb93f7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 75c9640064eee2741b5e0bab0a14c3f6,
+        type: 3}
     - target: {fileID: 4347379559107371299, guid: 7c2367bdd65a36b43acd24a4e1bb93f7,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -1688,10 +1752,6 @@ PrefabInstance:
         type: 3}
       insertIndex: 1
       addedObject: {fileID: 301328374238972387}
-    - targetCorrespondingSourceObject: {fileID: 743879787564556862, guid: af4f25861c54dfe4eab7c6ac556b2918,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1911284150048350558}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af4f25861c54dfe4eab7c6ac556b2918, type: 3}
 --- !u!224 &5977799448490578254 stripped

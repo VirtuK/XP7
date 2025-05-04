@@ -54,7 +54,14 @@ public class HighlightItens : MonoBehaviour
                         }
                         else materials.Add(outlineMaterial);
                          renderer.SetMaterials(materials);
-                        CursorGame.instance.InteractCursor();
+                        if (hitObject.GetComponent<Door>())
+                        {
+                            CursorGame.instance.DoorCursor();
+                        }
+                        else
+                        {
+                            CursorGame.instance.InteractCursor();
+                        }
                     }
                 }
                 return;
@@ -62,6 +69,7 @@ public class HighlightItens : MonoBehaviour
         }
         ResetHighlight();
         CursorGame.instance.ResetInteractCursor();
+        CursorGame.instance.ResetDoorCursor();
     }
 
     void ResetHighlight()

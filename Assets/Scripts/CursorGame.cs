@@ -13,6 +13,7 @@ public class CursorGame : MonoBehaviour
     [SerializeField] public Sprite cursorPrincipalSprite;
     [SerializeField] public Sprite cursorInteractionSprite;
     [SerializeField] public Sprite cursorDrawSprite;
+    [SerializeField] public Animator cursorAnimator;
     
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class CursorGame : MonoBehaviour
         if (cursorObject != null)
         {
             cursorObject.GetComponent<Image>().sprite = cursorPrincipalSprite;
+            cursorAnimator = cursorObject.GetComponent<Animator>();
         }
         else
         {
@@ -70,6 +72,7 @@ public class CursorGame : MonoBehaviour
     {
         InteractionManagar.instance.selectedItem = null;
         cursorObject.GetComponent<Image>().sprite = cursorPrincipalSprite;
+        cursorAnimator.SetBool("Door", false);
     }
 
     public void InteractCursor()
@@ -96,5 +99,16 @@ public class CursorGame : MonoBehaviour
     public void ResetDrawCursor()
     {
         cursorObject.GetComponent<Image>().sprite = cursorPrincipalSprite;
+    }
+
+    public void DoorCursor()
+    {
+        cursorAnimator.SetBool("Door", true);
+    }
+
+    public void ResetDoorCursor()
+    {
+        cursorObject.GetComponent<Image>().sprite = cursorPrincipalSprite;
+        cursorAnimator.SetBool("Door", false);
     }
 }

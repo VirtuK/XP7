@@ -151,7 +151,14 @@ public class ClickToMove : MonoBehaviour
 
             if (Vector3.Distance(playerPos, itemPos) <= interactionDistance)
             {
-                InteractionManagar.instance.CheckInteractions(targetItem.GetComponent<Item>(), clickPosition);
+                if (targetItem.GetComponent<Door>())
+                {
+                    targetItem.GetComponent<Door>().Use();
+                }
+                else
+                {
+                    InteractionManagar.instance.CheckInteractions(targetItem.GetComponent<Item>(), clickPosition);
+                }
                 targetItem = null;
             }
         }

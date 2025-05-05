@@ -29,12 +29,9 @@ public class MessageText : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        GameObject mensagem = GameObject.Find("Mensagem");
+        Research();
         textBackground = GameObject.Find("DialogueBox");
-        text = mensagem.GetComponent<TMP_Text>();
-        mensagem.SetActive(false);
         textBackground.SetActive(false);
-
       
     }
 
@@ -42,7 +39,6 @@ public class MessageText : MonoBehaviour
     {
         GameObject mensagem = GameObject.Find("Mensagem");
         text = mensagem.GetComponent<TMP_Text>();
-        mensagem.SetActive(false);
     }
 
     private void Update()

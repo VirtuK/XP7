@@ -33,12 +33,12 @@ public class DialogueManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         dialogueBox = GameObject.Find("DialogueBox");
-        leftCharacterImage = GameObject.Find("Character1").GetComponent<Image>();
-        rightCharacterImage = GameObject.Find("Character2").GetComponent<Image>();
-        leftCharacterName = GameObject.Find("Character1Name").GetComponent<TMP_Text>();
-        rightCharacterName = GameObject.Find("Character2Name").GetComponent<TMP_Text>();
+        //leftCharacterImage = GameObject.Find("Character1").GetComponent<Image>();
+        //rightCharacterImage = GameObject.Find("Character2").GetComponent<Image>();
+        //leftCharacterName = GameObject.Find("Character1Name").GetComponent<TMP_Text>();
+        //rightCharacterName = GameObject.Find("Character2Name").GetComponent<TMP_Text>();
         dialogueText = GameObject.Find("DialogueText").GetComponent<TMP_Text>();
-        dialogueBox.SetActive(false);
+        //dialogueBox.SetActive(false);
     }
 
     public void StartDialogue(Dialogue dialogue)

@@ -61,7 +61,9 @@ public class HighlightItens : MonoBehaviour
                         else
                         {
                             CursorGame.instance.InteractCursor();
+
                         }
+                        return;
                     }
                 }
                 return;

@@ -72,15 +72,19 @@ public class CursorGame : MonoBehaviour
     {
         InteractionManagar.instance.selectedItem = null;
         cursorObject.GetComponent<Image>().sprite = cursorPrincipalSprite;
-        cursorAnimator.SetBool("Door", false);
     }
 
     public void InteractCursor()
     {
-        if(cursorObject.GetComponent<Image>().sprite == cursorPrincipalSprite)
+        cursorAnimator.SetBool("Door", false);
+        cursorAnimator.enabled = false;
+        cursorObject.GetComponent<Image>().sprite = cursorInteractionSprite;
+        print("detectando interação");
+        if(cursorObject.GetComponent<Image>().sprite = cursorInteractionSprite)
         {
-            cursorObject.GetComponent<Image>().sprite = cursorInteractionSprite;
+            print("mudou icone");
         }
+        cursorObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
     }
 
     public void ResetInteractCursor()
@@ -104,11 +108,15 @@ public class CursorGame : MonoBehaviour
     public void DoorCursor()
     {
         cursorAnimator.SetBool("Door", true);
+        cursorAnimator.enabled = true;
     }
 
     public void ResetDoorCursor()
     {
-        cursorObject.GetComponent<Image>().sprite = cursorPrincipalSprite;
         cursorAnimator.SetBool("Door", false);
+        cursorAnimator.enabled = false;
+        cursorObject.GetComponent<Image>().sprite = cursorPrincipalSprite;
+        cursorObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+
     }
 }

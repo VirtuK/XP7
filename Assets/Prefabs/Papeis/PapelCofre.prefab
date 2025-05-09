@@ -150,7 +150,6 @@ MonoBehaviour:
     GOW
 
 
-
     A B C D E F G H
 
     I
@@ -158,8 +157,8 @@ MonoBehaviour:
 
     Q R S T U V W X'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b8fa2aa6624e30845803db1421db73e3, type: 2}
-  m_sharedMaterial: {fileID: 6733584607209429869, guid: b8fa2aa6624e30845803db1421db73e3,
+  m_fontAsset: {fileID: 11400000, guid: 5cd21bfbcc0cb3d409cfe979366d5eeb, type: 2}
+  m_sharedMaterial: {fileID: 3276267302191536025, guid: 5cd21bfbcc0cb3d409cfe979366d5eeb,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -222,7 +221,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 56.40609, y: 0, z: 27.792267, w: 0}
+  m_margin: {x: 56.40609, y: 0, z: 27.792267, w: -6.1715527}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -263,7 +262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 569, y: -119}
+  m_AnchoredPosition: {x: 0, y: -128}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4693072075778581816
@@ -301,7 +300,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.4303, y: -42.591476}
+  m_AnchoredPosition: {x: -0.4303, y: -45}
   m_SizeDelta: {x: 65.6053, y: 36.3791}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7960359584456669071
@@ -351,7 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da1f4e6f2725a743ab6553f0c18afa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawColor: {r: 1, g: 0, b: 0, a: 1}
+  drawColor: {r: 1, g: 0, b: 0, a: 0.78039217}
   brushSize: 0.5
   puzzle: {fileID: 2408854842199586680}
   player: {fileID: 0}

@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -153}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1576134304377360766
@@ -102,7 +102,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 278, y: 469}
+  m_AnchoredPosition: {x: 278, y: 475.8}
   m_SizeDelta: {x: -70.0964, y: -70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7735724944393736280
@@ -234,7 +234,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 276, y: -181}
+  m_AnchoredPosition: {x: 276, y: -190}
   m_SizeDelta: {x: 238.6815, y: 172.791}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3975444622955159574
@@ -442,7 +442,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -256.0929, y: -181}
+  m_AnchoredPosition: {x: -256.0929, y: -190}
   m_SizeDelta: {x: 227.1633, y: 177.2224}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4795383318751183412
@@ -573,7 +573,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.3, y: 22.5}
+  m_AnchoredPosition: {x: -10.3, y: 24.3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6787080863622219968
@@ -613,8 +613,8 @@ MonoBehaviour:
     of one day knowing what it's like outside. The black cat, on the other hand,
     longs for the movement of the algae, which below reveal the location of its prey.\"\r\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b8fa2aa6624e30845803db1421db73e3, type: 2}
-  m_sharedMaterial: {fileID: 6733584607209429869, guid: b8fa2aa6624e30845803db1421db73e3,
+  m_fontAsset: {fileID: 11400000, guid: 5cd21bfbcc0cb3d409cfe979366d5eeb, type: 2}
+  m_sharedMaterial: {fileID: 3276267302191536025, guid: 5cd21bfbcc0cb3d409cfe979366d5eeb,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

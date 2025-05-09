@@ -73,9 +73,15 @@ public class HighlightItens : MonoBehaviour
                 }
                 return;
             }
+            else if (hitObject.CompareTag("Ground"))
+            {
+                CursorGame.instance.ResetDrawCursor();
+                CursorGame.instance.ResetDoorCursor();
+                return;
+            }
         }
         ResetHighlight();
-        CursorGame.instance.ResetInteractCursor();
+        CursorGame.instance.PrincipalCursor();
         CursorGame.instance.ResetDoorCursor();
     }
 

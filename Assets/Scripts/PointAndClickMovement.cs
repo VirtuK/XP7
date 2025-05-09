@@ -10,7 +10,7 @@ public class ClickToMove : MonoBehaviour
     public Camera mainCamera; // A câmera principal
     private NavMeshAgent agent;
     private GameObject targetItem = null; // Stores the selected item
-    public float interactionDistance = 4f; // Distance at which interaction happens
+    public float interactionDistance = 1f; // Distance at which interaction happens
     private Vector3 clickPosition;
     private Animator animator;
 
@@ -54,6 +54,11 @@ public class ClickToMove : MonoBehaviour
         {
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
+
+            if (MessageText.instance.timerActive)
+            {
+                MessageText.instance.CloseText();
+            }
 
             clickedPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             clickedPosition.z = 0;
@@ -144,21 +149,20 @@ public class ClickToMove : MonoBehaviour
 
     void HandleItemInteraction()
     {
-        if (targetItem != null)
+        if (targetItem != null && !agent.pathPending)
         {
-            Vector3 playerPos = new Vector3(transform.position.x, 0, transform.position.z);
-            Vector3 itemPos = new Vector3(targetItem.transform.position.x, 0, targetItem.transform.position.z);
-
-            if (Vector3.Distance(playerPos, itemPos) <= interactionDistance)
+            print(agent.remainingDistance);
+            if (agent.remainingDistance <= interactionDistance + 0.1f)
             {
-                if (targetItem.GetComponent<Door>())
+                if (targetItem.TryGetComponent(out Door door))
                 {
-                    targetItem.GetComponent<Door>().Use();
+                    door.Use();
                 }
-                else
+                else if (targetItem.TryGetComponent(out Item item))
                 {
-                    InteractionManagar.instance.CheckInteractions(targetItem.GetComponent<Item>(), clickPosition);
+                    InteractionManagar.instance.CheckInteractions(item, clickPosition);
                 }
+
                 targetItem = null;
             }
         }

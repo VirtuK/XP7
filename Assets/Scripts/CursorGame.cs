@@ -11,6 +11,7 @@ public class CursorGame : MonoBehaviour
 
     [SerializeField] public GameObject cursorObject;
     [SerializeField] public Sprite cursorPrincipalSprite;
+    [SerializeField] public Sprite cursorNormalSprite;
     [SerializeField] public Sprite cursorInteractionSprite;
     [SerializeField] public Sprite cursorDrawSprite;
     [SerializeField] public Animator cursorAnimator;
@@ -111,11 +112,15 @@ public class CursorGame : MonoBehaviour
         cursorAnimator.enabled = true;
     }
 
+    public void PrincipalCursor()
+    {
+        cursorObject.GetComponent<Image>().sprite = cursorNormalSprite;
+    }
+
     public void ResetDoorCursor()
     {
         cursorAnimator.SetBool("Door", false);
         cursorAnimator.enabled = false;
-        cursorObject.GetComponent<Image>().sprite = cursorPrincipalSprite;
         cursorObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 
     }

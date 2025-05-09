@@ -12,8 +12,8 @@ public class MessageText : MonoBehaviour
 
     [SerializeField] private TMP_Text text;
     [SerializeField] private GameObject textBackground;
-    private float timer = 3f;
-    private bool timerActive;
+    private float timer = 1.5f;
+    public bool timerActive;
 
     private void Awake()
     {
@@ -49,10 +49,7 @@ public class MessageText : MonoBehaviour
         }
         if(timer <= 0)
         {
-            timerActive = false;
-            timer = 3f;
-            text.gameObject.SetActive(false);
-            textBackground.SetActive(false);
+            CloseText();
         }
     }
 
@@ -67,6 +64,14 @@ public class MessageText : MonoBehaviour
     public TMP_Text getText()
     {
         return text;
+    }
+
+    public void CloseText()
+    {
+        timerActive = false;
+        timer = 1.5f;
+        text.gameObject.SetActive(false);
+        textBackground.SetActive(false);
     }
 
 }

@@ -9,15 +9,20 @@ public class HighlightItens : MonoBehaviour
     private List<Material> originalMaterial = new List<Material>();
     private Renderer lastRenderer;
     private Camera mainCamera;
+    private GameObject player;
 
     void Start()
     {
         mainCamera = Camera.main;
+        player = GameObject.Find("Player");
     }
 
     void Update()
     {
-        HighlightObject();
+        if (!player.GetComponent<ClickToMove>().doingPuzzle) 
+        {
+            HighlightObject();
+        }
     }
 
     void HighlightObject()

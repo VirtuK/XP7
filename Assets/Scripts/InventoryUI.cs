@@ -160,15 +160,17 @@ public class InventoryUI : MonoBehaviour
                 GameObject pc = Instantiate(papeis[0], canvasGroup.gameObject.transform);
                 pc.name = papeis[0].name;
                 pc.gameObject.transform.SetSiblingIndex(3);
-                CursorGame.instance.resetCursor();
+                CursorGame.instance.DrawCursor();
                 InteractionManagar.instance.selectedItem = itemData;
+                GameObject.Find("Player").GetComponent<ClickToMove>().doingPuzzle = true;
                 break;
             case "PapelQuarto":
                 GameObject pq = Instantiate(papeis[1], canvasGroup.gameObject.transform);
                 pq.name = papeis[1].name;
                 pq.gameObject.transform.SetSiblingIndex(3);
-                CursorGame.instance.resetCursor();
+                CursorGame.instance.DrawCursor();
                 InteractionManagar.instance.selectedItem = itemData;
+                GameObject.Find("Player").GetComponent<ClickToMove>().doingPuzzle = true;
                 break;
         }
         //CloseUI();

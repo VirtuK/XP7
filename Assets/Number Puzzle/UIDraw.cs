@@ -85,7 +85,7 @@ public class UIDraw : MonoBehaviour
                     float alpha = 1.0f;
                     if (distance > radius - 1.0f)
                     {
-                        alpha = radius - distance;
+                       // alpha = radius - distance;
                     }
 
                     Color existingColor = drawTexture.GetPixel(x, y);

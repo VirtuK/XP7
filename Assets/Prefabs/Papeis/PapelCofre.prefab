@@ -350,8 +350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da1f4e6f2725a743ab6553f0c18afa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawColor: {r: 1, g: 0, b: 0, a: 0.78039217}
-  brushSize: 0.5
+  drawColor: {r: 1, g: 0, b: 0, a: 0.5803922}
+  brushSize: 0.2
   puzzle: {fileID: 2408854842199586680}
   player: {fileID: 0}
 --- !u!1 &6118182318315578885

@@ -15,7 +15,7 @@ public class CursorGame : MonoBehaviour
     [SerializeField] public Sprite cursorInteractionSprite;
     [SerializeField] public Sprite cursorDrawSprite;
     [SerializeField] public Animator cursorAnimator;
-    
+
     private void Awake()
     {
         if (instance != null)
@@ -51,10 +51,11 @@ public class CursorGame : MonoBehaviour
             Image cursorImage = cursorObject.GetComponent<Image>();
             Vector2 mousePosition = Input.mousePosition;
 
+            RectTransform rt = cursorObject.GetComponent<RectTransform>();
+
             if (cursorImage.sprite == cursorDrawSprite)
             {
                 // Get size of the cursor image in screen space
-                RectTransform rt = cursorObject.GetComponent<RectTransform>();
                 Vector2 size = rt.sizeDelta * rt.lossyScale;
 
                 // Offset to align bottom-left corner with mouse
@@ -63,8 +64,10 @@ public class CursorGame : MonoBehaviour
             }
             else
             {
-                // Default behavior: center cursor on mouse
-                cursorObject.transform.position = mousePosition;
+                // Align top-left corner with mouse position
+                Vector2 size = rt.sizeDelta * rt.lossyScale;
+                Vector2 offset = new Vector2(size.x / 2, -size.y / 2);
+                cursorObject.transform.position = mousePosition + offset;
             }
         }
     }

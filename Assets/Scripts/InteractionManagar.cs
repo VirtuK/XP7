@@ -12,11 +12,13 @@ public class InteractionManagar : MonoBehaviour
     [SerializeField] private Canvas canvas;
     [SerializeField] private List<InteractionSegment> interactionSegments;
     [SerializeField] private Item interactedItem;
+    [SerializeField] public Item highlightedItem;
     public bool interacting;
 
     public ItemData selectedItem;
 
     private bool isDragging;
+    public bool haveItemSelected;
     private Vector2 dragStartPos;
 
     private void Awake()
@@ -125,7 +127,18 @@ public class InteractionManagar : MonoBehaviour
                 }
                 resetInteractions();
             }
+            if (haveItemSelected)
+            {
+                print("bbbbbbbbbba");
+                if (highlightedItem.interactions.HasFlag(InteractionType.Use))
+                {
+                    print("aaaaaaaaaab");
+                    highlightedItem.Use();
+                    highlightedItem = null;
+                }
+            }
         }
+        
 
         // Hide the interaction wheel if mouse is not held down
         if (!Input.GetMouseButton(0) && interacting)

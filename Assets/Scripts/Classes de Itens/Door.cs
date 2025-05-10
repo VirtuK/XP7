@@ -15,7 +15,7 @@ public class Door : Item
     [SerializeField] public bool isButtonPressed;
     [SerializeField] public bool haveDisplay;
     [SerializeField] private MeshRenderer display;
-    [SerializeField] private Light displayLight;
+    [SerializeField] private List<Light> displayLight = new List<Light>();
     [SerializeField] private Material displayOn;
     [SerializeField] private Material displayOff;
     [SerializeField] private string doorDestinationSceneName; // Scene name for runtime use
@@ -46,19 +46,31 @@ public class Door : Item
     public void StartDoorDisplay()
     {
         display = FindDisplayInChildren(transform, "Display");
-        displayLight = FindLightInChildren(transform, "DisplayLight");
+
+        // Clear the existing list to avoid duplicates
+        displayLight.Clear();
+
+        // Get all Light components in children, including inactive ones
+        Light[] allLights = transform.GetComponentsInChildren<Light>(true);
+
+        foreach (Light light in allLights)
+        {
+            if (light.CompareTag("DisplayLight"))
+            {
+                displayLight.Add(light);
+            }
+        }
 
         if (display != null)
         {
-            if (!isButtonPressed) turnOffDisplay();
-            else turnOnDisplay();
+            if (!isButtonPressed)
+                turnOffDisplay();
+            else
+                turnOnDisplay();
 
-            if (isPuzzleDoor)
+            if (isPuzzleDoor && ProgressManager.instance.puzzleResolved)
             {
-                if (ProgressManager.instance.puzzleResolved)
-                {
-                    turnOnDisplay();
-                }
+                turnOnDisplay();
             }
         }
         else
@@ -124,7 +136,7 @@ public class Door : Item
             }
             else
             {
-                changeScene();
+                MessageText.instance.ShowText("Looks like this door is connected to something");
             }
         }
         else
@@ -151,14 +163,25 @@ public class Door : Item
         audioSC.clip = displaySound;
         audioSC.Play();
         display.material = displayOn;
-        displayLight.color = new Color32(34, 180, 0, 255);
+
+        foreach (var light in displayLight)
+        {
+            if (light != null)
+                light.color = new Color32(34, 180, 0, 255);
+        }
+
         interactions = InteractionType.Use;
     }
 
     public void turnOffDisplay()
     {
         display.material = displayOff;
-        displayLight.color = new Color32(180, 0, 0, 255);
+
+        foreach (var light in displayLight)
+        {
+            if (light != null)
+                light.color = new Color32(180, 0, 0, 255);
+        }
     }
 
 #if UNITY_EDITOR

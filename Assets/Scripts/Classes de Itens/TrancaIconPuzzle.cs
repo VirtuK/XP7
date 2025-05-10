@@ -45,7 +45,6 @@ public class TrancaIconPuzzle : Item
         {
             InventoryUI.instance.CloseUI();
             iconPuzzle.SetActive(true);
-            puzzleCam.SetActive(true);
             InteractionManagar.instance.interacting = true;
             player.GetComponent<ClickToMove>().doingPuzzle = true;
         }

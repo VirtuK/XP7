@@ -5768,8 +5768,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.407654, y: 1, z: 1}
-  m_Center: {x: 1.2038262, y: 0, z: 0}
+  m_Size: {x: 1.9559405, y: 1.0037181, z: 1}
+  m_Center: {x: 0.4779675, y: -0.0018582447, z: 0}
 --- !u!23 &457895537
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5919,6 +5919,7 @@ Transform:
   - {fileID: 979814549}
   - {fileID: 8717938015752479719}
   - {fileID: 457895534}
+  - {fileID: 1982794058}
   - {fileID: 780572109}
   - {fileID: 94835055}
   m_Father: {fileID: 434962606}
@@ -7287,7 +7288,7 @@ PrefabInstance:
     - target: {fileID: 4510454793430678230, guid: 128088799d037884299903ee08642e67,
         type: 3}
       propertyPath: m_BaseOffset
-      value: 3.6
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: 4539125634087950212, guid: 128088799d037884299903ee08642e67,
         type: 3}
@@ -7405,7 +7406,8 @@ MonoBehaviour:
   isButtonPressed: 0
   haveDisplay: 1
   display: {fileID: 1607851580}
-  displayLight: {fileID: 0}
+  displayLight:
+  - {fileID: 0}
   displayOn: {fileID: 2100000, guid: 704c5309b9c13e044b4a5f77967584df, type: 2}
   displayOff: {fileID: 2100000, guid: 2ccbab978c03ec44c9a89f85b02ba5a1, type: 2}
   doorDestinationSceneName: sair
@@ -8025,7 +8027,8 @@ MonoBehaviour:
   isButtonPressed: 0
   haveDisplay: 0
   display: {fileID: 0}
-  displayLight: {fileID: 0}
+  displayLight:
+  - {fileID: 0}
   displayOn: {fileID: 0}
   displayOff: {fileID: 0}
   doorDestinationSceneName: QuartoRoberto
@@ -10179,7 +10182,8 @@ MonoBehaviour:
   isButtonPressed: 0
   haveDisplay: 0
   display: {fileID: 0}
-  displayLight: {fileID: 0}
+  displayLight:
+  - {fileID: 0}
   displayOn: {fileID: 0}
   displayOff: {fileID: 0}
   doorDestinationSceneName: QuartoVinicius
@@ -11822,6 +11826,160 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1e7898d4b908a45964eb25e9ee6c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1982794057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1982794058}
+  - component: {fileID: 1982794063}
+  - component: {fileID: 1982794062}
+  - component: {fileID: 1982794061}
+  - component: {fileID: 1982794060}
+  - component: {fileID: 1982794059}
+  m_Layer: 7
+  m_Name: TrancaDormitorios (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1982794058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982794057}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -11.282, y: -0.67985, z: -1.62}
+  m_LocalScale: {x: 0.42564946, y: 0.59561515, z: 2.9960632}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 533340697}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1982794059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982794057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4a82d910cc0984b81556194e734511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storeInTexcoordChannel: 1
+  cospatialVertexDistance: 0.01
+--- !u!114 &1982794060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982794057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af34eed9d19f3f74ca42b4900fc5e728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Tranca
+  icon: {fileID: 0}
+  seeDescription: Some numbers appear to be missing... Looks like, if arranged, it
+    activates something...
+  interactions: 6
+  itemID: 
+  IgnoreOnSave: 0
+  requiredComponentNames:
+  - botao1
+  - botao2
+  - botao3
+  - botao4
+  tilesMesh:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  onMaterial: {fileID: 2100000, guid: 6f914016fd9808844b62ac64c008e4ac, type: 2}
+  puzzleSceneName: SlidingPuzzle
+  puzzleSceneAsset: {fileID: 0}
+--- !u!65 &1982794061
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982794057}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.9559405, y: 1.0037181, z: 1}
+  m_Center: {x: 0.4779675, y: -0.0018582447, z: 0}
+--- !u!23 &1982794062
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982794057}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials: []
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1982794063
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982794057}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1994788833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12877,7 +13035,8 @@ MonoBehaviour:
   isButtonPressed: 0
   haveDisplay: 1
   display: {fileID: 1158765947}
-  displayLight: {fileID: 0}
+  displayLight:
+  - {fileID: 0}
   displayOn: {fileID: 2100000, guid: 704c5309b9c13e044b4a5f77967584df, type: 2}
   displayOff: {fileID: 2100000, guid: 2ccbab978c03ec44c9a89f85b02ba5a1, type: 2}
   doorDestinationSceneName: QuartoAmelia
@@ -13240,7 +13399,8 @@ MonoBehaviour:
   isButtonPressed: 0
   haveDisplay: 0
   display: {fileID: 0}
-  displayLight: {fileID: 0}
+  displayLight:
+  - {fileID: 0}
   displayOn: {fileID: 0}
   displayOff: {fileID: 0}
   doorDestinationSceneName: LabCriogenia

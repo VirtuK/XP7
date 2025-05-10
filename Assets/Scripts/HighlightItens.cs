@@ -66,6 +66,7 @@ public class HighlightItens : MonoBehaviour
                         else
                         {
                             CursorGame.instance.InteractCursor();
+                            InteractionManagar.instance.highlightedItem = hitObject.GetComponent<Item>();
 
                         }
                         return;

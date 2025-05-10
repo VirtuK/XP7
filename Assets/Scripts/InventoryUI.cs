@@ -59,12 +59,23 @@ public class InventoryUI : MonoBehaviour
 
     public void CreateItemUI(ItemData itemData)
     {
-        print("Item UI created: " + itemData.itemName);
-
         GameObject itemSlot = Instantiate(ItemPrefab, Inventory.transform);
-        itemSlot.GetComponent<Image>().sprite = itemData.itemIcon;
-        itemSlot.AddComponent<Button>();
-        itemSlot.GetComponent<Button>().onClick.AddListener(() => SelectItem(itemData));
+        Image itemImage = itemSlot.GetComponent<Image>();
+        itemImage.sprite = itemData.itemIcon;
+
+        // Ensure CanvasGroup component is added first
+        CanvasGroup canvasGroup = itemSlot.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            canvasGroup = itemSlot.AddComponent<CanvasGroup>();
+        }
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
+
+        // Now add DraggableItem
+        DraggableItem draggable = itemSlot.AddComponent<DraggableItem>();
+        draggable.itemData = itemData;
+
         itens.Add(itemSlot);
         OrganizeUI();
     }
@@ -80,7 +91,7 @@ public class InventoryUI : MonoBehaviour
         OrganizeUI();
     }
 
-    private void OrganizeUI()
+    public void OrganizeUI()
     {
         for (int i = 0; i < itens.Count; i++)
         {
@@ -137,22 +148,6 @@ public class InventoryUI : MonoBehaviour
             return;
         }
 
-        if(itemData == InteractionManagar.instance.selectedItem)
-        {
-            CursorGame.instance.resetCursor();
-            foreach (GameObject g in papeis)
-            {
-                GameObject p = GameObject.Find(g.name);
-                if (p != null) Destroy(p);
-            }
-            InteractionManagar.instance.selectedItem = null;
-            return;
-        }
-
-        cursorImage.sprite = itemData.itemIcon;
-        InteractionManagar.instance.selectedItem = itemData;
-        print("Item selected: " + itemData.itemName);
-
 
         switch (itemData.itemName)
         {
@@ -168,7 +163,6 @@ public class InventoryUI : MonoBehaviour
                 GameObject pq = Instantiate(papeis[1], canvasGroup.gameObject.transform);
                 pq.name = papeis[1].name;
                 pq.gameObject.transform.SetSiblingIndex(3);
-                CursorGame.instance.DrawCursor();
                 InteractionManagar.instance.selectedItem = itemData;
                 GameObject.Find("Player").GetComponent<ClickToMove>().doingPuzzle = true;
                 break;

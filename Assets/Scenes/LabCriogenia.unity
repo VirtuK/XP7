@@ -13802,7 +13802,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cursorNormalSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5fdb8b22c6cdd154da0ce77594851aba,
+      objectReference: {fileID: 21300000, guid: 64db4c83eee36ef4fb86c8f345625f0f,
         type: 3}
     - target: {fileID: 8155259793133768170, guid: a9f5027417e5fe647b4e2fb95d796d86,
         type: 3}

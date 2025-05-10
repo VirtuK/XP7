@@ -2283,6 +2283,12 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!198 &1071248882 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8900572002361220556, guid: 128088799d037884299903ee08642e67,
+    type: 3}
+  m_PrefabInstance: {fileID: 1561473309}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1104849033
 GameObject:
   m_ObjectHideFlags: 0
@@ -2527,6 +2533,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1918894890}
   m_SourcePrefab: {fileID: 100100000, guid: c7064128fde0b3b448b48907e7a1758f, type: 3}
+--- !u!198 &1143511292 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8782454445119655614, guid: 128088799d037884299903ee08642e67,
+    type: 3}
+  m_PrefabInstance: {fileID: 1561473309}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1149092701
 GameObject:
   m_ObjectHideFlags: 0
@@ -4143,6 +4155,21 @@ PrefabInstance:
       propertyPath: interactionDistance
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 993704006317476888, guid: 128088799d037884299903ee08642e67,
+        type: 3}
+      propertyPath: particles.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 993704006317476888, guid: 128088799d037884299903ee08642e67,
+        type: 3}
+      propertyPath: 'particles.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1143511292}
+    - target: {fileID: 993704006317476888, guid: 128088799d037884299903ee08642e67,
+        type: 3}
+      propertyPath: 'particles.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1071248882}
     - target: {fileID: 1755972380195310660, guid: 128088799d037884299903ee08642e67,
         type: 3}
       propertyPath: outlineMaterial
@@ -4152,6 +4179,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510454793430678230, guid: 128088799d037884299903ee08642e67,
+        type: 3}
+      propertyPath: m_BaseOffset
+      value: 3.93
       objectReference: {fileID: 0}
     - target: {fileID: 4510454793430678230, guid: 128088799d037884299903ee08642e67,
         type: 3}

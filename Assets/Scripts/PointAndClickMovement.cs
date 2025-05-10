@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
@@ -25,6 +26,8 @@ public class ClickToMove : MonoBehaviour
     [SerializeField] private AudioClip footsteps;
 
     [SerializeField] public bool doingPuzzle = false;
+
+    public List<ParticleSystem> particles = new List<ParticleSystem>();
 
 
     void Start()
@@ -114,10 +117,17 @@ public class ClickToMove : MonoBehaviour
                 if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                 {
                     animator.SetBool("Moving", false);
+
+
                     VerifyMousePosition();
                     StopFootStepSound();
-
                 }
+            }
+            else
+            {
+                animator.SetBool("Moving", true);
+
+                
             }
         }
 
@@ -130,7 +140,6 @@ public class ClickToMove : MonoBehaviour
         {
             Flip();
         }
-
     }
 
     void VerifyMousePosition()
@@ -173,6 +182,14 @@ public class ClickToMove : MonoBehaviour
         Vector3 currentScale = transform.localScale;
         currentScale.x *= -1;
         transform.localScale = currentScale;
+
+        foreach(ParticleSystem p in particles)
+        {
+            Vector3 currentRotation = p.transform.eulerAngles;
+            currentRotation.y += 180f;
+            p.transform.eulerAngles = currentRotation;
+        }
+        
 
     }
 

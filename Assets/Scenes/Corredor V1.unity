@@ -284,6 +284,36 @@ PrefabInstance:
       propertyPath: seeDescription
       value: Ah, seems to be one of the missing numbers on the number board...
       objectReference: {fileID: 0}
+    - target: {fileID: 7421584162070381950, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.90210426
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421584162070381950, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.76944596
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421584162070381950, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.30000025
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421584162070381950, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.094987474
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421584162070381950, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 2.5088093
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421584162070381950, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -1.4500278
+      objectReference: {fileID: 0}
     - target: {fileID: 8025696331096507625, guid: ef56ac460e41a274684b6c50a4e252ff,
         type: 3}
       propertyPath: m_Name
@@ -297,7 +327,7 @@ PrefabInstance:
     - target: {fileID: 8675251964263255795, guid: ef56ac460e41a274684b6c50a4e252ff,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.62696
+      value: -10.98
       objectReference: {fileID: 0}
     - target: {fileID: 8675251964263255795, guid: ef56ac460e41a274684b6c50a4e252ff,
         type: 3}

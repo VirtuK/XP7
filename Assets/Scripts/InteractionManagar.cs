@@ -1,20 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-[System.Serializable]
+
 public class InteractionManagar : MonoBehaviour
 {
-    [SerializeField] public static InteractionManagar instance;
+    public static InteractionManagar instance;
+
     [SerializeField] private RectTransform interactionsParent;
     [SerializeField] private Canvas canvas;
-    [SerializeField] private List<GameObject> interactions;
-    [SerializeField] private Item interacted;
-    [SerializeField] public bool interacting;
+    [SerializeField] private List<InteractionSegment> interactionSegments;
+    [SerializeField] private Item interactedItem;
+    public bool interacting;
 
-    public ItemData selectedItem ;
+    public ItemData selectedItem;
+
+    private bool isDragging;
+    private Vector2 dragStartPos;
+
     private void Awake()
     {
         if (instance != null)
@@ -24,10 +28,9 @@ public class InteractionManagar : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-        
-        DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         StartCoroutine(InitializeAfterSceneLoad());
@@ -36,75 +39,110 @@ public class InteractionManagar : MonoBehaviour
     private IEnumerator InitializeAfterSceneLoad()
     {
         yield return new WaitForEndOfFrame();
-        canvas = FindAnyObjectByType<Canvas>();
-        interactionsParent = GameObject.Find("Interactions").gameObject.GetComponent<RectTransform>();
-        GameObject pick = GameObject.Find("Pick");
-        GameObject see = GameObject.Find("See");
-        GameObject use = GameObject.Find("Use");
-        interactions[0] = pick;
-        interactions[1] = see;
-        interactions[2] = use;
-        pick.GetComponent<Button>().onClick.AddListener(() => Pick());
-        see.GetComponent<Button>().onClick.AddListener(() => See());
-        use.GetComponent<Button>().onClick.AddListener(() => Use());
-        foreach (GameObject i in interactions)
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        interactionsParent = GameObject.Find("Interactions").GetComponent<RectTransform>();
+
+        // Initialize interaction segments
+        interactionSegments = new List<InteractionSegment>(interactionsParent.GetComponentsInChildren<InteractionSegment>());
+
+        foreach (var segment in interactionSegments)
         {
-            i.SetActive(false);
+            segment.Initialize();
         }
+
+        resetInteractions();
     }
-    public void CheckInteractions (Item item, Vector3 position)
+
+    public void CheckInteractions(Item item, Vector3 position)
     {
         resetInteractions();
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform,
+
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvas.transform as RectTransform,
             position,
             canvas.worldCamera,
-            out Vector2 localPoint);
+            out Vector2 localPoint
+        );
+
         interactionsParent.anchoredPosition = localPoint;
-        interacted = item;
-        if ((item.interactions & InteractionType.Pick) != 0)
+        interactedItem = item;
+        interacting = false;
+
+        foreach (var segment in interactionSegments)
         {
-            interactions[0].SetActive(true);
-            interacting = true;
-        }
-        if ((item.interactions & InteractionType.See) != 0)
-        {
-            interactions[1].SetActive(true);
-            interacting = true;
-        }
-        if ((item.interactions & InteractionType.Use) != 0)
-        {
-            interactions[2].SetActive(true);
-            interacting = true;
+            bool supported = (item.interactions & segment.type) != 0;
+            segment.gameObject.SetActive(supported);
+            if (supported)
+            {
+                interacting = true;
+            }
         }
 
-
-
+        if (interacting)
+        {
+            interactionsParent.gameObject.SetActive(true);
+            isDragging = true;
+            dragStartPos = Input.mousePosition;
+        }
     }
 
+    private void Update()
+    {
+        // Only process interactions if the mouse button is held down
+        if (Input.GetMouseButton(0)) // Mouse button is held down
+        {
+            if (isDragging && interacting)
+            {
+                Vector2 currentMousePos = Input.mousePosition;
+                Vector2 direction = currentMousePos - dragStartPos;
+
+                if (direction.sqrMagnitude > 0.001f)
+                {
+                    // Calculate angle from Vector2.up, going clockwise
+                    float angle = Vector2.SignedAngle(Vector2.up, direction);
+                    if (angle < 0) angle += 360f;
+
+                    foreach (var segment in interactionSegments)
+                    {
+                        segment.HighlightIfInAngle(angle);
+                    }
+                }
+            }
+        }
+
+        // Check for mouse button release to trigger the interaction
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (isDragging && interacting)
+            {
+                foreach (var segment in interactionSegments)
+                {
+                    if (segment.IsHighlighted && interactedItem.interactions.HasFlag(segment.type))
+                    {
+                        segment.Trigger(interactedItem);
+                        break;
+                    }
+                }
+                resetInteractions();
+            }
+        }
+
+        // Hide the interaction wheel if mouse is not held down
+        if (!Input.GetMouseButton(0) && interacting)
+        {
+            resetInteractions();
+        }
+    }
     public void resetInteractions()
     {
-        for(int i = 0; i < interactions.Count; i++)
-        {
-            interactions[i].SetActive(false);
-        }
+        interactionsParent.gameObject.SetActive(false);
         interacting = false;
-    }
+        isDragging = false;
 
-    public void Use()
-    {
-        interacted.Use();
-        resetInteractions();
-    }
-
-    public void See()
-    {
-        interacted.See();
-        resetInteractions();
-    }
-
-    public void Pick()
-    {
-        interacted.Pick();
-        resetInteractions();
+        foreach (var segment in interactionSegments)
+        {
+            segment.Unhighlight();
+            segment.gameObject.SetActive(false);
+        }
     }
 }

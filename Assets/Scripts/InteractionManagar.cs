@@ -127,16 +127,7 @@ public class InteractionManagar : MonoBehaviour
                 }
                 resetInteractions();
             }
-            if (haveItemSelected)
-            {
-                print("bbbbbbbbbba");
-                if (highlightedItem.interactions.HasFlag(InteractionType.Use))
-                {
-                    print("aaaaaaaaaab");
-                    highlightedItem.Use();
-                    highlightedItem = null;
-                }
-            }
+           
         }
         
 

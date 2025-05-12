@@ -14,8 +14,15 @@ public class InteractionSegment : MonoBehaviour
 
     private Vector3 scale;
 
+    public AudioSource canvasAudio;
+    public AudioClip hoverSound;
+    public AudioClip clickSound;
+
+    private bool sound;
+
     private void Start()
     {
+        canvasAudio = GameObject.Find("Canvas").GetComponent<AudioSource>();
         scale = transform.localScale;
     }
     public void Initialize()
@@ -41,15 +48,22 @@ public class InteractionSegment : MonoBehaviour
         segmentImage.sprite = inside ? highlightSprite : normalSprite;
         IsHighlighted = inside;
 
-        // Adjust the size when highlighted
         if (inside)
         {
-            // Increase size when highlighted
-            transform.localScale = scale * 1.2f; // You can adjust the scaling factor (1.2f) as needed
+            transform.localScale = scale * 1.2f;
+            if (canvasAudio != null && hoverSound != null && !sound 
+                && InteractionManagar.instance.highlightedItem.interactions.HasFlag(type))
+            {
+                canvasAudio.PlayOneShot(hoverSound);
+                sound = true;
+            }
         }
         else
         {
-            // Reset size when unhighlighted
+            if (sound)
+            {
+                sound = false;
+            }
             transform.localScale = scale;
         }
     }
@@ -57,11 +71,11 @@ public class InteractionSegment : MonoBehaviour
     public void Unhighlight()
     {
         IsHighlighted = false;
+        sound = false;
         if (segmentImage != null)
         {
             segmentImage.sprite = normalSprite;
         }
-
         // Reset the size when unhighlighted
         transform.localScale = scale;
     }
@@ -80,5 +94,8 @@ public class InteractionSegment : MonoBehaviour
                 item.Use();
                 break;
         }
+        canvasAudio.Stop();
+        sound = false;
+        canvasAudio.PlayOneShot(clickSound);
     }
 }

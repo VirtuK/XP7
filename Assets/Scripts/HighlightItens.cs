@@ -78,6 +78,7 @@ public class HighlightItens : MonoBehaviour
             {
                 CursorGame.instance.ResetDrawCursor();
                 CursorGame.instance.ResetDoorCursor();
+                InteractionManagar.instance.highlightedItem = null;
                 return;
             }
         }

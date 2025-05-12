@@ -118,10 +118,13 @@ public class InteractionManagar : MonoBehaviour
         // Only process interactions if the mouse button is held down
         if (Input.GetMouseButton(0)) // Mouse button is held down
         {
-            if (!circleExist && highlightedItem.GetComponent<Item>())
+            if(highlightedItem != null)
             {
-                interactionCircle.SetActive(true);
-                circleExist = true;
+                if (!circleExist && highlightedItem.GetComponent<Item>())
+                {
+                    interactionCircle.SetActive(true);
+                    circleExist = true;
+                }
             }
             if (isDragging && interacting)
             {

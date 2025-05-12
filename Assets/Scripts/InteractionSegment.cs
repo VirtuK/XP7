@@ -9,8 +9,8 @@ public class InteractionSegment : MonoBehaviour
     public bool IsHighlighted { get; private set; }
 
     private Image segmentImage;
-    private Color defaultColor = Color.white;
-    private Color highlightColor = Color.yellow;
+    public Sprite normalSprite;
+    public Sprite highlightSprite;
 
     private Vector3 scale;
 
@@ -38,7 +38,7 @@ public class InteractionSegment : MonoBehaviour
             inside = angle >= minAngle && angle <= maxAngle;
         }
 
-        segmentImage.color = inside ? highlightColor : defaultColor;
+        segmentImage.sprite = inside ? highlightSprite : normalSprite;
         IsHighlighted = inside;
 
         // Adjust the size when highlighted
@@ -59,7 +59,7 @@ public class InteractionSegment : MonoBehaviour
         IsHighlighted = false;
         if (segmentImage != null)
         {
-            segmentImage.color = defaultColor;
+            segmentImage.sprite = normalSprite;
         }
 
         // Reset the size when unhighlighted

@@ -180,6 +180,8 @@ public class SlidingPuzzle : MonoBehaviour
         {
             StartCoroutine(WaitShuffle(0.5f));
             shuffling = true;
+            timer = 29f;
+            resetButton.SetActive(false);
         }
     }
 }

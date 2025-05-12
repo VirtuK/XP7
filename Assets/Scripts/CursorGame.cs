@@ -97,7 +97,7 @@ public class CursorGame : MonoBehaviour
         {
             print("mudou icone");
         }
-        cursorObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        cursorObject.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
     }
 
     public void ResetInteractCursor()
@@ -133,7 +133,7 @@ public class CursorGame : MonoBehaviour
     {
         cursorAnimator.SetBool("Door", false);
         cursorAnimator.enabled = false;
-        cursorObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        cursorObject.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
 
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 [System.Serializable]
 public class ClickToMove : MonoBehaviour
 {
@@ -78,10 +79,12 @@ public class ClickToMove : MonoBehaviour
                     if (hit.collider.gameObject.CompareTag("Ground") && hit.distance < 15 && !InteractionManagar.instance.interacting)
                     {
                         SetDestination(hit.point);
+                        InteractionManagar.instance.highlightedItem = null;
                     }
                     else if (hit.collider.gameObject.CompareTag("Item"))
                     {
                         SetItemDestination(hit.collider.gameObject);
+                        InteractionManagar.instance.SaveInteractions(hit.collider.gameObject.GetComponent<Item>(), clickPosition);
                     }
                 }
                 if (InteractionManagar.instance.interacting)
@@ -161,15 +164,17 @@ public class ClickToMove : MonoBehaviour
         if (targetItem != null && !agent.pathPending)
         {
             print(agent.remainingDistance);
+            InteractionManagar.instance.isNear = false;
             if (agent.remainingDistance <= interactionDistance + 0.1f)
             {
+                InteractionManagar.instance.isNear = true;
                 if (targetItem.TryGetComponent(out Door door))
                 {
                     door.Use();
                 }
                 else if (targetItem.TryGetComponent(out Item item))
                 {
-                    InteractionManagar.instance.CheckInteractions(item, clickPosition);
+                    
                 }
 
                 targetItem = null;

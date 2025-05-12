@@ -942,7 +942,7 @@ PrefabInstance:
         type: 3}
       propertyPath: icon
       value: 
-      objectReference: {fileID: 21300000, guid: ae05d921fd158a3489778861eb8a0e88,
+      objectReference: {fileID: 21300000, guid: 777c8fd1f2cc706499afc01a201c7787,
         type: 3}
     - target: {fileID: 8574152723986435016, guid: f055c74faf9755942b935dd2e3b85024,
         type: 3}
@@ -12404,6 +12404,12 @@ PrefabInstance:
       propertyPath: ID
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4181862328388794260, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d35333bed236bf4cb4db5ef62fd99e0,
+        type: 3}
     - target: {fileID: 4181862328388794260, guid: ef56ac460e41a274684b6c50a4e252ff,
         type: 3}
       propertyPath: itemName

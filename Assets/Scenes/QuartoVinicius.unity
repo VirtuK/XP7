@@ -14057,6 +14057,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4181862328388794260, guid: ef56ac460e41a274684b6c50a4e252ff,
         type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d35333bed236bf4cb4db5ef62fd99e0,
+        type: 3}
+    - target: {fileID: 4181862328388794260, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
       propertyPath: itemName
       value: botao3
       objectReference: {fileID: 0}

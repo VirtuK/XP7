@@ -13,13 +13,18 @@ public class InteractionManagar : MonoBehaviour
     [SerializeField] private List<InteractionSegment> interactionSegments;
     [SerializeField] private Item interactedItem;
     [SerializeField] public Item highlightedItem;
+    [SerializeField] public GameObject interactionCircle;
     public bool interacting;
+    private bool circleExist;
 
     public ItemData selectedItem;
 
     private bool isDragging;
     public bool haveItemSelected;
+    public bool isNear;
     private Vector2 dragStartPos;
+
+    private Vector3 pos;
 
     private void Awake()
     {
@@ -35,6 +40,8 @@ public class InteractionManagar : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        interactionCircle = GameObject.Find("InteractionCircle");
+        interactionCircle.SetActive(false);
         StartCoroutine(InitializeAfterSceneLoad());
     }
 
@@ -55,24 +62,29 @@ public class InteractionManagar : MonoBehaviour
         resetInteractions();
     }
 
-    public void CheckInteractions(Item item, Vector3 position)
+    public void SaveInteractions(Item item, Vector3 position)
+    {
+        interactedItem = item;
+        pos = position;
+    }
+
+
+    public void CheckInteractions()
     {
         resetInteractions();
-
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             canvas.transform as RectTransform,
-            position,
+            pos,
             canvas.worldCamera,
             out Vector2 localPoint
         );
 
         interactionsParent.anchoredPosition = localPoint;
-        interactedItem = item;
         interacting = false;
 
         foreach (var segment in interactionSegments)
         {
-            bool supported = (item.interactions & segment.type) != 0;
+            bool supported = (interactedItem.interactions & segment.type) != 0;
             segment.gameObject.SetActive(supported);
             if (supported)
             {
@@ -90,9 +102,27 @@ public class InteractionManagar : MonoBehaviour
 
     private void Update()
     {
+        if (interactionCircle.activeInHierarchy)
+        {
+            Image cursorImage = interactionCircle.GetComponent<Image>();
+            Vector2 mousePosition = Input.mousePosition;
+
+            RectTransform rt = interactionCircle.GetComponent<RectTransform>();
+
+            Vector2 size = rt.sizeDelta * rt.lossyScale;
+
+            // Offset to align center with mouse
+            Vector2 offset = new Vector2(0, 0);
+            interactionCircle.transform.position = mousePosition + offset;
+        }
         // Only process interactions if the mouse button is held down
         if (Input.GetMouseButton(0)) // Mouse button is held down
         {
+            if (!circleExist && highlightedItem.GetComponent<Item>())
+            {
+                interactionCircle.SetActive(true);
+                circleExist = true;
+            }
             if (isDragging && interacting)
             {
                 Vector2 currentMousePos = Input.mousePosition;
@@ -115,6 +145,8 @@ public class InteractionManagar : MonoBehaviour
         // Check for mouse button release to trigger the interaction
         if (Input.GetMouseButtonUp(0))
         {
+            if (circleExist) interactionCircle.SetActive(false);
+            circleExist = false;
             if (isDragging && interacting)
             {
                 foreach (var segment in interactionSegments)
@@ -139,6 +171,7 @@ public class InteractionManagar : MonoBehaviour
     }
     public void resetInteractions()
     {
+        interactionsParent.transform.localScale = Vector3.zero;
         interactionsParent.gameObject.SetActive(false);
         interacting = false;
         isDragging = false;

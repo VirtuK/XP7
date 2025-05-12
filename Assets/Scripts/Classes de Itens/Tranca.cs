@@ -9,11 +9,23 @@ public class Tranca : Item
     [SerializeField] private List<string> requiredComponentNames; // Unique IDs of required components
     [SerializeField] private List<MeshRenderer> tilesMesh;
     [SerializeField] private Material onMaterial;
-    [SerializeField] private string puzzleSceneName; // Store scene name for runtime use
+    [SerializeField] private string puzzleSceneName;
+    [SerializeField] public Animator animator;// Store scene name for runtime use
 
 #if UNITY_EDITOR
     [SerializeField] private SceneAsset puzzleSceneAsset; // Editor-only scene reference
 #endif
+
+    private void Start()
+    {
+        animator = GameObject.Find("cofreFechado").GetComponent<Animator>();
+        if (ProgressManager.instance.puzzleResolved)
+        {
+            animator.SetBool("abriu", true);
+            GetComponent<BoxCollider>().enabled = false;
+        }
+    }
+
 
     public override void Use()
     {
@@ -41,11 +53,6 @@ public class Tranca : Item
     public List<string> GetRequiredComponents()
     {
         return requiredComponentNames;
-    }
-
-    public void setComponentMaterial(Componente component)
-    {
-        tilesMesh[component.ID].material = onMaterial;
     }
 
 #if UNITY_EDITOR

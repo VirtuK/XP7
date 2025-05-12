@@ -73,6 +73,7 @@ public class SceneChanger : MonoBehaviour
             yield return null;
         }
         canvasGroup.alpha = 1;
+        InteractionManagar.instance.resetInteractions();
         SceneManager.LoadScene(scene);
     }
 }

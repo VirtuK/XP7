@@ -14,7 +14,6 @@ public class Componente : Item
         {
             if (!tranca.GetRequiredComponents().Contains(itemName))
             {
-                tranca.setComponentMaterial(this);
             }
         }
     }

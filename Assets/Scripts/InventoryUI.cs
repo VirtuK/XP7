@@ -19,6 +19,8 @@ public class InventoryUI : MonoBehaviour
 
     public static InventoryUI instance;
 
+    public bool abriuPapel;
+
     private void Awake()
     {
         if (instance != null)
@@ -156,20 +158,42 @@ public class InventoryUI : MonoBehaviour
         switch (itemData.itemName)
         {
             case "PapelCofre":
-                GameObject pc = Instantiate(papeis[0], canvasGroup.gameObject.transform);
-                pc.name = papeis[0].name;
-                pc.gameObject.transform.SetSiblingIndex(3);
-                CursorGame.instance.DrawCursor();
-                InteractionManagar.instance.selectedItem = itemData;
-                GameObject.Find("Player").GetComponent<ClickToMove>().doingPuzzle = true;
-                break;
+                if (!abriuPapel)
+                {
+                    GameObject pc = Instantiate(papeis[0], canvasGroup.gameObject.transform);
+                    pc.name = papeis[0].name;
+                    pc.gameObject.transform.SetSiblingIndex(3);
+                    CursorGame.instance.DrawCursor();
+                    InteractionManagar.instance.selectedItem = itemData;
+                    GameObject.Find("Player").GetComponent<ClickToMove>().doingPuzzle = true;
+                    abriuPapel = true;
+                }
+                else
+                {
+                    GameObject pc = GameObject.Find(papeis[0].name);
+                    pc.GetComponentInChildren<UIDraw>().closePuzzle();
+                    abriuPapel = false;
+                }
+                    break;
             case "PapelQuarto":
-                GameObject pq = Instantiate(papeis[1], canvasGroup.gameObject.transform);
-                pq.name = papeis[1].name;
-                pq.gameObject.transform.SetSiblingIndex(3);
-                InteractionManagar.instance.selectedItem = itemData;
-                GameObject.Find("Player").GetComponent<ClickToMove>().doingPuzzle = true;
+                if (!abriuPapel)
+                {
+                    GameObject pq = Instantiate(papeis[1], canvasGroup.gameObject.transform);
+                    pq.name = papeis[1].name;
+                    pq.gameObject.transform.SetSiblingIndex(3);
+                    InteractionManagar.instance.selectedItem = itemData;
+                    GameObject.Find("Player").GetComponent<ClickToMove>().doingPuzzle = true;
+                    abriuPapel = true;
+                    
+                }
+                else
+                {
+                    GameObject pq = GameObject.Find(papeis[1].name);
+                    pq.GetComponent<InteractionPaper>().closePuzzle();
+                    abriuPapel = false;
+                }
                 break;
+
         }
         //CloseUI();
     }

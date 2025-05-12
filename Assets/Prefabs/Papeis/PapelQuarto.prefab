@@ -217,7 +217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8700875513910997804
 RectTransform:
   m_ObjectHideFlags: 0
@@ -566,14 +566,14 @@ RectTransform:
   m_GameObject: {fileID: 6875021018952686764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.70404303, y: 0.70404303, z: 0.70404303}
+  m_LocalScale: {x: 0.74135727, y: 0.74135727, z: 0.74135727}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5013262136917098247}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.3, y: 24.3}
+  m_AnchoredPosition: {x: -10.3, y: 19.3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6787080863622219968
@@ -604,14 +604,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hey man, if you ever need to go into Amelia's room, you'll need a password,
-    since she's obsessed with cats and everything in her life revolves around them...\u200B\r\n\r\nThere
-    was a poem she used to recite while running tests with that thing in the lab
-    to calm herself down. It went something like this:\u200B\r\n\r\n\"On days of
-    hunger, the white cat goes out to hunt its food in a nearby lake. Meanwhile,
-    distracted, the fish stares at the light above sinking into the water, dreaming
-    of one day knowing what it's like outside. The black cat, on the other hand,
-    longs for the movement of the algae, which below reveal the location of its prey.\"\r\n"
+  m_text: "Alright, kid. If you ever need to get into Amelia\u2019s room, you\u2019re
+    gonna need a password\u2014she\u2019s obsessed with cats, and everything in her
+    life somehow ties back to them...\n\nThere was this \u2018poem\u2019 she used
+    to recite all the time while running tests on that thing in the lab\u2014guess
+    it helped her calm down or something. It went kinda like this: \u2018On days
+    of hunger, the white cat goes hunting for food near a nearby lake, while distracted,
+    the other cat patiently watches from atop the table the herb its owner is about
+    to give it\u2026\u2019\nPretty ridiculous, huh? Can\u2019t even call that a real
+    poem."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5cd21bfbcc0cb3d409cfe979366d5eeb, type: 2}
   m_sharedMaterial: {fileID: 3276267302191536025, guid: 5cd21bfbcc0cb3d409cfe979366d5eeb,

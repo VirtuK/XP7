@@ -12087,6 +12087,36 @@ PrefabInstance:
       propertyPath: seeDescription
       value: Look, seems to be another one of the missing numbers...
       objectReference: {fileID: 0}
+    - target: {fileID: 7421584162070381950, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.3056241
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421584162070381950, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.2456124
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421584162070381950, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.51167166
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421584162070381950, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.2012834
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421584162070381950, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 2.456396
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421584162070381950, guid: ef56ac460e41a274684b6c50a4e252ff,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -1.344156
+      objectReference: {fileID: 0}
     - target: {fileID: 8025696331096507625, guid: ef56ac460e41a274684b6c50a4e252ff,
         type: 3}
       propertyPath: m_Name
@@ -12125,7 +12155,7 @@ PrefabInstance:
     - target: {fileID: 8675251964263255795, guid: ef56ac460e41a274684b6c50a4e252ff,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.49317977
+      value: 0.445
       objectReference: {fileID: 0}
     - target: {fileID: 8675251964263255795, guid: ef56ac460e41a274684b6c50a4e252ff,
         type: 3}
@@ -13615,6 +13645,7 @@ MonoBehaviour:
   doorDestinationSceneName: Corredor V1
   doorDestinationSceneAsset: {fileID: 0}
   isPuzzleDoor: 0
+  puzzleSolved: 0
   audioSC: {fileID: 0}
   openingSound: {fileID: 8300000, guid: c195c9f674d406c458003803edd783cc, type: 3}
   displaySound: {fileID: 0}

@@ -9,6 +9,7 @@ public class Cofre : Item
     [SerializeField] GameObject numberPuzzle;
     [SerializeField] GameObject player;
     [SerializeField] GameObject puzzleCam;
+    [SerializeField] Door portaFinal;
     [SerializeField] TMP_InputField input;
     [SerializeField] bool abriu;
     [SerializeField] Animator animator;
@@ -22,11 +23,11 @@ public class Cofre : Item
     {
        
         yield return new WaitForEndOfFrame();
-        animator = GameObject.Find("cofreFechado").GetComponent<Animator>();
+        
         if (abriu)
         {
-            animator.SetBool("abriu", true);
             GetComponent<BoxCollider>().enabled = false;
+            portaFinal.puzzleSolved = true;
         }
         numberPuzzle = GameObject.Find("NumberPuzzle");
         player = GameObject.Find("Player");
@@ -43,15 +44,17 @@ public class Cofre : Item
         {
             input.text = "";
             numberPuzzle.SetActive(true);
-            puzzleCam.SetActive(true);
+            CursorGame.instance.resetCursor();
+            CursorGame.instance.ResetDoorCursor();
+            InteractionManagar.instance.interacting = true;
             player.GetComponent<ClickToMove>().doingPuzzle = true;
+            player.GetComponent<HighlightItens>().ResetHighlight();
         }
     }
 
     public void ClosePuzzle()
     {
         numberPuzzle.SetActive(false);
-        puzzleCam.SetActive(false);
         player.GetComponent<ClickToMove>().doingPuzzle = false;
     }
 
@@ -60,11 +63,12 @@ public class Cofre : Item
         string i = input.text;
         if(i == "2501")
         {
-            animator.SetBool("abriu", true);
             abriu = true;
             GetComponent<BoxCollider>().enabled = false;
+            portaFinal.turnOnDisplay();
+            portaFinal.puzzleSolved = true;
             ClosePuzzle();
-            seeDescription = "Why would they keep this in a safe?";
+            
         }
     }
 }

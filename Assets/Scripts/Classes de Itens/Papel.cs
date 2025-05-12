@@ -36,6 +36,7 @@ public class Papel : Item
         paper.SetActive(false);
         player.GetComponent<ClickToMove>().doingPuzzle = false;
         CursorGame.instance.ResetDrawCursor();
+        InventoryUI.instance.abriuPapel = false;
     }
 
    

@@ -25,6 +25,7 @@ public class Door : Item
 #endif
 
     [SerializeField] private bool isPuzzleDoor;
+    [SerializeField] public bool puzzleSolved;
 
     [SerializeField] private AudioSource audioSC;
     [SerializeField] private AudioClip openingSound;
@@ -68,7 +69,7 @@ public class Door : Item
             else
                 turnOnDisplay();
 
-            if (isPuzzleDoor && ProgressManager.instance.puzzleResolved)
+            if (isPuzzleDoor && puzzleSolved)
             {
                 turnOnDisplay();
             }
@@ -130,7 +131,7 @@ public class Door : Item
         }
         else if (isPuzzleDoor)
         {
-            if (ProgressManager.instance.puzzleResolved)
+            if (puzzleSolved)
             {
                 changeScene();
             }

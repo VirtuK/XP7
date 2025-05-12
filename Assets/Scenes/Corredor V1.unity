@@ -7446,8 +7446,9 @@ MonoBehaviour:
   - {fileID: 0}
   displayOn: {fileID: 2100000, guid: 704c5309b9c13e044b4a5f77967584df, type: 2}
   displayOff: {fileID: 2100000, guid: 2ccbab978c03ec44c9a89f85b02ba5a1, type: 2}
-  doorDestinationSceneName: sair
-  doorDestinationSceneAsset: {fileID: 0}
+  doorDestinationSceneName: ThanksForPlay
+  doorDestinationSceneAsset: {fileID: 102900000, guid: 98fdb7a1fa740be498cbbe56b0470303,
+    type: 3}
   isPuzzleDoor: 1
   audioSC: {fileID: 0}
   openingSound: {fileID: 8300000, guid: c195c9f674d406c458003803edd783cc, type: 3}

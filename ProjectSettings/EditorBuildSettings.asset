@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 95a7d8951fe3fd94ba2cf5015a1085fa
+  - enabled: 1
     path: Assets/Scenes/LabCriogenia.unity
     guid: f469f343b02a52b4f88cdbe7cf3211f3
   - enabled: 1
@@ -26,8 +29,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ThanksForPlay.unity
     guid: 98fdb7a1fa740be498cbbe56b0470303
-  - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 95a7d8951fe3fd94ba2cf5015a1085fa
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

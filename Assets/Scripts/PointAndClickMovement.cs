@@ -1,11 +1,9 @@
-using System.Collections;
+
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
-using static UnityEditor.Progress;
+
 [System.Serializable]
 public class ClickToMove : MonoBehaviour
 {

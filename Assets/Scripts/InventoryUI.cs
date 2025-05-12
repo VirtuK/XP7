@@ -21,6 +21,8 @@ public class InventoryUI : MonoBehaviour
 
     public bool abriuPapel;
 
+    public bool porta;
+
     private void Awake()
     {
         if (instance != null)
@@ -40,6 +42,7 @@ public class InventoryUI : MonoBehaviour
         HUD = GameObject.Find("Inventory");
         cursor = GameObject.Find("CursorManager").GetComponent<CursorGame>();
         canvasGroup.alpha = 1;
+        porta = false;
 
         // Reload inventory UI after scene change
         RefreshInventoryUI();
@@ -129,73 +132,77 @@ public class InventoryUI : MonoBehaviour
 
     public void SelectItem(ItemData itemData)
     {
-        if (itemData == null)
+        if (!porta)
         {
-            Debug.LogError("ItemData is null when SelectItem() is called!");
-            return;
-        }
 
-        if (cursor == null)
-        {
-            Debug.LogError("Cursor is not assigned in InventoryUI!");
-            return;
-        }
+            if (itemData == null)
+            {
+                Debug.LogError("ItemData is null when SelectItem() is called!");
+                return;
+            }
 
-        Image cursorImage = cursor.cursorObject.GetComponent<Image>();
-        if (cursorImage == null)
-        {
-            Debug.LogError("Cursor does not have an Image component!");
-            return;
-        }
+            if (cursor == null)
+            {
+                Debug.LogError("Cursor is not assigned in InventoryUI!");
+                return;
+            }
 
-        if (itemData.itemIcon == null)
-        {
-            Debug.LogError("Item icon is null for item: " + itemData.itemName);
-            return;
-        }
+            Image cursorImage = cursor.cursorObject.GetComponent<Image>();
+            if (cursorImage == null)
+            {
+                Debug.LogError("Cursor does not have an Image component!");
+                return;
+            }
+
+            if (itemData.itemIcon == null)
+            {
+                Debug.LogError("Item icon is null for item: " + itemData.itemName);
+                return;
+            }
 
 
-        switch (itemData.itemName)
-        {
-            case "PapelCofre":
-                if (!abriuPapel)
-                {
-                    GameObject pc = Instantiate(papeis[0], canvasGroup.gameObject.transform);
-                    pc.name = papeis[0].name;
-                    pc.gameObject.transform.SetSiblingIndex(3);
-                    CursorGame.instance.DrawCursor();
-                    InteractionManagar.instance.selectedItem = itemData;
-                    GameObject.Find("Player").GetComponent<ClickToMove>().doingPuzzle = true;
-                    abriuPapel = true;
-                }
-                else
-                {
-                    GameObject pc = GameObject.Find(papeis[0].name);
-                    pc.GetComponentInChildren<UIDraw>().closePuzzle();
-                    abriuPapel = false;
-                }
+            switch (itemData.itemName)
+            {
+                case "PapelCofre":
+                    if (!abriuPapel)
+                    {
+                        GameObject pc = Instantiate(papeis[0], canvasGroup.gameObject.transform);
+                        pc.name = papeis[0].name;
+                        pc.gameObject.transform.SetSiblingIndex(3);
+                        CursorGame.instance.DrawCursor();
+                        InteractionManagar.instance.selectedItem = itemData;
+                        GameObject.Find("Player").GetComponent<ClickToMove>().doingPuzzle = true;
+                        abriuPapel = true;
+                    }
+                    else
+                    {
+                        GameObject pc = GameObject.Find(papeis[0].name);
+                        pc.GetComponentInChildren<UIDraw>().closePuzzle();
+                        abriuPapel = false;
+                    }
                     break;
-            case "PapelQuarto":
-                if (!abriuPapel)
-                {
-                    GameObject pq = Instantiate(papeis[1], canvasGroup.gameObject.transform);
-                    pq.name = papeis[1].name;
-                    pq.gameObject.transform.SetSiblingIndex(3);
-                    InteractionManagar.instance.selectedItem = itemData;
-                    GameObject.Find("Player").GetComponent<ClickToMove>().doingPuzzle = true;
-                    abriuPapel = true;
-                    
-                }
-                else
-                {
-                    GameObject pq = GameObject.Find(papeis[1].name);
-                    pq.GetComponent<InteractionPaper>().closePuzzle();
-                    abriuPapel = false;
-                }
-                break;
+                case "PapelQuarto":
+                    if (!abriuPapel)
+                    {
+                        GameObject pq = Instantiate(papeis[1], canvasGroup.gameObject.transform);
+                        pq.name = papeis[1].name;
+                        pq.gameObject.transform.SetSiblingIndex(3);
+                        InteractionManagar.instance.selectedItem = itemData;
+                        GameObject.Find("Player").GetComponent<ClickToMove>().doingPuzzle = true;
+                        abriuPapel = true;
 
+                    }
+                    else
+                    {
+                        GameObject pq = GameObject.Find(papeis[1].name);
+                        pq.GetComponent<InteractionPaper>().closePuzzle();
+                        abriuPapel = false;
+                    }
+                    break;
+
+            }
+            //CloseUI();
         }
-        //CloseUI();
     }
 
     public bool isPaper(ItemData itemData)

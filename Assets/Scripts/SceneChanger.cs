@@ -28,6 +28,7 @@ public class SceneChanger : MonoBehaviour
     }
     public void changeScene(string scene)
     {
+        InventoryUI.instance.abriuPapel = false;
         if (scene == "sair")
         {
             Application.Quit();

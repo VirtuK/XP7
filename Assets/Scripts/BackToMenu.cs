@@ -33,7 +33,7 @@ public class BackToMenu : MonoBehaviour
         }
 
          fadeImage.color = new Color(color.r, color.g, color.b, 1f);
-
+        SceneSerializationManager.instance.DeleteAllFiles();
         SceneManager.LoadScene("Menu");
     }
 }

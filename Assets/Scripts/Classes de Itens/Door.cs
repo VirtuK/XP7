@@ -106,9 +106,11 @@ public class Door : Item
 
     public override void Use()
     {
+
         if (isLocked)
         {
-            if (InteractionManagar.instance.selectedItem != null && InteractionManagar.instance.selectedItem.itemName == keyItemName)
+            if (InteractionManagar.instance.selectedItem != null
+                && InteractionManagar.instance.selectedItem.itemName == keyItemName && !InventoryUI.instance.abriuPapel)
             {
                 changeScene();
             }
@@ -124,15 +126,17 @@ public class Door : Item
             {
                 MessageText.instance.ShowText("Looks like this door is connected to something");
             }
-            else
+            else if(isButtonPressed && !InventoryUI.instance.abriuPapel)
             {
                 changeScene();
             }
         }
         else if (isPuzzleDoor)
         {
-            if (puzzleSolved)
+            if (puzzleSolved && !InventoryUI.instance.abriuPapel)
             {
+                Cursor.visible = true;
+                SceneSerializationManager.instance.DeleteAllFiles();
                 changeScene();
             }
             else
@@ -142,13 +146,14 @@ public class Door : Item
         }
         else
         {
-            changeScene();
+            if(!InventoryUI.instance.abriuPapel) changeScene();
         }
     }
 
 
     public void changeScene()
     {
+        InventoryUI.instance.porta = true;
         audioSC.Stop();
         audioSC.clip = openingSound;
         audioSC.Play();

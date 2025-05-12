@@ -66,6 +66,45 @@ public class SceneSerializationManager : MonoBehaviour
         }
     }
 
+    public void DeleteAllFiles()
+    {
+
+                string sceneName = "LabCriogenia";
+                saveFilePath = Path.Combine(Application.persistentDataPath, sceneName + "_sceneData.json");
+                destroyedObjectsFilePath = Path.Combine(Application.persistentDataPath, sceneName + "_destroyedObjects.json");
+                print(saveFilePath);
+                DeleteSceneDataFile();
+            
+            
+                sceneName = "Corredor V1";
+                saveFilePath = Path.Combine(Application.persistentDataPath, sceneName + "_sceneData.json");
+                destroyedObjectsFilePath = Path.Combine(Application.persistentDataPath, sceneName + "_destroyedObjects.json");
+                print(saveFilePath);
+                DeleteSceneDataFile();
+           
+            
+                sceneName = "QuartoRoberto";
+                saveFilePath = Path.Combine(Application.persistentDataPath, sceneName + "_sceneData.json");
+                destroyedObjectsFilePath = Path.Combine(Application.persistentDataPath, sceneName + "_destroyedObjects.json");
+                print(saveFilePath);
+                DeleteSceneDataFile();
+           
+            
+                sceneName = "QuartoAmelia";
+                saveFilePath = Path.Combine(Application.persistentDataPath, sceneName + "_sceneData.json");
+                destroyedObjectsFilePath = Path.Combine(Application.persistentDataPath, sceneName + "_destroyedObjects.json");
+                print(saveFilePath);
+                DeleteSceneDataFile();
+          
+            
+                sceneName = "QuartoVinicius";
+                saveFilePath = Path.Combine(Application.persistentDataPath, sceneName + "_sceneData.json");
+                destroyedObjectsFilePath = Path.Combine(Application.persistentDataPath, sceneName + "_destroyedObjects.json");
+                print(saveFilePath);
+                DeleteSceneDataFile();
+            
+    }
+
     private void LoadDestroyedObjects()
     {
         UpdateSaveFilePath();

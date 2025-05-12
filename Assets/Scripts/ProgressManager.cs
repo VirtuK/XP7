@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class ProgressManager : MonoBehaviour
 {
     public static ProgressManager instance;
-    [SerializeField] private List<string> loadedScenes = new List<string>();
+    [SerializeField] public List<string> loadedScenes = new List<string>();
     [SerializeField] public bool puzzleResolved;
     private void Awake()
     {

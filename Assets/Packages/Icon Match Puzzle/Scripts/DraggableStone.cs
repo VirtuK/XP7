@@ -13,6 +13,7 @@ public class DraggableStone : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private Transform originalTransform;
     private bool isDragging = false;
     private Transform pieceTransform;
+    public PuzzleManager pm;
 
 
     private void Awake()
@@ -24,7 +25,7 @@ public class DraggableStone : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (eventData.button == PointerEventData.InputButton.Right)
+        if (eventData.button == PointerEventData.InputButton.Right && !pm.solved)
         {
             if (eventData.pointerEnter != null && eventData.pointerEnter.CompareTag("Slot"))
             {
@@ -56,7 +57,7 @@ public class DraggableStone : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (isDragging)
+        if (isDragging && !pm.solved)
         {
             originalTransform.position = Input.mousePosition;
         }
@@ -64,7 +65,7 @@ public class DraggableStone : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (isDragging)
+        if (isDragging && !pm.solved)
         {
             canvasGroup.alpha = 1f;
             canvasGroup.blocksRaycasts = true;

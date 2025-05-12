@@ -87,7 +87,7 @@ public class HighlightItens : MonoBehaviour
         CursorGame.instance.ResetDoorCursor();
     }
 
-    void ResetHighlight()
+    public void ResetHighlight()
     {
         if (lastRenderer != null)
         {

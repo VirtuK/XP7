@@ -45,8 +45,11 @@ public class TrancaIconPuzzle : Item
         {
             InventoryUI.instance.CloseUI();
             iconPuzzle.SetActive(true);
+            CursorGame.instance.resetCursor();
+            CursorGame.instance.ResetDoorCursor();
             InteractionManagar.instance.interacting = true;
             player.GetComponent<ClickToMove>().doingPuzzle = true;
+            player.GetComponent<HighlightItens>().ResetHighlight();
         }
         else
         {

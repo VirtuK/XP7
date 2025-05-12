@@ -11,6 +11,8 @@ public class PuzzleManager : MonoBehaviour
 {
     [SerializeField] private GameObject puzzle;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject rightButton;
+    [SerializeField] public bool solved;
     [SerializeField] public GameObject[] slots;
     [SerializeField] public GameObject puzzleCam;
     [SerializeField] public Sprite[] correctSymbols;
@@ -24,6 +26,7 @@ public class PuzzleManager : MonoBehaviour
     {
         puzzle = GameObject.Find("Icon Match Puzzle");
         player = GameObject.Find("Player");
+        puzzle.SetActive(false);
         StartCoroutine(InitializeAfterSceneLoad());
     }
 
@@ -34,7 +37,6 @@ public class PuzzleManager : MonoBehaviour
         {
             doorName = door.gameObject.name;
         }
-        puzzle.SetActive(false);
         FindDoor();
         index = 0;
         foreach (Image im in pieces)
@@ -79,9 +81,8 @@ public class PuzzleManager : MonoBehaviour
 
         if (isSolved)
         {
-            door.isButtonPressed = true;
-            door.turnOnDisplay();
-            closePuzzle();
+            rightButton.SetActive(true);
+            solved = true;
         }
         else
         {
@@ -110,5 +111,12 @@ public class PuzzleManager : MonoBehaviour
         {
             print("Porta n�o encontrada");
         }
+    }
+
+    public void finishPuzzle()
+    {
+        door.isButtonPressed = true;
+        door.turnOnDisplay();
+        closePuzzle();
     }
 }

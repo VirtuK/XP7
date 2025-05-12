@@ -20,13 +20,13 @@ public class Papel : Item
     private IEnumerator InitializeAfterSceneLoad()
     {
 
-        paper.SetActive(false);
         yield return new WaitForEndOfFrame();
 
     }
     public override void Use()
     {
-        paper.SetActive(true);
+        ItemData item = new ItemData(itemName, itemID, icon, this);
+        InventoryUI.instance.SelectItem(item);
         player.GetComponent<ClickToMove>().doingPuzzle = true;
         if(drawable) CursorGame.instance.DrawCursor();
     }

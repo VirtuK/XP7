@@ -160,6 +160,7 @@ public class InteractionManagar : MonoBehaviour
                         break;
                     }
                 }
+                highlightedItem = null;
                 resetInteractions();
             }
            
@@ -169,6 +170,7 @@ public class InteractionManagar : MonoBehaviour
         // Hide the interaction wheel if mouse is not held down
         if (!Input.GetMouseButton(0) && interacting)
         {
+            highlightedItem = null;
             resetInteractions();
         }
     }
@@ -178,6 +180,7 @@ public class InteractionManagar : MonoBehaviour
         interactionsParent.gameObject.SetActive(false);
         interacting = false;
         isDragging = false;
+        
 
         foreach (var segment in interactionSegments)
         {

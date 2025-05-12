@@ -7,17 +7,19 @@ using UnityEngine.UI;
 public class BackToMenu : MonoBehaviour
 {
     public float delay = 5f;
-    public float fadeDuration = 3f;
+    public float fadeDuration = 5f;
     public Image fadeImage;
 
-    void Start()
+
+
+    public void BackToMenuButton()
     {
         StartCoroutine(BackToMenuAfterDelay());
     }
 
+
     IEnumerator BackToMenuAfterDelay()
     {
-        yield return new WaitForSeconds(delay);
 
         float t = 0f;
         Color color = fadeImage.color;

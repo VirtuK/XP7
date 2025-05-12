@@ -42,6 +42,7 @@ public class InteractionPaper : MonoBehaviour
         GameObject.Find("Player").GetComponent<ClickToMove>().doingPuzzle = false;
         CursorGame.instance.ResetDrawCursor();
         InteractionManagar.instance.selectedItem = null;
+        InventoryUI.instance.abriuPapel = false;
         Destroy(puzzle);
     }
 }

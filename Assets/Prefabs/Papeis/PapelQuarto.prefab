@@ -56,14 +56,14 @@ MonoBehaviour:
   page1Button: {fileID: 5456019393427806755}
   page2Button: {fileID: 5857599922775527362}
   text: {fileID: 6690446293361784653}
-  page1: "Hey man, if you ever need to go into Amelia's room, you'll need a password,
-    since she's obsessed with cats and everything in her life revolves around them...\u200B 
-    There was a poem she used to recite while running tests with that thing in the
-    lab to calm herself down. It went something like this:\u200B  \"On days of hunger,
-    the white cat goes out to hunt its food in a nearby lake. Meanwhile, distracted,
-    the fish stares at the light above sinking into the water, dreaming of one day
-    knowing what it's like outside. The black cat, on the other hand, longs for the
-    movement of the algae, which below reveal the location of its prey.\" "
+  page1: "Alright, kid. If you ever need to get into Amelia\u2019s room, you\u2019re
+    gonna need a password\u2014she\u2019s obsessed with cats, and everything in her
+    life somehow ties back to them...  There was this \u2018poem\u2019 she used to
+    recite all the time while running tests on that thing in the lab\u2014guess it
+    helped her calm down or something. It went kinda like this: \u2018On days of
+    hunger, the white cat goes hunting for food near a nearby lake, while distracted,
+    the other cat patiently watches from atop the table the herb its owner is about
+    to give it\u2026\u2019 Pretty ridiculous, huh? Can\u2019t even call that a"
   page2: 'By the way... You left a paper in the cryogenic capsule room yesterday.
     Don''t forget to pick it up. I hope it''s nothing important, otherwise Amelia
     might try to use it to open your safe. Stay sharp. '

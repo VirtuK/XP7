@@ -62,6 +62,7 @@ public class InventoryUI : MonoBehaviour
         GameObject itemSlot = Instantiate(ItemPrefab, Inventory.transform);
         Image itemImage = itemSlot.GetComponent<Image>();
         itemImage.sprite = itemData.itemIcon;
+        itemImage.preserveAspect = true;
 
         // Ensure CanvasGroup component is added first
         CanvasGroup canvasGroup = itemSlot.GetComponent<CanvasGroup>();
@@ -75,6 +76,9 @@ public class InventoryUI : MonoBehaviour
         // Now add DraggableItem
         DraggableItem draggable = itemSlot.AddComponent<DraggableItem>();
         draggable.itemData = itemData;
+
+        itemSlot.AddComponent<Button>();
+        itemSlot.GetComponent<Button>().onClick.AddListener(() => SelectItem(itemData));
 
         itens.Add(itemSlot);
         OrganizeUI();
@@ -96,7 +100,7 @@ public class InventoryUI : MonoBehaviour
         for (int i = 0; i < itens.Count; i++)
         {
             float startX = 716;
-            float startY = 383;
+            float startY = 380;
             float slotSpacingX = 0;
             float slotSpacingY = 89;
 
@@ -106,7 +110,7 @@ public class InventoryUI : MonoBehaviour
             float itemY = startY - (slotSpacingY * row);
 
             itens[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(itemX, itemY);
-            itens[i].transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+            itens[i].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         }
     }
 
@@ -168,5 +172,17 @@ public class InventoryUI : MonoBehaviour
                 break;
         }
         //CloseUI();
+    }
+
+    public bool isPaper(ItemData itemData)
+    {
+        switch (itemData.itemName)
+        {
+            case "PapelCofre":
+                return true;
+            case "PapelQuarto":
+                return true;
+        }
+        return false;
     }
 }

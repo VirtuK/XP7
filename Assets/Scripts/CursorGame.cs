@@ -62,6 +62,15 @@ public class CursorGame : MonoBehaviour
                 Vector2 offset = new Vector2(size.x / 2, size.y / 2);
                 cursorObject.transform.position = mousePosition + offset;
             }
+            else if (cursorImage.sprite == cursorInteractionSprite)
+            {
+                // Get size of the cursor image in screen space
+                Vector2 size = rt.sizeDelta * rt.lossyScale;
+
+                // Offset to align center with mouse
+                Vector2 offset = new Vector2(0, 0);
+                cursorObject.transform.position = mousePosition + offset;
+            }
             else
             {
                 // Align top-left corner with mouse position

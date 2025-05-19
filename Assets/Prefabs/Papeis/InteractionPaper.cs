@@ -14,10 +14,7 @@ public class InteractionPaper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (page1Button != null)
-        {
-            text.text = page1;
-        }
+        
     }
 
     public void turnPage()

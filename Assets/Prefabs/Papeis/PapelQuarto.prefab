@@ -60,10 +60,11 @@ MonoBehaviour:
     gonna need a password\u2014she\u2019s obsessed with cats, and everything in her
     life somehow ties back to them...  There was this \u2018poem\u2019 she used to
     recite all the time while running tests on that thing in the lab\u2014guess it
-    helped her calm down or something. It went kinda like this: \u2018On days of
+    helped her calm down or something. It went kinda like this:   \u2018On days of
     hunger, the white cat goes hunting for food near a nearby lake, while distracted,
     the other cat patiently watches from atop the table the herb its owner is about
-    to give it\u2026\u2019 Pretty ridiculous, huh? Can\u2019t even call that a"
+    to give it\u2026\u2019 Pretty ridiculous, huh? Can\u2019t even call that a real
+    poem."
   page2: 'By the way... You left a paper in the cryogenic capsule room yesterday.
     Don''t forget to pick it up. I hope it''s nothing important, otherwise Amelia
     might try to use it to open your safe. Stay sharp. '
@@ -608,7 +609,7 @@ MonoBehaviour:
     gonna need a password\u2014she\u2019s obsessed with cats, and everything in her
     life somehow ties back to them...\n\nThere was this \u2018poem\u2019 she used
     to recite all the time while running tests on that thing in the lab\u2014guess
-    it helped her calm down or something. It went kinda like this: \u2018On days
+    it helped her calm down or something. It went kinda like this: \n\n\u2018On days
     of hunger, the white cat goes hunting for food near a nearby lake, while distracted,
     the other cat patiently watches from atop the table the herb its owner is about
     to give it\u2026\u2019\nPretty ridiculous, huh? Can\u2019t even call that a real
@@ -647,7 +648,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

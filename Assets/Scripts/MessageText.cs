@@ -69,7 +69,7 @@ public class MessageText : MonoBehaviour
     public void CloseText()
     {
         timerActive = false;
-        timer = 1.5f;
+        timer = 4f;
         text.gameObject.SetActive(false);
         textBackground.SetActive(false);
     }

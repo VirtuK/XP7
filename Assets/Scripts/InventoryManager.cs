@@ -47,6 +47,15 @@ public class InventoryManager : MonoBehaviour
     {
         return inventory;
     }
+
+    public void ResetInventory()
+    {
+        for(int i = 0; i < inventory.Count; i++)
+        {
+            ItemData item = inventory[i];
+            RemoveItem(item);
+        }
+    }
 }
 
 [System.Serializable]

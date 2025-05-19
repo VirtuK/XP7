@@ -39,5 +39,11 @@ public class ProgressManager : MonoBehaviour
     {
         return loadedScenes.Contains(sceneName);
     }
+
+    public void Reset()
+    {
+        loadedScenes.Clear(); 
+        puzzleResolved = false;
+    }
 }
 

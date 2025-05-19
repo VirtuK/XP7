@@ -57,10 +57,10 @@ public class ClickToMove : MonoBehaviour
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
 
-            if (MessageText.instance.timerActive)
+            /*if (MessageText.instance.timerActive)
             {
                 MessageText.instance.CloseText();
-            }
+            }*/
 
             clickedPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             clickedPosition.z = 0;

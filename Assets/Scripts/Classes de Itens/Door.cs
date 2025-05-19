@@ -137,6 +137,8 @@ public class Door : Item
             {
                 Cursor.visible = true;
                 SceneSerializationManager.instance.DeleteAllFiles();
+                ProgressManager.instance.Reset();
+                InventoryManager.instance.ResetInventory();
                 changeScene();
             }
             else

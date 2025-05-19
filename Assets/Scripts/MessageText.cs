@@ -12,7 +12,7 @@ public class MessageText : MonoBehaviour
 
     [SerializeField] private TMP_Text text;
     [SerializeField] private GameObject textBackground;
-    private float timer = 1.5f;
+    private float timer = 4f;
     public bool timerActive;
 
     private void Awake()

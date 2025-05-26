@@ -23648,21 +23648,27 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 8155259793133768170, guid: a9f5027417e5fe647b4e2fb95d796d86,
         type: 3}
+      propertyPath: cursorClickSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 724fd79350c31b548b78b80d39eea649,
+        type: 3}
+    - target: {fileID: 8155259793133768170, guid: a9f5027417e5fe647b4e2fb95d796d86,
+        type: 3}
       propertyPath: cursorNormalSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 64db4c83eee36ef4fb86c8f345625f0f,
+      objectReference: {fileID: 21300000, guid: da77ec8cd8238464998f34f3bc453b49,
         type: 3}
     - target: {fileID: 8155259793133768170, guid: a9f5027417e5fe647b4e2fb95d796d86,
         type: 3}
       propertyPath: cursorPrincipalSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 182e3c06d2e7e1b4aade88d822966e7c,
+      objectReference: {fileID: 21300000, guid: d45baf5d844e20f44a89aa3b834143de,
         type: 3}
     - target: {fileID: 8155259793133768170, guid: a9f5027417e5fe647b4e2fb95d796d86,
         type: 3}
       propertyPath: cursorInteractionSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 67c3865eeb60cd04b9c96d38479b3afe,
+      objectReference: {fileID: 21300000, guid: 2e355c241b502194aaacf7a9150bd45d,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

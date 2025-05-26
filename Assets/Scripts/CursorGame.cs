@@ -14,6 +14,7 @@ public class CursorGame : MonoBehaviour
     [SerializeField] public Sprite cursorNormalSprite;
     [SerializeField] public Sprite cursorInteractionSprite;
     [SerializeField] public Sprite cursorDrawSprite;
+    [SerializeField] public Sprite cursorClickSprite;
     [SerializeField] public Animator cursorAnimator;
 
     private void Awake()
@@ -62,7 +63,7 @@ public class CursorGame : MonoBehaviour
                 Vector2 offset = new Vector2(size.x / 2, size.y / 2);
                 cursorObject.transform.position = mousePosition + offset;
             }
-            else if (cursorImage.sprite == cursorInteractionSprite)
+            else if (cursorImage.sprite == cursorInteractionSprite || cursorImage.sprite == cursorClickSprite)
             {
                 // Get size of the cursor image in screen space
                 Vector2 size = rt.sizeDelta * rt.lossyScale;
@@ -77,6 +78,12 @@ public class CursorGame : MonoBehaviour
                 Vector2 size = rt.sizeDelta * rt.lossyScale;
                 Vector2 offset = new Vector2(size.x / 2, -size.y / 2);
                 cursorObject.transform.position = mousePosition + offset;
+            }
+
+            if (Input.GetMouseButtonDown(0)) 
+            {
+                cursorImage.sprite = cursorClickSprite;
+                StartCoroutine(click());
             }
         }
     }
@@ -135,5 +142,12 @@ public class CursorGame : MonoBehaviour
         cursorAnimator.enabled = false;
         cursorObject.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
 
+    }
+
+    public IEnumerator click()
+    {
+        cursorObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        yield return new WaitForSeconds(0.3f);
+        resetCursor();
     }
 }

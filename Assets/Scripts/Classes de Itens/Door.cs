@@ -161,7 +161,6 @@ public class Door : Item
         audioSC.Play();
         GameObject.Find("Player").GetComponent<ClickToMove>().doingPuzzle = true;
         InteractionManagar.instance.interacting = true;
-        SceneSerializationManager.instance.SaveScene();
         SceneChanger.instance.changeScene(doorDestinationSceneName);
     }
 

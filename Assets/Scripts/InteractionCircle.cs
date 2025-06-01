@@ -6,7 +6,7 @@ public class InteractionCircle : MonoBehaviour
 {
     public void callCircle()
     {
-        if (InteractionManagar.instance.isNear)
+        if (InteractionManagar.instance.isNear && !InteractionManagar.instance.haveItemSelected)
         {
             InteractionManagar.instance.CheckInteractions();
         }

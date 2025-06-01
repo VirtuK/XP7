@@ -116,7 +116,7 @@ public class InteractionManagar : MonoBehaviour
             interactionCircle.transform.position = mousePosition + offset;
         }
         // Only process interactions if the mouse button is held down
-        if (Input.GetMouseButton(0)) // Mouse button is held down
+        if (Input.GetMouseButton(0) && !haveItemSelected) // Mouse button is held down
         {
             if(highlightedItem != null)
             {
@@ -160,18 +160,21 @@ public class InteractionManagar : MonoBehaviour
                         break;
                     }
                 }
-                highlightedItem = null;
-                resetInteractions();
+                
             }
-           
+            GameObject.Find("Player").GetComponent<HighlightItens>().HighlightObject();
+
         }
         
 
         // Hide the interaction wheel if mouse is not held down
         if (!Input.GetMouseButton(0) && interacting)
         {
-            highlightedItem = null;
-            resetInteractions();
+            if (!IsMouseOverItem(highlightedItem))
+            {
+                //highlightedItem = null;
+                resetInteractions();
+            }
         }
     }
     public void resetInteractions()
@@ -187,5 +190,17 @@ public class InteractionManagar : MonoBehaviour
             segment.Unhighlight();
             segment.gameObject.SetActive(false);
         }
+    }
+
+    private bool IsMouseOverItem(Item item)
+    {
+        if (item == null) return false;
+
+        RectTransform rt = item.GetComponent<RectTransform>();
+        if (rt == null) return false;
+
+        Vector2 mousePos = Input.mousePosition;
+        print("mouse ta em cima");
+        return RectTransformUtility.RectangleContainsScreenPoint(rt, mousePos, canvas.worldCamera);
     }
 }

@@ -25,7 +25,7 @@ public class HighlightItens : MonoBehaviour
         }
     }
 
-    void HighlightObject()
+    public void HighlightObject()
     {
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;

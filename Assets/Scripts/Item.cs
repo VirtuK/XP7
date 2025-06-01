@@ -21,7 +21,9 @@ public abstract class Item : MonoBehaviour, IInteractable
     [SerializeField] public InteractionType interactions;
     [SerializeField] public string itemID;
 
-    [SerializeField] public bool IgnoreOnSave; 
+    [SerializeField] public bool IgnoreOnSave;
+
+    [SerializeField] public ItemData interactionItem;
 
     private void Awake()
     {
@@ -43,6 +45,16 @@ public abstract class Item : MonoBehaviour, IInteractable
     public virtual void Inspect()
     {
         ItemInspection.instance.StartInspection(transform.parent.gameObject);
+    }
+
+    public virtual bool CheckItemInteraction(ItemData selectedItem)
+    {
+        if (selectedItem != interactionItem)
+        {
+            MessageText.instance.ShowText("That doesn't seem to do anything.");
+            return false;
+        }
+        else return true;
     }
     public void ListDestruction()
     {

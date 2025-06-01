@@ -40,7 +40,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (InteractionManagar.instance.haveItemSelected)
         {
             print("bbbbbbbbbba");
-            if (InteractionManagar.instance.highlightedItem.interactions.HasFlag(InteractionType.Use))
+            if (InteractionManagar.instance.highlightedItem.interactions.HasFlag(InteractionType.Use) && 
+                InteractionManagar.instance.highlightedItem.CheckItemInteraction(InteractionManagar.instance.selectedItem))
             {
                 print("aaaaaaaaaab");
                 InteractionManagar.instance.highlightedItem.Use();

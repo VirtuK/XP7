@@ -29,6 +29,7 @@ public class SceneChanger : MonoBehaviour
     public void changeScene(string scene)
     {
         InventoryUI.instance.abriuPapel = false;
+        SceneSerializationManager.instance.SaveScene();
         if (scene == "sair")
         {
             Application.Quit();

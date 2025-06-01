@@ -6475,6 +6475,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f5f651b3e12960a4683f380a109c6122,
+        type: 3}
+      propertyPath: m_Name
+      value: defaultTeclado
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7659,6 +7664,11 @@ MonoBehaviour:
   interactions: 2
   itemID: 
   IgnoreOnSave: 0
+  interactionItem:
+    itemName: 
+    itemID: 
+    itemIcon: {fileID: 0}
+    itemComponent: {fileID: 0}
 --- !u!136 &1149092705
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -23522,6 +23532,11 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
+  interactionItem:
+    itemName: 
+    itemID: 
+    itemIcon: {fileID: 0}
+    itemComponent: {fileID: 0}
   doorName: 
   door: {fileID: 8717938015752479720}
 --- !u!114 &1650606599
@@ -24180,6 +24195,11 @@ MonoBehaviour:
   interactions: 2
   itemID: 
   IgnoreOnSave: 0
+  interactionItem:
+    itemName: 
+    itemID: 
+    itemIcon: {fileID: 0}
+    itemComponent: {fileID: 0}
 --- !u!114 &1911177040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24224,6 +24244,11 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
+  interactionItem:
+    itemName: 
+    itemID: 
+    itemIcon: {fileID: 0}
+    itemComponent: {fileID: 0}
   doorName: 
   door: {fileID: 8717938015752479720}
 --- !u!114 &1918894889
@@ -25009,6 +25034,11 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
+  interactionItem:
+    itemName: 
+    itemID: 
+    itemIcon: {fileID: 0}
+    itemComponent: {fileID: 0}
   isLocked: 0
   keyItemName: 
   button: 1

@@ -132,9 +132,11 @@ public class InventoryUI : MonoBehaviour
 
     public void SelectItem(ItemData itemData)
     {
+       
         if (!porta)
         {
-
+            InteractionManagar.instance.selectedItem = itemData;
+            InteractionManagar.instance.haveItemSelected = true;
             if (itemData == null)
             {
                 Debug.LogError("ItemData is null when SelectItem() is called!");

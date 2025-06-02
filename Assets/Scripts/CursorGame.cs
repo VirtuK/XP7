@@ -148,6 +148,6 @@ public class CursorGame : MonoBehaviour
     {
         cursorObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         yield return new WaitForSeconds(0.3f);
-        resetCursor();
+        ResetInteractCursor();
     }
 }

@@ -30,7 +30,7 @@ public class HighlightItens : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit) && !InteractionManagar.instance.interacting && InteractionManagar.instance.resetCooldown <= 0)
         {
             GameObject hitObject = hit.collider.gameObject;
             if (hitObject.CompareTag("Item"))

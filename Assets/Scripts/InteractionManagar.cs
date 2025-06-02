@@ -15,16 +15,21 @@ public class InteractionManagar : MonoBehaviour
     [SerializeField] public Item highlightedItem;
     [SerializeField] public GameObject interactionCircle;
     public bool interacting;
-    private bool circleExist;
+    public bool circleExist;
 
     public ItemData selectedItem;
+
 
     private bool isDragging;
     public bool haveItemSelected;
     public bool isNear;
+    private bool test;
     private Vector2 dragStartPos;
 
     private Vector3 pos;
+
+    public float resetCooldown = 0f;
+    private float cooldownDuration = 0.4f;
 
     private void Awake()
     {
@@ -71,7 +76,9 @@ public class InteractionManagar : MonoBehaviour
 
     public void CheckInteractions()
     {
-        resetInteractions();
+        //resetInteractions();
+        highlightedItem = null;
+        circleExist = true;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             canvas.transform as RectTransform,
             pos,
@@ -89,6 +96,7 @@ public class InteractionManagar : MonoBehaviour
             if (supported)
             {
                 interacting = true;
+                checkCircle();
             }
         }
 
@@ -100,10 +108,11 @@ public class InteractionManagar : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void checkCircle()
     {
         if (interactionCircle.activeInHierarchy)
         {
+            highlightedItem = null;
             Image cursorImage = interactionCircle.GetComponent<Image>();
             Vector2 mousePosition = Input.mousePosition;
 
@@ -115,18 +124,31 @@ public class InteractionManagar : MonoBehaviour
             Vector2 offset = new Vector2(0, 0);
             interactionCircle.transform.position = mousePosition + offset;
         }
+    }
+
+
+    private void Update()
+    {
+        if (resetCooldown > 0f)
+        {
+            resetCooldown -= Time.deltaTime;
+        }
         // Only process interactions if the mouse button is held down
-        if (Input.GetMouseButton(0) && !haveItemSelected) // Mouse button is held down
+        if (Input.GetMouseButton(0) && !haveItemSelected && !circleExist) // Mouse button is held down
         {
             if(highlightedItem != null)
             {
-                if (!circleExist && highlightedItem.GetComponent<Item>())
+                /*if (!circleExist && highlightedItem.GetComponent<Item>())
                 {
                     interactionCircle.SetActive(true);
                     circleExist = true;
+                }*/
+                if (isNear && !haveItemSelected && !circleExist)
+                {
+                    print("teste teste teste");
                 }
             }
-            if (isDragging && interacting)
+            /*if (interacting)
             {
                 Vector2 currentMousePos = Input.mousePosition;
                 Vector2 direction = currentMousePos - dragStartPos;
@@ -142,23 +164,32 @@ public class InteractionManagar : MonoBehaviour
                         segment.HighlightIfInAngle(angle);
                     }
                 }
-            }
+            }*/
         }
 
         // Check for mouse button release to trigger the interaction
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonDown(0) && circleExist)
         {
-            if (circleExist) interactionCircle.SetActive(false);
-            circleExist = false;
-            if (isDragging && interacting)
+            /*if (circleExist) interactionCircle.SetActive(false);
+            circleExist = false;*/
+            if (interacting)
             {
+                bool haveinteraction = false;
                 foreach (var segment in interactionSegments)
                 {
                     if (segment.IsHighlighted && interactedItem.interactions.HasFlag(segment.type))
                     {
                         segment.Trigger(interactedItem);
+                        haveinteraction = true;
+                        resetInteractions();
                         break;
                     }
+                    
+                }
+                if (!haveinteraction)
+                {
+                    resetInteractions();
+                    
                 }
                 
             }
@@ -173,7 +204,32 @@ public class InteractionManagar : MonoBehaviour
             if (!IsMouseOverItem(highlightedItem))
             {
                 //highlightedItem = null;
-                resetInteractions();
+                //resetInteractions();
+            }
+        }
+
+        if (isNear && !circleExist && interactedItem != null && !test && resetCooldown <= 0f && !interactedItem.GetComponent<Door>())
+        {
+            CheckInteractions();
+            test = true;
+            isNear = false;
+        }
+
+        if (interacting)
+        {
+            Vector2 currentMousePos = Input.mousePosition;
+            Vector2 direction = currentMousePos - dragStartPos;
+
+            if (direction.sqrMagnitude > 0.001f)
+            {
+                // Calculate angle from Vector2.up, going clockwise
+                float angle = Vector2.SignedAngle(Vector2.up, direction);
+                if (angle < 0) angle += 360f;
+
+                foreach (var segment in interactionSegments)
+                {
+                    segment.HighlightIfInAngle(angle);
+                }
             }
         }
     }
@@ -183,13 +239,15 @@ public class InteractionManagar : MonoBehaviour
         interactionsParent.gameObject.SetActive(false);
         interacting = false;
         isDragging = false;
-        
+        circleExist = false;
+        test = false;
 
         foreach (var segment in interactionSegments)
         {
             segment.Unhighlight();
             segment.gameObject.SetActive(false);
         }
+        resetCooldown = cooldownDuration;
     }
 
     private bool IsMouseOverItem(Item item)

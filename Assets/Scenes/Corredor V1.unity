@@ -5658,6 +5658,11 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
+  interactionItem:
+    itemName: 
+    itemID: 
+    itemIcon: {fileID: 0}
+    itemComponent: {fileID: 0}
   numberPuzzle: {fileID: 1171289831}
   player: {fileID: 0}
   puzzleCam: {fileID: 0}
@@ -5725,6 +5730,8 @@ GameObject:
   - component: {fileID: 474799860}
   - component: {fileID: 474799859}
   - component: {fileID: 474799858}
+  - component: {fileID: 474799862}
+  - component: {fileID: 474799861}
   m_Layer: 5
   m_Name: RightButton
   m_TagString: Untagged
@@ -5846,6 +5853,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474799856}
   m_CullTransparentMesh: 1
+--- !u!114 &474799861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474799856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69b647dfbb4f9f4d97c12e928d8838a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aS: {fileID: 6136821408841063318}
+  sound: {fileID: 8300000, guid: 36a1b28c762ef3246b499f77b4c513e3, type: 3}
+--- !u!95 &474799862
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474799856}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b7154e016a5690b46a3554fcbcd63085, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &533340696
 GameObject:
   m_ObjectHideFlags: 0
@@ -6506,6 +6549,11 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 1
+  interactionItem:
+    itemName: 
+    itemID: 
+    itemIcon: {fileID: 0}
+    itemComponent: {fileID: 0}
   iconPuzzle: {fileID: 0}
   player: {fileID: 0}
   puzzleCam: {fileID: 1241970059698195555}
@@ -7147,6 +7195,11 @@ MonoBehaviour:
   interactions: 4
   itemID: 
   IgnoreOnSave: 0
+  interactionItem:
+    itemName: 
+    itemID: 
+    itemIcon: {fileID: 0}
+    itemComponent: {fileID: 0}
   isLocked: 0
   keyItemName: 
   button: 0
@@ -7663,6 +7716,11 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
+  interactionItem:
+    itemName: 
+    itemID: 
+    itemIcon: {fileID: 0}
+    itemComponent: {fileID: 0}
   isLocked: 0
   keyItemName: 
   button: 0
@@ -9991,6 +10049,11 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
+  interactionItem:
+    itemName: 
+    itemID: 
+    itemIcon: {fileID: 0}
+    itemComponent: {fileID: 0}
   isLocked: 0
   keyItemName: 
   button: 0
@@ -12627,6 +12690,11 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
+  interactionItem:
+    itemName: 
+    itemID: 
+    itemIcon: {fileID: 0}
+    itemComponent: {fileID: 0}
   isLocked: 0
   keyItemName: 
   button: 1
@@ -12992,6 +13060,11 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
+  interactionItem:
+    itemName: 
+    itemID: 
+    itemIcon: {fileID: 0}
+    itemComponent: {fileID: 0}
   isLocked: 0
   keyItemName: 
   button: 0

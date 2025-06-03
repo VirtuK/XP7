@@ -67,11 +67,11 @@ public class Door : Item
             if (!isButtonPressed)
                 turnOffDisplay();
             else
-                turnOnDisplay();
+                turnOnColor();
 
             if (isPuzzleDoor && puzzleSolved)
             {
-                turnOnDisplay();
+                turnOnColor();
             }
         }
         else
@@ -177,6 +177,17 @@ public class Door : Item
                 light.color = new Color32(34, 180, 0, 255);
         }
 
+        interactions = InteractionType.Use;
+    }
+
+    public void turnOnColor()
+    {
+        foreach (var light in displayLight)
+        {
+            if (light != null)
+                light.color = new Color32(34, 180, 0, 255);
+        }
+        display.material = displayOn;
         interactions = InteractionType.Use;
     }
 

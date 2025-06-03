@@ -29,7 +29,7 @@ public class InteractionManagar : MonoBehaviour
     private Vector3 pos;
 
     public float resetCooldown = 0f;
-    private float cooldownDuration = 0.4f;
+    private float cooldownDuration = 1f;
 
     private void Awake()
     {
@@ -247,6 +247,8 @@ public class InteractionManagar : MonoBehaviour
             segment.Unhighlight();
             segment.gameObject.SetActive(false);
         }
+
+        interactedItem = null; // <- isso aqui resolve o bug!
         resetCooldown = cooldownDuration;
     }
 

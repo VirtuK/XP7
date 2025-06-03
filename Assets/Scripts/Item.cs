@@ -35,6 +35,8 @@ public abstract class Item : MonoBehaviour, IInteractable
         InventoryManager.instance.AddItem(item);
         ListDestruction();
         gameObject.SetActive(false);
+        InteractionManagar.instance.resetInteractions();
+        InteractionManagar.instance.selectedItem = null;
     }
     public virtual void See() 
     {

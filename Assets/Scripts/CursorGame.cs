@@ -80,7 +80,7 @@ public class CursorGame : MonoBehaviour
                 cursorObject.transform.position = mousePosition + offset;
             }
 
-            if (Input.GetMouseButtonDown(0)) 
+            if (Input.GetMouseButtonDown(0) && cursorObject.GetComponent<Image>().sprite != cursorDrawSprite) 
             {
                 cursorImage.sprite = cursorClickSprite;
                 StartCoroutine(click());

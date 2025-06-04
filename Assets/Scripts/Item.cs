@@ -23,7 +23,7 @@ public abstract class Item : MonoBehaviour, IInteractable
 
     [SerializeField] public bool IgnoreOnSave;
 
-    [SerializeField] public ItemData interactionItem;
+    [SerializeField] public string interactionItemName;
 
     private void Awake()
     {
@@ -51,7 +51,7 @@ public abstract class Item : MonoBehaviour, IInteractable
 
     public virtual bool CheckItemInteraction(ItemData selectedItem)
     {
-        if (selectedItem != interactionItem)
+        if (selectedItem.itemName != interactionItemName)
         {
             MessageText.instance.ShowText("That doesn't seem to do anything.");
             return false;

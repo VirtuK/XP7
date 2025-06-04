@@ -44,7 +44,7 @@ public class Tranca : Item
         }
         else
         {
-            MessageText.instance.ShowText($"Looks like there is {requiredComponentNames.Count} missing numbers on this.");
+            MessageText.instance.ShowText($"Looks like there is {requiredComponentNames.Count} missing number on this.");
         }
 
         CursorGame.instance.resetCursor();

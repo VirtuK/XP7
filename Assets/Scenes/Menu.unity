@@ -728,7 +728,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -759,7 +759,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 14.678375, y: 0, z: 46.997528, w: 0}
+  m_margin: {x: 24.29892, y: 0, z: 37.377174, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5642,8 +5642,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -717.9, y: 157.9}
-  m_SizeDelta: {x: 350, y: 120}
+  m_AnchoredPosition: {x: -767, y: 157.9}
+  m_SizeDelta: {x: 282.66, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1085029835
 MonoBehaviour:
@@ -6198,7 +6198,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -18.914215, y: 0, z: 27.422852, w: 0}
+  m_margin: {x: -2.0783386, y: 0, z: 35.279602, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

@@ -6075,6 +6075,10 @@ MonoBehaviour:
   fadeImage: {fileID: 2066776867}
   audioSC: {fileID: 28153025}
   particulas: {fileID: 870781675}
+  buttonsToDisable:
+  - {fileID: 1090885037}
+  - {fileID: 1085029833}
+  uiAudioSource: {fileID: 1705934711}
 --- !u!1 &1202653022
 GameObject:
   m_ObjectHideFlags: 0

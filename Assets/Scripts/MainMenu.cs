@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
@@ -12,8 +13,40 @@ public class MainMenu : MonoBehaviour
 
     private ParticleSystem.Particle[] particlesArray;
 
+    public GameObject[] buttonsToDisable;
+    public AudioSource uiAudioSource;
+
     public void PlayGame()
     {
+        foreach (var obj in buttonsToDisable)
+        {
+            var button = obj.GetComponent<Button>();
+            var selectable = obj.GetComponent<Selectable>();
+
+            if (button != null)
+            {
+                
+
+                ColorBlock colors = button.colors;
+                Color invisivel = new Color(1f, 1f, 1f, 0f);
+                colors.normalColor = invisivel;
+                colors.highlightedColor = invisivel;
+                colors.pressedColor = invisivel;
+                colors.selectedColor = invisivel;
+                colors.disabledColor = invisivel;
+                button.colors = colors;
+                button.interactable = false;
+            }
+
+        }
+
+        EventSystem.current.SetSelectedGameObject(null);
+
+        if (uiAudioSource != null && uiAudioSource.isPlaying)
+        {
+            Destroy(uiAudioSource);
+        }
+
         StartCoroutine(FadeAndLoad());
     }
 
@@ -24,7 +57,6 @@ public class MainMenu : MonoBehaviour
 
         if (particulas != null)
         {
-            // Inicializa o array de partículas com a capacidade máxima
             particlesArray = new ParticleSystem.Particle[particulas.main.maxParticles];
         }
 
@@ -40,7 +72,7 @@ public class MainMenu : MonoBehaviour
             if (audioSC != null)
                 audioSC.volume = 1f - normalizedTime;
 
-            // Fade das partículas, se houver
+            // Fade das partículas
             if (particulas != null)
             {
                 int alive = particulas.GetParticles(particlesArray);
@@ -48,7 +80,7 @@ public class MainMenu : MonoBehaviour
                 for (int i = 0; i < alive; i++)
                 {
                     Color32 c = particlesArray[i].startColor;
-                    c.a = (byte)(255 * (1f - normalizedTime)); // Alpha diminui com o tempo
+                    c.a = (byte)(255 * (1f - normalizedTime));
                     particlesArray[i].startColor = c;
                 }
 
@@ -58,7 +90,7 @@ public class MainMenu : MonoBehaviour
             yield return null;
         }
 
-        // Garante que o fade chegou ao fim
+        // Garante que tudo está no estado final
         fadeImage.color = new Color(imgColor.r, imgColor.g, imgColor.b, 1f);
 
         if (particulas != null)

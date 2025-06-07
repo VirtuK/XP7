@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class BackToMenu : MonoBehaviour
 {
@@ -10,10 +11,39 @@ public class BackToMenu : MonoBehaviour
     public float fadeDuration = 5f;
     public Image fadeImage;
 
-
+    public GameObject[] buttonsToDisable;
+    public AudioSource uiAudioSource;
 
     public void BackToMenuButton()
     {
+        foreach (var obj in buttonsToDisable)
+        {
+            var button = obj.GetComponent<Button>();
+            var selectable = obj.GetComponent<Selectable>();
+
+            if (button != null)
+            {
+
+
+                ColorBlock colors = button.colors;
+                Color invisivel = new Color(1f, 1f, 1f, 0f);
+                colors.normalColor = invisivel;
+                colors.highlightedColor = invisivel;
+                colors.pressedColor = invisivel;
+                colors.selectedColor = invisivel;
+                colors.disabledColor = invisivel;
+                button.colors = colors;
+                button.interactable = false;
+            }
+
+        }
+
+        EventSystem.current.SetSelectedGameObject(null);
+
+        if (uiAudioSource != null && uiAudioSource.isPlaying)
+        {
+            Destroy(uiAudioSource);
+        }
         StartCoroutine(BackToMenuAfterDelay());
     }
 

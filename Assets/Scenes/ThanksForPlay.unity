@@ -5908,6 +5908,9 @@ MonoBehaviour:
   delay: 5
   fadeDuration: 2
   fadeImage: {fileID: 1722688494}
+  buttonsToDisable:
+  - {fileID: 512787594}
+  uiAudioSource: {fileID: 1705934711}
 --- !u!1 &1419656470
 GameObject:
   m_ObjectHideFlags: 0

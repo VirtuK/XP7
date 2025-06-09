@@ -5658,11 +5658,7 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
-  interactionItem:
-    itemName: 
-    itemID: 
-    itemIcon: {fileID: 0}
-    itemComponent: {fileID: 0}
+  interactionItemName: 
   numberPuzzle: {fileID: 1171289831}
   player: {fileID: 0}
   puzzleCam: {fileID: 0}
@@ -6549,11 +6545,7 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 1
-  interactionItem:
-    itemName: 
-    itemID: 
-    itemIcon: {fileID: 0}
-    itemComponent: {fileID: 0}
+  interactionItemName: 
   iconPuzzle: {fileID: 0}
   player: {fileID: 0}
   puzzleCam: {fileID: 1241970059698195555}
@@ -7195,11 +7187,7 @@ MonoBehaviour:
   interactions: 4
   itemID: 
   IgnoreOnSave: 0
-  interactionItem:
-    itemName: 
-    itemID: 
-    itemIcon: {fileID: 0}
-    itemComponent: {fileID: 0}
+  interactionItemName: 
   isLocked: 0
   keyItemName: 
   button: 0
@@ -7210,8 +7198,8 @@ MonoBehaviour:
   - {fileID: 0}
   displayOn: {fileID: 2100000, guid: 704c5309b9c13e044b4a5f77967584df, type: 2}
   displayOff: {fileID: 2100000, guid: 2ccbab978c03ec44c9a89f85b02ba5a1, type: 2}
-  doorDestinationSceneName: ThanksForPlay
-  doorDestinationSceneAsset: {fileID: 102900000, guid: 98fdb7a1fa740be498cbbe56b0470303,
+  doorDestinationSceneName: CorredorFinal
+  doorDestinationSceneAsset: {fileID: 102900000, guid: d0c659bae066e2d4faf631fff7a54cee,
     type: 3}
   isPuzzleDoor: 1
   puzzleSolved: 0
@@ -7716,11 +7704,7 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
-  interactionItem:
-    itemName: 
-    itemID: 
-    itemIcon: {fileID: 0}
-    itemComponent: {fileID: 0}
+  interactionItemName: 
   isLocked: 0
   keyItemName: 
   button: 0
@@ -8388,6 +8372,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NumberPuzzle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1034860233743367464, guid: e2fcdb0d4013c6d47bad4bc299808c77,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1716767749799291070, guid: e2fcdb0d4013c6d47bad4bc299808c77,
         type: 3}
@@ -10049,11 +10038,7 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
-  interactionItem:
-    itemName: 
-    itemID: 
-    itemIcon: {fileID: 0}
-    itemComponent: {fileID: 0}
+  interactionItemName: 
   isLocked: 0
   keyItemName: 
   button: 0
@@ -12690,11 +12675,7 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
-  interactionItem:
-    itemName: 
-    itemID: 
-    itemIcon: {fileID: 0}
-    itemComponent: {fileID: 0}
+  interactionItemName: 
   isLocked: 0
   keyItemName: 
   button: 1
@@ -13060,11 +13041,7 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
-  interactionItem:
-    itemName: 
-    itemID: 
-    itemIcon: {fileID: 0}
-    itemComponent: {fileID: 0}
+  interactionItemName: 
   isLocked: 0
   keyItemName: 
   button: 0

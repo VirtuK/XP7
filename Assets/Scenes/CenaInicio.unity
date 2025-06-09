@@ -335,8 +335,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 28.7
+  m_fontSizeBase: 28.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 614.3676, y: 284.16754, z: 617.2998, w: 358.3136}
+  m_margin: {x: 598.0502, y: 324.96124, z: 507.97287, w: 358.3136}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -402,21 +402,24 @@ MonoBehaviour:
   _textMeshPro: {fileID: 60469909}
   fadeCanvas: {fileID: 957245063}
   stringArray:
-  - '[sound=fadein]Inicializando. . .'
-  - "[sound=heartbeat_in]Verificando batimentos card\xEDacos. . ."
-  - 'Ini#%@ proto&#o de segu#^$!. . . '
-  - "E\xD7^=*  "
-  - "[sound=alert]Perigo! Per\xD7<#"
-  - "Laborat\xF3rio &#^@=>$^. . . "
-  - "Iniciando proto^$*> de quar&%*\xF7na. . . "
-  - Sem ener$&@. . .
-  - Desli&$
-  - . . .
+  - '[sound=fadein]Initializing...'
+  - '[sound=heartbeat_in]Checking heartbeat...'
+  - W-What...? Where am I?
+  - It's... Cold...
+  - "Verif. . . Ve. . . Err@. . . \xD7^@ro. . . "
+  - "Ini#%@ secu#^$ proto&#o!. . . E\xD7^=*"
+  - "[sound=alert]What is\u2014?"
+  - "Danger! Da\xD7<# Laboratory &#^@=>$^. . . "
+  - ' Initiating quara^$*> protocol. . . '
+  - ' No powe$&@. . . Shutti&$,. .'
+  - 
   timeBtwnChars: 0.1
-  timeBtwnLines: 2
+  timeBtwnLines: 1
   audioSource: {fileID: 28153025}
+  typingSource: {fileID: 1705934711}
   heartbeatIn: {fileID: 8300000, guid: 11daef4b20cd5f444896ed6d1a7886d1, type: 3}
   alert: {fileID: 8300000, guid: b4cb102c4faba4e43b4260f5f068e232, type: 3}
+  typing: {fileID: 0}
   fadeDuration: 1
 --- !u!95 &60469912
 Animator:
@@ -1131,7 +1134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1178827583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1146,8 +1149,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 832100454}
   music: {fileID: 0}
-  aS: {fileID: 1705934711}
-  heart: {fileID: 8300000, guid: 11daef4b20cd5f444896ed6d1a7886d1, type: 3}
 --- !u!4 &1178827584
 Transform:
   m_ObjectHideFlags: 0
@@ -1283,7 +1284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1705934711
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1294,8 +1295,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2424566ffd8abd14488aee975bf48d12, type: 3}
-  m_Resource: {fileID: 8300000, guid: 2424566ffd8abd14488aee975bf48d12, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4200e1894b0673d48a186508c44c8b2f, type: 3}
+  m_Resource: {fileID: 8300000, guid: 4200e1894b0673d48a186508c44c8b2f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.431
   m_Pitch: 1

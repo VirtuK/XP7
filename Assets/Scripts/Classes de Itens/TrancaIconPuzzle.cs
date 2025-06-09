@@ -43,7 +43,7 @@ public class TrancaIconPuzzle : Item
     {
         if (!door.isButtonPressed)
         {
-            InventoryUI.instance.CloseUI();
+            //InventoryUI.instance.CloseUI();
             iconPuzzle.SetActive(true);
             CursorGame.instance.resetCursor();
             CursorGame.instance.ResetDoorCursor();

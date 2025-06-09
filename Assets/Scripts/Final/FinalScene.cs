@@ -207,4 +207,9 @@ public class FinalScene : MonoBehaviour
         c.a = targetAlpha;
         fadeImage.color = c;
     }
+
+    public void changeScene()
+    {
+        SceneChanger.instance.changeScene("ThanksForPlay");
+    }
 }

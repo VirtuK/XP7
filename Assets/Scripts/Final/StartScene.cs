@@ -5,11 +5,9 @@ public class StartScene : MonoBehaviour
 {
     public TMP_Text text;
     public AudioSource music;
-    public AudioSource aS;
-    public AudioClip heart;
     private float fadeDuration = 5f;
     private float fadeTimer = 0f;
-    private float delayBeforeFade = 5f;
+    private float delayBeforeFade = 40f;
     private float delayTimer = 0f;
     private bool fading = false;
 

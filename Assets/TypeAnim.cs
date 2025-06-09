@@ -1,7 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class TextAnim : MonoBehaviour
 {
@@ -16,9 +17,11 @@ public class TextAnim : MonoBehaviour
 
     [Header("Audio Settings")]
     [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioSource typingSource;
     [SerializeField] AudioClip heartbeatIn;
     //[SerializeField] AudioClip heartbeatOut;
     [SerializeField] AudioClip alert;
+    [SerializeField] AudioClip typing;
 
     [Header("Fade Settings")]
     [SerializeField] float fadeDuration = 1f;
@@ -36,18 +39,36 @@ public class TextAnim : MonoBehaviour
             yield break;
 
         string rawLine = stringArray[i];
-        string line = ParseCommand(rawLine); // executa efeitos e remove tags
+        string line = ParseCommand(rawLine);
 
-        _textMeshPro.text = line;
-        _textMeshPro.maxVisibleCharacters = 0;
-        _textMeshPro.ForceMeshUpdate();
-        int totalVisibleCharacters = _textMeshPro.textInfo.characterCount;
+        _textMeshPro.color = (i == 2 || i == 3 || i == 6)
+            ? new Color32(173, 216, 230, 255)
+            : new Color32(255, 255, 255, 255);
 
-        for (int j = 0; j <= totalVisibleCharacters; j++)
+        if (i != 2 && i != 3 && i != 6 && i != 10 && !typingSource.isPlaying)
+            typingSource.Play();
+
+        int totalChars = line.Length;
+        int visibleChars = 0;
+
+        while (visibleChars <= totalChars)
         {
-            _textMeshPro.maxVisibleCharacters = j;
+            string textToShow = line.Substring(0, visibleChars);
+
+            // Show the cursor at the end ALWAYS if not in strings 2,3,6 and line not fully revealed
+            if (i != 2 && i != 3 && i != 6 && visibleChars < totalChars)
+            {
+                textToShow += "▮";  // Cursor always visible
+            }
+
+            _textMeshPro.text = textToShow;
+
+            visibleChars++;
             yield return new WaitForSeconds(timeBtwnChars);
         }
+
+        if (typingSource.isPlaying)
+            typingSource.Stop();
 
         i++;
         yield return new WaitForSeconds(timeBtwnLines);

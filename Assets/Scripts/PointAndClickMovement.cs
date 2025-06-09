@@ -31,16 +31,25 @@ public class ClickToMove : MonoBehaviour
 
     void Start()
     {
-       
+
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        animator.applyRootMotion = false;
         if (mainCamera == null)
         {
             mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>(); // Pega a câmera principal automaticamente
         }
         textTransform = MessageText.instance.getText().transform;
         originalTextLocalPosition = textTransform.localPosition;
-        
+        if (!agent.isOnNavMesh)
+        {
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(transform.position, out hit, 10f, NavMesh.AllAreas))
+            {
+                agent.Warp(hit.position);
+                Debug.Log("[ClickToMove] Agente realocado para NavMesh.");
+            }
+        }
     }
 
     void Update()
@@ -113,8 +122,10 @@ public class ClickToMove : MonoBehaviour
     {
         if (!agent.pathPending)
         {
+            Debug.Log("anda vai");
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
+                Debug.Log("anda caralho");
                 if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                 {
                     animator.SetBool("Moving", false);
@@ -127,8 +138,8 @@ public class ClickToMove : MonoBehaviour
             else
             {
                 animator.SetBool("Moving", true);
+                transform.position = agent.nextPosition;
 
-                
             }
         }
 

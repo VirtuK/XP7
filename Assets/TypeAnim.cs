@@ -55,10 +55,9 @@ public class TextAnim : MonoBehaviour
         {
             string textToShow = line.Substring(0, visibleChars);
 
-            // Show the cursor at the end ALWAYS if not in strings 2,3,6 and line not fully revealed
             if (i != 2 && i != 3 && i != 6 && visibleChars < totalChars)
             {
-                textToShow += "▮";  // Cursor always visible
+                textToShow += "▮";
             }
 
             _textMeshPro.text = textToShow;
@@ -69,6 +68,13 @@ public class TextAnim : MonoBehaviour
 
         if (typingSource.isPlaying)
             typingSource.Stop();
+
+        if (i == stringArray.Length - 1)
+        {
+            if (audioSource.isPlaying)
+                audioSource.Stop();
+            yield break; 
+        }
 
         i++;
         yield return new WaitForSeconds(timeBtwnLines);
@@ -99,11 +105,15 @@ public class TextAnim : MonoBehaviour
                 StartCoroutine(FadeCanvas(0f, 1f));
                 break;
             case "alert":
-                audioSource.PlayOneShot(alert);
-                audioSource.volume = 0.3f;
+                audioSource.clip = alert;
+                audioSource.loop = true;
+                audioSource.Play();
+                audioSource.volume = 0.1f;
                 break;
             case "heartbeat_in":
-                audioSource.PlayOneShot(heartbeatIn);
+                audioSource.clip = heartbeatIn;
+                audioSource.Play();
+                audioSource.volume = 1f;
                 break;
             /*case "heartbeat_out":
                 audioSource.PlayOneShot(heartbeatOut);

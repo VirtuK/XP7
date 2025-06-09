@@ -493,7 +493,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 10.166667
+    m_StopTime: 10.416667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -726,13 +726,6 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 3.25
-    functionName: TurnOffLights
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 3.25
     functionName: ActivateShake
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -741,6 +734,13 @@ AnimationClip:
     messageOptions: 0
   - time: 3.25
     functionName: StopFootStepSound
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3.25
+    functionName: TurnOffLights
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -775,6 +775,13 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 6.1666665
+    functionName: ActivateShake2
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 6.1666665
     functionName: StopFootStepSound
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -783,13 +790,6 @@ AnimationClip:
     messageOptions: 0
   - time: 6.1666665
     functionName: TurnOffLights
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 6.1666665
-    functionName: ActivateShake2
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -816,13 +816,6 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 9.875
-    functionName: FadeInScreen
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 10
     functionName: StopFootStepSound
     data: 
@@ -830,22 +823,29 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 10
+  - time: 10.166667
+    functionName: PlayRoar
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 10.291667
+    functionName: FadeInScreen
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 10.291667
     functionName: TurnOffLights
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 10
+  - time: 10.416667
     functionName: ActivateShake3
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 10.166667
-    functionName: PlayRoar
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

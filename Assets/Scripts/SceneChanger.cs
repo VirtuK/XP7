@@ -28,7 +28,7 @@ public class SceneChanger : MonoBehaviour
     }
     public void changeScene(string scene)
     {
-        InventoryUI.instance.abriuPapel = false;
+        if(InventoryUI.instance != null) InventoryUI.instance.abriuPapel = false;
         SceneSerializationManager.instance.SaveScene();
         if (scene == "sair")
         {
@@ -70,7 +70,7 @@ public class SceneChanger : MonoBehaviour
             yield return null;
         }
         canvasGroup.alpha = 1;
-        InteractionManagar.instance.resetInteractions();
+        if(InteractionManagar.instance != null) InteractionManagar.instance.resetInteractions();
         SceneManager.LoadScene(scene);
     }
 }

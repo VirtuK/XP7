@@ -5444,79 +5444,6 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
---- !u!1001 &247364218
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6180765901016011789, guid: 2bb78167aea72a94993850cdd8d5f7c3,
-        type: 3}
-      propertyPath: fadeDuration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8069880510537912811, guid: 2bb78167aea72a94993850cdd8d5f7c3,
-        type: 3}
-      propertyPath: m_Name
-      value: SceneManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8582476331184764825, guid: 2bb78167aea72a94993850cdd8d5f7c3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.83187103
-      objectReference: {fileID: 0}
-    - target: {fileID: 8582476331184764825, guid: 2bb78167aea72a94993850cdd8d5f7c3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.7032998
-      objectReference: {fileID: 0}
-    - target: {fileID: 8582476331184764825, guid: 2bb78167aea72a94993850cdd8d5f7c3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.28156608
-      objectReference: {fileID: 0}
-    - target: {fileID: 8582476331184764825, guid: 2bb78167aea72a94993850cdd8d5f7c3,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8582476331184764825, guid: 2bb78167aea72a94993850cdd8d5f7c3,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8582476331184764825, guid: 2bb78167aea72a94993850cdd8d5f7c3,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8582476331184764825, guid: 2bb78167aea72a94993850cdd8d5f7c3,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8582476331184764825, guid: 2bb78167aea72a94993850cdd8d5f7c3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8582476331184764825, guid: 2bb78167aea72a94993850cdd8d5f7c3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8582476331184764825, guid: 2bb78167aea72a94993850cdd8d5f7c3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2bb78167aea72a94993850cdd8d5f7c3, type: 3}
 --- !u!1 &326377230
 GameObject:
   m_ObjectHideFlags: 0
@@ -7664,11 +7591,7 @@ MonoBehaviour:
   interactions: 2
   itemID: 
   IgnoreOnSave: 0
-  interactionItem:
-    itemName: 
-    itemID: 
-    itemIcon: {fileID: 0}
-    itemComponent: {fileID: 0}
+  interactionItemName: 
 --- !u!136 &1149092705
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -23532,11 +23455,7 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
-  interactionItem:
-    itemName: 
-    itemID: 
-    itemIcon: {fileID: 0}
-    itemComponent: {fileID: 0}
+  interactionItemName: 
   doorName: 
   door: {fileID: 8717938015752479720}
 --- !u!114 &1650606599
@@ -24200,11 +24119,7 @@ MonoBehaviour:
   interactions: 2
   itemID: 
   IgnoreOnSave: 0
-  interactionItem:
-    itemName: 
-    itemID: 
-    itemIcon: {fileID: 0}
-    itemComponent: {fileID: 0}
+  interactionItemName: 
 --- !u!114 &1911177040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24249,11 +24164,7 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
-  interactionItem:
-    itemName: 
-    itemID: 
-    itemIcon: {fileID: 0}
-    itemComponent: {fileID: 0}
+  interactionItemName: 
   doorName: 
   door: {fileID: 8717938015752479720}
 --- !u!114 &1918894889
@@ -24670,6 +24581,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1006614956}
     m_Modifications:
+    - target: {fileID: 358289211677715078, guid: 2f699b9cda7def04f98f030f46cf330f,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 951508502812449441, guid: 2f699b9cda7def04f98f030f46cf330f,
         type: 3}
       propertyPath: m_Name
@@ -25039,11 +24955,7 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
-  interactionItem:
-    itemName: 
-    itemID: 
-    itemIcon: {fileID: 0}
-    itemComponent: {fileID: 0}
+  interactionItemName: 
   isLocked: 0
   keyItemName: 
   button: 1
@@ -25208,7 +25120,6 @@ SceneRoots:
   - {fileID: 1669512027}
   - {fileID: 128538368}
   - {fileID: 869638972}
-  - {fileID: 247364218}
   - {fileID: 86752694}
   - {fileID: 1091205448}
   - {fileID: 656103193}

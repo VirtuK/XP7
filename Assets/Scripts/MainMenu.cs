@@ -96,7 +96,7 @@ public class MainMenu : MonoBehaviour
         if (particulas != null)
             particulas.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
 
-        SceneManager.LoadScene("LabCriogenia");
+        SceneChanger.instance.changeScene("CenaInicio");
     }
 
     public void QuitGame()

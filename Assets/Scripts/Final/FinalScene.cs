@@ -14,14 +14,40 @@ public class FinalScene : MonoBehaviour
 
     public AudioSource aS;
     public AudioSource pS;
+    public AudioSource pC;
     public AudioClip metal;
     public AudioClip monstro;
     public AudioClip rugido;
     public AudioClip footsteps;
+    public AudioClip coracao;
 
     private void Start()
     {
         GetComponent<Animator>().SetBool("Final", true);
+    }
+
+    public void HeartSound()
+    {
+        pC.clip = coracao;
+        pC.Play();
+        StartCoroutine(GraduallyIncreaseVolume(pC, 1f, 2f));
+
+    }
+
+    private IEnumerator GraduallyIncreaseVolume(AudioSource source, float targetVolume, float duration)
+    {
+        float startVolume = 0f;
+        source.volume = 0f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            source.volume = Mathf.Lerp(startVolume, targetVolume, elapsed / duration);
+            yield return null;
+        }
+
+        source.volume = targetVolume;
     }
 
     public void FootStepSound()
@@ -75,7 +101,7 @@ public class FinalScene : MonoBehaviour
             }
         }
 
-        fadeImage.color = new Color32(0, 0, 0, 200);
+        fadeImage.color = new Color32(0, 0, 0, 185);
     }
 
     public void TurnOnLights()
@@ -143,7 +169,7 @@ public class FinalScene : MonoBehaviour
     {
         float elapsed = 0f;
         Color c = fadeImage.color;
-        float startAlpha = c.a;
+        float startAlpha = 0.72f;
         float targetAlpha = 1f;
 
         while (elapsed < duration)

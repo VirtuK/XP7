@@ -29,5 +29,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ThanksForPlay.unity
     guid: 98fdb7a1fa740be498cbbe56b0470303
+  - enabled: 1
+    path: Assets/Scenes/CenaInicio.unity
+    guid: c3f3718d54a479441a68342b66811091
+  - enabled: 1
+    path: Assets/Scenes/CorredorFinal.unity
+    guid: d0c659bae066e2d4faf631fff7a54cee
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

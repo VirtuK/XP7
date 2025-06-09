@@ -139,7 +139,7 @@ public class ClickToMove : MonoBehaviour
             {
                 animator.SetBool("Moving", true);
                 transform.position = agent.nextPosition;
-
+                
             }
         }
 

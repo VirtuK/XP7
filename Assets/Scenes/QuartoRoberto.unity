@@ -1006,8 +1006,7 @@ PrefabInstance:
     - target: {fileID: 8574152723986435016, guid: f055c74faf9755942b935dd2e3b85024,
         type: 3}
       propertyPath: seeDescription
-      value: Hmm... Seems related to a poem about cats. Could the person from the
-        room with the cat panel have left this here?
+      value: Hmm... Seems related to a poem about cats. Who left this here?
       objectReference: {fileID: 0}
     - target: {fileID: 8846440356624032297, guid: f055c74faf9755942b935dd2e3b85024,
         type: 3}
@@ -13463,6 +13462,7 @@ MonoBehaviour:
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
+  interactionItemName: 
   isLocked: 0
   keyItemName: 
   button: 0

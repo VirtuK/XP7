@@ -7675,7 +7675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Tranca
   icon: {fileID: 0}
-  seeDescription: Some numbers appear to be missing... Looks like, if arranged, it
+  seeDescription: One number appear to be missing... Looks like, if arranged, it
     activates something...
   interactions: 6
   itemID: 

@@ -6659,6 +6659,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2936205219604431912, guid: 128088799d037884299903ee08642e67,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a7289816095d504428665ec7a78eb345, type: 2}
     - target: {fileID: 3113978278458559192, guid: 128088799d037884299903ee08642e67,
         type: 3}
       propertyPath: m_Name
@@ -6831,6 +6836,7 @@ GameObject:
   - component: {fileID: 978277819}
   - component: {fileID: 978277821}
   - component: {fileID: 978277820}
+  - component: {fileID: 978277822}
   m_Layer: 0
   m_Name: FadeImage
   m_TagString: Untagged
@@ -6895,6 +6901,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978277818}
   m_CullTransparentMesh: 1
+--- !u!225 &978277822
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978277818}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &993687918
 GameObject:
   m_ObjectHideFlags: 0

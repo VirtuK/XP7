@@ -7,7 +7,7 @@ public class StartScene : MonoBehaviour
     public AudioSource music;
     private float fadeDuration = 5f;
     private float fadeTimer = 0f;
-    private float delayBeforeFade = 37f;
+    private float delayBeforeFade = 25f;
     private float delayTimer = 0f;
     private bool fading = false;
 

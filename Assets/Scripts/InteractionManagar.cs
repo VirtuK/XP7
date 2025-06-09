@@ -235,21 +235,24 @@ public class InteractionManagar : MonoBehaviour
     }
     public void resetInteractions()
     {
-        interactionsParent.transform.localScale = Vector3.zero;
-        interactionsParent.gameObject.SetActive(false);
-        interacting = false;
-        isDragging = false;
-        circleExist = false;
-        test = false;
-
-        foreach (var segment in interactionSegments)
+        if (interactionsParent != null)
         {
-            segment.Unhighlight();
-            segment.gameObject.SetActive(false);
-        }
+            interactionsParent.transform.localScale = Vector3.zero;
+            interactionsParent.gameObject.SetActive(false);
+            interacting = false;
+            isDragging = false;
+            circleExist = false;
+            test = false;
 
-        interactedItem = null; // <- isso aqui resolve o bug!
-        resetCooldown = cooldownDuration;
+            foreach (var segment in interactionSegments)
+            {
+                segment.Unhighlight();
+                segment.gameObject.SetActive(false);
+            }
+
+            interactedItem = null; // <- isso aqui resolve o bug!
+            resetCooldown = cooldownDuration;
+        }
     }
 
     private bool IsMouseOverItem(Item item)

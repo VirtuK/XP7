@@ -22,9 +22,17 @@ public class InteractionSegment : MonoBehaviour
 
     private void Start()
     {
-        canvasAudio = GameObject.Find("Canvas").GetComponent<AudioSource>();
+        if (canvasAudio == null)
+        {
+            GameObject canvasObject = GameObject.Find("Canvas");
+            if (canvasObject != null)
+            {
+                canvasAudio = canvasObject.GetComponent<AudioSource>();
+            }
+        }
         scale = transform.localScale;
     }
+
     public void Initialize()
     {
         segmentImage = GetComponent<Image>();
@@ -37,7 +45,6 @@ public class InteractionSegment : MonoBehaviour
 
         if (minAngle > maxAngle)
         {
-            // Wrap-around case (e.g., 330°–30°)
             inside = angle >= minAngle || angle <= maxAngle;
         }
         else
@@ -51,19 +58,42 @@ public class InteractionSegment : MonoBehaviour
         if (inside)
         {
             transform.localScale = scale * 1.2f;
-            if (canvasAudio != null && hoverSound != null && !sound 
-                && InteractionManagar.instance.highlightedItem.interactions.HasFlag(type))
+
+            var manager = InteractionManagar.instance;
+
+            bool canPlaySound =
+                canvasAudio != null &&
+                hoverSound != null &&
+                !sound &&
+                manager != null &&
+                manager.highlightedItem != null;
+
+            if (canPlaySound)
             {
-                canvasAudio.PlayOneShot(hoverSound);
-                sound = true;
+                // TEMPORARILY REMOVE HasFlag TO TEST SOUND
+                // If this plays now, the issue is HasFlag(type)
+                Debug.Log("Attempting to play hover sound...");
+
+                if (manager.highlightedItem.interactions.HasFlag(type))
+                {
+                    Debug.Log("Hover sound conditions met. Playing sound.");
+                    canvasAudio.PlayOneShot(hoverSound);
+                    sound = true;
+                }
+                else
+                {
+                    Debug.Log($"interaction does not have flag {type}");
+                }
             }
         }
         else
         {
+            // Reset sound so it can be played again next time
             if (sound)
             {
-                sound = false;
+                Debug.Log("Exiting highlight - sound reset.");
             }
+            sound = false;
             transform.localScale = scale;
         }
     }
@@ -76,7 +106,6 @@ public class InteractionSegment : MonoBehaviour
         {
             segmentImage.sprite = normalSprite;
         }
-        // Reset the size when unhighlighted
         transform.localScale = scale;
     }
 
@@ -94,8 +123,13 @@ public class InteractionSegment : MonoBehaviour
                 item.Use();
                 break;
         }
-        canvasAudio.Stop();
+
+        if (canvasAudio != null && clickSound != null)
+        {
+            canvasAudio.Stop();
+            canvasAudio.PlayOneShot(clickSound);
+        }
+
         sound = false;
-        canvasAudio.PlayOneShot(clickSound);
     }
 }

@@ -5654,7 +5654,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   icon: {fileID: 0}
-  seeDescription: A safe... Could one of the papers help me?
+  seeDescription: I need a password for this... Someone must left something about
+    it in another room
   interactions: 6
   itemID: 
   IgnoreOnSave: 0
@@ -7961,11 +7962,11 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3861873085213189334, guid: c332f69ae6372c248913ae292345df7d,
         type: 3}
-      insertIndex: 3
+      insertIndex: 0
       addedObject: {fileID: 1994788835}
     - targetCorrespondingSourceObject: {fileID: 3861873085213189334, guid: c332f69ae6372c248913ae292345df7d,
         type: 3}
-      insertIndex: 4
+      insertIndex: 1
       addedObject: {fileID: 1171289829}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c332f69ae6372c248913ae292345df7d, type: 3}

@@ -14,6 +14,10 @@ public class BackToMenu : MonoBehaviour
     public GameObject[] buttonsToDisable;
     public AudioSource uiAudioSource;
 
+    private void Start()
+    {
+        Cursor.visible = true;
+    }
     public void BackToMenuButton()
     {
         foreach (var obj in buttonsToDisable)

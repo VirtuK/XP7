@@ -413,7 +413,7 @@ MonoBehaviour:
   - ' Initiating quara^$*> protocol. . . '
   - ' No powe$&@. . . Shutti&$,. .'
   - 
-  timeBtwnChars: 0.1
+  timeBtwnChars: 0.05
   timeBtwnLines: 1
   audioSource: {fileID: 28153025}
   typingSource: {fileID: 1705934711}

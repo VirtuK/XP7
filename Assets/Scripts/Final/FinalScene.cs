@@ -21,11 +21,32 @@ public class FinalScene : MonoBehaviour
     public AudioClip footsteps;
     public AudioClip coracao;
 
+    public GameObject reaction;
     private void Start()
     {
         GetComponent<Animator>().SetBool("Final", true);
     }
+    public void Interrogation()
+    {
+        reaction.SetActive(true);
+    }
 
+    public void turnInterrogation()
+    {
+        reaction.transform.Rotate(0, 90, 0);
+    }
+
+    public void Exclamation()
+    {
+        reaction.SetActive(true);
+        reaction.GetComponent<Animator>().SetBool("exc", true);
+    }
+
+    public void ResetReaction()
+    {
+        reaction.transform.Rotate(0, 90, 0);
+        reaction.SetActive(false);
+    }
     public void HeartSound()
     {
         pC.clip = coracao;

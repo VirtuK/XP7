@@ -28,23 +28,26 @@ public class FinalScene : MonoBehaviour
     }
     public void Interrogation()
     {
+        reaction.GetComponent<Animator>().Play("interrogacao", 0, 0f);
         reaction.SetActive(true);
     }
 
     public void turnInterrogation()
     {
-        reaction.transform.Rotate(0, 90, 0);
+        reaction.transform.Rotate(0, 180, 0);
     }
 
     public void Exclamation()
     {
+        reaction.GetComponent<Animator>().Play("exclamacao", 0, 0f);
         reaction.SetActive(true);
         reaction.GetComponent<Animator>().SetBool("exc", true);
     }
 
     public void ResetReaction()
     {
-        reaction.transform.Rotate(0, 90, 0);
+        reaction.GetComponent<SpriteRenderer>().sprite = null;
+        reaction.transform.Rotate(0, 180, 0);
         reaction.SetActive(false);
     }
     public void HeartSound()

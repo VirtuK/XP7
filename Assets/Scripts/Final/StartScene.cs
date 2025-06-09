@@ -19,8 +19,8 @@ public class StartScene : MonoBehaviour
         text.color = new Color(1, 1, 1, 0);
         music = GameObject.Find("Music").GetComponent<AudioSource>();
         music.volume = 0;
-        aS.clip = heart;
-        aS.Play();
+        //aS.clip = heart;
+        //aS.Play();
     }
 
     void Update()

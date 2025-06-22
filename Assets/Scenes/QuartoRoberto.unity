@@ -10993,6 +10993,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: quadroPuzzle
       objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: fcd3c3276e11b9e41bd65908d6478dfd,
+        type: 3}
+      propertyPath: m_Name
+      value: defaultQuadro
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
